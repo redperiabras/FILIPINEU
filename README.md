@@ -1,4 +1,4 @@
-# FILIPINEU <img align="right" width="100" height="100" src="./docs/favicon.ico">
+# FILIPINEU <img align="right" width="200" height="200" src="./docs/icon.png">
 
 Bidirectional Filipino - English Neural Machine Translation
 

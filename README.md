@@ -1,4 +1,4 @@
-# FILIPINEU [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+# FILIPINEU [![filipineu](https://github.com/redperiabras/filipineu/docs/favicon.ico)](https://github.com/redperiabras/filipineu/)
 
 Bidirectional Filipino - English Neural Machine Translation
 

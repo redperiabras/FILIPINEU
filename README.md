@@ -1,4 +1,4 @@
-# FILIPINEU [![filipineu](./docs/icon.png = 100px)(https://github.com/redperiabras/filipineu/)
+# FILIPINEU [![filipineu](./docs/icon.png =100px)](https://github.com/redperiabras/filipineu/)
 
 Bidirectional Filipino - English Neural Machine Translation
 

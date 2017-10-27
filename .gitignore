@@ -103,3 +103,13 @@ ENV/
 #sublime
 filipineu.sublime-project
 filipineu.sublime-workspace
+
+#Philippine Tourism Parallel Corpus
+/data
+
+#Virtual Environment starter
+./env.bat
+
+#Docker
+./Dockerfile
+./docker-compose.yml

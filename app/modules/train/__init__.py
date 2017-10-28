@@ -1,5 +1,2 @@
-def opts(subparser):
-    parser = subparser.add_parser(
-        'train', help="Training Options")
-
-    parser.set_defaults(all="train")
+def opts(parser):
+    parser.add_argument('--text', required=True, help='Text to be translated')

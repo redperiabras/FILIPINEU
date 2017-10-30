@@ -105,11 +105,11 @@ filipineu.sublime-project
 filipineu.sublime-workspace
 
 #Philippine Tourism Parallel Corpus
-data/
+/data
 
 #Virtual Environment starter
-./env.bat
+.env.bat
 
 #Docker
-./Dockerfile
-./docker-compose.yml
+.Dockerfile
+.docker-compose.yml

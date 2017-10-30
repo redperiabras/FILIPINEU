@@ -7,7 +7,7 @@ import codecs
 class File_Handler:
 
     def __init__(self, loc, mode):
-        self.file = codecs.open(loc, mode, "cp850")
+        self.file = codecs.open(loc, mode, "utf-8")
         self.lines = [word_tokenize(line) for line in self.file.readlines()]
         self.total_lines = len(self.lines)
         self.file.close()
@@ -23,8 +23,8 @@ class Data_Export:
 
     def __init__(self, loc, data):
         # check if data location folders
-        self.src_file = codecs.open(loc + "data.src", "w+", "cp850")
-        self.tgt_file = codecs.open(loc + "data.tgt", "w+", "cp850")
+        self.src_file = codecs.open(loc + "data.src", "w+", "utf-8")
+        self.tgt_file = codecs.open(loc + "data.tgt", "w+", "utf-8")
 
         for i in range(0, len(data)):
             print("\n")

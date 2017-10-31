@@ -1,7 +1,13 @@
+
+
 from app import app
 from app.modules import preprocess, model, train, translate
 from app.modules.IO import Data, export_data, dist_data
 from arghandler import ArgumentHandler, subcmd
+from datetime import datetime
+
+import logging as log
+log.basicConfig(filename='system.log', level=log.DEBUG)
 
 
 @subcmd('runserver', help="Run the API Server")
@@ -13,6 +19,8 @@ def runserver(parser, context, args):
 
     args = parser.parse_args(args)
 
+    log.info("\t{} - Starting API Server on: {}:{}\n".format(
+        datetime.utcnow(), args.host, args.port))
     app.run(host=args.host, port=args.port, debug=args.d)
 
 

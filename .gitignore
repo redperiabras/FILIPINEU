@@ -108,8 +108,10 @@ filipineu.sublime-workspace
 data/
 
 #Virtual Environment starter
-./env.bat
+env.bat
 
 #Docker
-./Dockerfile
-./docker-compose.yml
+Dockerfile
+docker-compose.yml
+
+system.log

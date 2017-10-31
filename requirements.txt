@@ -7,9 +7,17 @@ Flask-Script==2.0.6
 itsdangerous==0.24
 Jinja2==2.9.6
 langdetect==1.0.7
+<<<<<<< HEAD
+=======
+logger==1.4
+>>>>>>> module-preprocessing
 MarkupSafe==1.0
 nltk==3.2.5
 py==1.4.34
 pytest==3.2.3
+<<<<<<< HEAD
+=======
+pytest-flask==0.10.0
+>>>>>>> module-preprocessing
 six==1.11.0
 Werkzeug==0.12.2

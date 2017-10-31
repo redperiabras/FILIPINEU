@@ -1,10 +1,13 @@
+
+
 from app import app
 from app.modules import preprocess, model, train, translate
-from app.modules.IO import File_Handler, Data_Export
+from app.modules.IO import Data, export_data, dist_data
 from arghandler import ArgumentHandler, subcmd
+from datetime import datetime
 
-
-import random
+import logging as log
+log.basicConfig(filename='system.log', level=log.DEBUG)
 
 
 @subcmd('runserver', help="Run the API Server")
@@ -16,82 +19,40 @@ def runserver(parser, context, args):
 
     args = parser.parse_args(args)
 
+    log.info("\t{} - Starting API Server on: {}:{}\n".format(
+        datetime.utcnow(), args.host, args.port))
     app.run(host=args.host, port=args.port, debug=args.d)
 
 
 @subcmd('preprocess', help="Raw data initializer")
 def preprocessor(parser, context, args):
     preprocess.opts(parser)
-
     args = parser.parse_args(args)
 
-    # suggested sizes
-    sizes = [args.train_size, args.test_size, args.eval_size]
+    # assert that the sum of train, test, and eval is 100
+    assert sum([args.train_size, args.test_size, args.eval_size]
+               ) == 100, 'Suggested sizes not equal to 100%'
 
-    # check the sum of train, test, and eval size
-    if sum(sizes) > 100:
-        raise ValueError('Exceeded 100%')
-    elif sum(sizes) < 100:
-        raise ValueError('Less than 100%')
-    else:
-        pass
+    src_lang = Data(args.src_loc, "r")
+    tgt_lang = Data(args.tgt_loc, "r")
 
-    src_lang = File_Handler(args.src_loc, "r")
-    tgt_lang = File_Handler(args.tgt_loc, "r")
-
-    # check the number of sentences in the two corpus
-    if tgt_lang.get_number_of_lines() != src_lang.get_number_of_lines():
-        raise ValueError('Corpus sizes does not match: \n\t Source Language \
-            has %d \n\t Target Language has %d' %
-                         (src_lang.get_number_of_lines(), tgt_lang.get_number_of_lines()))
-    else:
-        pass
+    # assert that the number of sentences in the two corpus are equal
+    assert tgt_lang.total_data == src_lang.total_data, 'Corpus sizes does not match\
+        : \n\t Source Language has %d \n\t Target Language has %d' % (src_lang.total_data, tgt_lang.total_data)
 
     # retrieve data
-    src_data = src_lang.get_lines()
-    tgt_data = tgt_lang.get_lines()
-
-    # initial number of data
-    data_len = src_lang.get_number_of_lines()
+    src_data = src_lang.tokenized_data()
+    tgt_data = tgt_lang.tokenized_data()
+    data = list(zip(src_data, tgt_data))
 
     # initialize list of data
-    train_data = []
-    test_data = []
-    eval_data = []
-
-    for i in range(1, 4):
-
-        if i is 1:
-            # training
-            n = round(src_lang.get_number_of_lines()
-                      * (sizes[i - 1] / 100))
-        elif i is 2:
-            # testing
-            n = round(src_lang.get_number_of_lines()
-                      * (sizes[i - 1] / 100))
-        else:
-            # evaluation
-            n = round(src_lang.get_number_of_lines()
-                      * (sizes[i - 1] / 100))
-
-        for j in range(0, n):
-            data_len = len(src_data) - 1
-            pick = random.randint(0, data_len)
-
-            if i is 1:
-                # training
-                train_data.append([src_data.pop(pick), tgt_data.pop(pick)])
-            elif i is 2:
-                # testing
-                test_data.append([src_data.pop(pick), tgt_data.pop(pick)])
-            else:
-                # evaluation
-                eval_data.append([src_data.pop(pick), tgt_data.pop(pick)])
+    train_data, test_data, eval_data = dist_data(data, train_size=args.train_size,
+                                                 test_size=args.test_size, eval_size=args.eval_size)
 
     # export data
-    Data_Export("./data/train/", train_data)
-    Data_Export("./data/test/", test_data)
-    Data_Export("./data/evaluate/", eval_data)
+    export_data("./data/train/", train_data)
+    export_data("./data/test/", test_data)
+    export_data("./data/evaluate/", eval_data)
 
 
 @subcmd('translate', help="Raw data initializer")

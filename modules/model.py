@@ -20,9 +20,6 @@ class NMT(Model):
 		super().__init__(name)
 		self.config = config
 
-		pprint(config, stream=sys.stderr)
-		sys.stdout.flush()
-
 		self.add(Embeddings(
 			'source_char_embeddings',
 			1 if config['source_encoder'].sub_encoder is None \

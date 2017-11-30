@@ -1,0 +1,9 @@
+27 Oct 2017 21:19:56
+
+    20785 - total sentences
+
+    10% Test        =  2078
+    20% Evaluation  =  4157
+    70% Train       = 14549
+
+    

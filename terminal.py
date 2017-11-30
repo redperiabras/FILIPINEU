@@ -226,7 +226,7 @@ def create_model(parser, context, args):
 	if args.target_embedding_dims is None:
 		args.target_embedding_dims = (
 			args.char_embedding_dims
-			if config['target_tokenizer'] == 'char'
+			if args.target_tokenizer == 'char'
 			else args.word_embedding_dims)
 
 	log.information('Configuring model')
@@ -395,6 +395,11 @@ def train(parser, context, args):
 		target_tokenizer,
 		config['backwards'])
 
+	if len(source_test_data) > args.batch_size:
+		log.information('Reducing Test set to batch size')
+		source_test_data = source_test_data[:args.batch_size]
+		target_test_data = target_test_data[:args.batch_size]
+
 	target_test_unencoded = target_test_data
 	source_test_data = [config['source_encoder'].encode_sequence(sent)
 							for sent in source_test_data]
@@ -485,6 +490,7 @@ def train(parser, context, args):
 
 	try:
 		while time() < end_time:
+
 			train_samples = HalfSortedIterator(
 						iter(shuffled_training_data),
 						max_area=args.batch_budget*0x200,
@@ -492,14 +498,14 @@ def train(parser, context, args):
 						target_tokenizer=target_tokenizer,
 						length=lambda pair: sum(map(len, pair)))
 
-
 			for sent_pairs in train_samples:
-
-				print('Number of sentences: %d' % len(sent_pairs))
 				
+				print('Number of sentences: %d' % len(sent_pairs))
+
 				source_batch, target_batch = list(zip(*sent_pairs))
 
-				if batch_nr % args.test_every == 0:
+				if (batch_nr + 1) % args.test_every == 0:
+					print('validation')
 					validate(test_pairs, start_time, optimizer, logf, sent_nr)
 
 				if config['backwards']:

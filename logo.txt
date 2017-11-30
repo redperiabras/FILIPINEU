@@ -1,0 +1,42 @@
+                                                                            
+      MMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNmmNNNNNNNNMMMMMMMMMMMMMMMMMMMMMMMMMM
+      MMMMMMMMMMMMMMMMMMMMMNNNmmmmmmmmddddddmmmmmmmmNNNMMMMMMMMMMMMMMMMMMMMM
+      MMMMMMMMMMMMMMMMMNNmmmmmdhs+/:--:oo:..--:/+shdmmmmmNNMMMMMMMMMMMMMMMMM
+      MMMMMMMMMMMMMMNNmmmdho/-`   `..-smmy:--.....-+mmmddmmmNNMMMMMMMMMMMMMM
+      MMMMMMMMMMMMNmmmmdy/.`...-:-...:/://-` ````./sdds/:+ydmmmNNMMMMMMMMMMM
+      MMMMMMMMMNNmmmd+/mmds+/:-....:+/----:+:.``::../.``.-:/smmmmNNMMMMMMMMM
+      MMMMMMMMNmmmh/``:oso.    ```:/````````./so:--/s:::--:/ymmmmmmNMMMMMMMM
+      MMMMMMNNmmd+` -:``-.    .sddo         -:.::.`.:    -+sdmdhodmmNNMMMMMM
+      MMMMMNmmms-`-:.  ./----/osdy+-.`   `.:.```.oys:   .ymmmmmmyymmmmNMMMMM
+      MMMMNmmmy/:/-.--.:o..---` :. `.::--+/--..--ymdo``:ymmmmmmmmmmmmmmNMMMM
+      MMMNmmmmmmm/-.```/y+/-....:o-..-++/:-//.   .o::+/+dmmmmmmmmmmdhdmmNMMM
+      MMNmmmmmmms.    -mmd/...```s `.:.` .smms`  `+-:::+dmmmmmmmmmmmsymmmNMM
+      MMmmmdhmmmhyyy. -+o:`     `y/+.`    ./o-   -s-` `/dmmmmmmmmmmmmdmmmmMM
+      MNmmh:`/hmmmhs.-: -:     .ommh-.`     +- `::o    :hmmmmmmmmmmmmmydmmNM
+      Mmmms` -ymmm-`--  .:.`.--.:sh-...-:--:hdho-:s...:ymmmmmmmmmmmmm+.smmmM
+      Nmmmh+sdmmmmhs+`..-ydho. -+.o     `.-+hhs+//y/o:`ommmmmmmmmmmms` +dmmN
+      Nmmmmmmmmy+hmmhydhyhmmd/:hdh+.`.---.`-:.`  .somdsymmmmmmmmdso+.  :hmmN
+      mmmdoohmm:`smd/hmmmmmmmddmmd+hhs-   --`    .+-ymmmmmmmmmmd/      -hmmm
+      Nmmd: -++..ymmdmmmmmmmmmmmmmmmmy- `:-    `+sy/smmmmmmmmmms.      :hmmN
+      Nmmd+  `/o+smmmmmmmddmmdmmmmmmms/oyhs++ooommms+dmmmmmmmmm:       +dmmN
+      Mmmms` .sdmmmmmmds-..:/:/ymmmmmmmmmmh+:::::::::smmmmmmmmmh..o+.  smmmM
+      MNmmh: `-+dmmmmd:    .sysshhhhhhhhhdy-.--------/shddyhmmmmy./+--/hmmNM
+      MMmmms-odmmmmmmh     -yo.``````````/o-`........../ydhhmmmmy.`` .smmmMM
+      MMNmmmo:+ymmmmmh.    -y+`-:::::::::os-.............ymmmmmmms//ohmmmNMM
+      MMMNmmdo/ymmmmmmy-`  -y+```````````/o-........-/+:.sydmmmy++oydmmmNMMM
+      MMMMNmmmmdhdmmmmmdyo+od+`.---------+y+/++/////++ss+hysso/. `/smmmNMMMM
+      MMMMMNmmmy:smmmmmmmmmmm+```````````.--:yo/---+do::sdmmdh+` :mmmmNMMMMM
+      MMMMMMNNmmmmmhodmmmmmmm+`.............--....`/h:   -hmmmmy+dmmNNMMMMMM
+      MMMMMMMMNmmmd/.dmdssmmm+`...................`/h:    +dmmmmmmmNMMMMMMMM
+      MMMMMMMMMNNmmmmds: -sdms:--------------------od:    `smmmmmNNMMMMMMMMM
+      MMMMMMMMMMMNNmmmdy/.`.+ooooooooooooooshmmmyosydy+:-/sdmmmNNMMMMMMMMMMM
+      MMMMMMMMMMMMMMNNmmmdho/-`             `-+y+ `:dmmddmmmNNMMMMMMMMMMMMMM
+      MMMMMMMMMMMMMMMMMNNmmmmmhhs+/:-...``...-:/sshdmmmmmNNMMMMMMMMMMMMMMMMM
+      MMMMMMMMMMMMMMMMMMMMMNNNmmmmmmmmddddddmmmmmmmmNNNMMMMMMMMMMMMMMMMMMMMM
+      MMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNmmNNNNNNNNMMMMMMMMMMMMMMMMMMMMMMMMMM
+
+                  ░█▀▀▀ ▀█▀ ░█─── ▀█▀ ░█▀▀█ ▀█▀ ░█▄─░█ ░█▀▀▀ ░█─░█    
+                  ░█▀▀▀ ░█─ ░█─── ░█─ ░█▄▄█ ░█─ ░█░█░█ ░█▀▀▀ ░█─░█    
+                  ░█─── ▄█▄ ░█▄▄█ ▄█▄ ░█─── ▄█▄ ░█──▀█ ░█▄▄▄ ─▀▄▄▀    
+                  ------------------------------------------------    
+                            Command Line Interface v0.1             

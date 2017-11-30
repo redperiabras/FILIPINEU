@@ -116,3 +116,6 @@ Dockerfile
 docker-compose.yml
 
 system.log
+
+# Model Files
+*.nlm

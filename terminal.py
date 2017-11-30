@@ -280,7 +280,7 @@ def create_model(parser, context, args):
 		model.save(f)
 		f.close()
 
-	log.infomation('Model Saved')
+	log.information('Model Saved')
 
 @subcmd('train', help="Model Trainer")
 def train(parser, context, args):
@@ -374,9 +374,9 @@ def train(parser, context, args):
 			except EOFError:
 				pass
 
-	logf = open((args.load_model or args.save_model) +
+	logf = open(args.load_model +
 		'.log', 'a', encoding='utf-8')
-	evalf = open((args.load_model or args.save_model) +
+	evalf = open(args.load_model +
 		'-eval.log', 'a', encoding='utf-8')
 
 	log.information('Initializing Source Text Tokenizer')
@@ -495,9 +495,8 @@ def train(parser, context, args):
 
 			for sent_pairs in train_samples:
 
-				if len(sent_pairs) < 1:
-					continue
-
+				print('Number of sentences: %d' % len(sent_pairs))
+				
 				source_batch, target_batch = list(zip(*sent_pairs))
 
 				if batch_nr % args.test_every == 0:
@@ -807,7 +806,6 @@ def translator(parser, context, args):
 				hypotheses, [reference]))
 			print('chrF = %f (precision = %f, recall = %f)' % chrF(
 				reference, hypotheses))
-
 
 @subcmd('score', help='Score the sentence pairs defined by --test-target \
 					and --test-source and write scores to this file')

@@ -11,77 +11,12 @@ CREATE ENCODER
 	>> python terminal.py create-encoder --files "data/_PH Tourism Parallel Corpus/data.fl" --tokenizer char --save-to fl
 
 CREATE MODEL
-	>> python terminal.py create-model --source-encoder models/en-fl/source.vocab --target-encoder models/en-fl/target.vocab --word-embedding-dims 8 --target-embedding-dims 8 --encoder-state-dims 16 --decoder-state-dims 16 --attention-dims 16 --save-model sample.nlm
+	>> python terminal.py create-model --source-encoder models/en-fl/source.vocab --target-encoder models/en-fl/target.vocab --save-model models/en-fl/en-fl.nlm
 
 TRAIN MODEL
-	>> python terminal.py train \
-	--load-model sample.nlm \
-	--train-data "data/sample/data.train" \
-	--source-test-data "data/sample/data.src" \
-	--target-test-data "data/sample/data.tgt" \
-	--training-time 1 \
-	--test-every 10 \
-	--translate-every 10 \
-	--save-every 10
+	>> python terminal.py train --load-model models/en-fl/en-fl.nlm --train-data "models/en-fl/data/train/en-fl.data" --source-test-data "models/en-fl/data/test/data.src" --target-test-data "models/en-fl/data/test/data.tgt"
 
-CREATE AND TRAIN MODEL
-	>> python terminal.py train \
-	--new-model \
-	--save-model "models/en-fl/en-fl.nlm" \
-	--training-time 1 \
-	--source-encoder "models/en-fl/source.vocab" \
-	--source-tokenizer word \
-	--target-encoder "models/en-fl/target.vocab" \
-	--target-tokenizer char \
-	--train-data "models/en-fl/en-fl.data" \
-	--source-test-data "data/test/data.src" \
-	--target-test-data "data/test/data.tgt"
-
-	>> python terminal.py train \
-	--new-model \
-	--save-model "sample.nlm" \
-	--training-time 1 \
-	--source-encoder "models/en-fl/source.vocab" \
-	--source-tokenizer word \
-	--target-encoder "models/en-fl/target.vocab" \
-	--target-tokenizer char \
---train-data "data/sample/data.train" \
-	--source-test-data "data/sample/data.src" \
-	--target-test-data "data/sample/data.tgt" \
-	--word-embedding-dims 8 \
-	--target-embedding-dims 8 \
-	--encoder-state-dims 16 \
-	--decoder-state-dims 16 \
-	--attention-dims 16
-
-
-TRAIN EXISTING MODEL
-	>> python terminal.py train \
-	--load-model "models/en-fl/en-fl.nlm" \
-	--training-time 1 \
-	--train-data "models/en-fl/en-fl.data" \
-	--source-test-data "data/test/data.src" \
-	--target-test-data "data/test/data.tgt"
-
-	>> python terminal.py train \
-	--load-model "sample.nlm" \
-	--training-time 1 \
-	--train-data "data/sample/data.train" \
-	--source-test-data "data/sample/data.src" \
-	--target-test-data "data/sample/data.tgt"
-
-
-
-TRAINING MODEL
-
-	>> python hnmt.py --train data/train/en-fl.data --source-tokenizer word --target-tokenizer char --heldout-source data/test/data.src --heldout-target data/test/data.tgt --load-source-vocabulary vocab.en --load-target-vocabulary vocab.fl --batch-budget 32 --training-time 1 --log en-fl.log --save-model en-fl.nlm
-
-	>> python hnmt.py --train "data/sample/data.train" --source-tokenizer word --target-tokenizer char --heldout-source "data/test/data.src" --heldout-target "data/test/data.tgt" --load-source-vocabulary "models/en-fl/source.vocab" --load-target-vocabulary "models/en-fl/target.vocab" --batch-budget 32 --training-time 1 --log en-fl.log --save-model hnmt-sample.nlm --word-embedding-dims 8  --target-embedding-dims 8 --encoder-state-dims 16 --decoder-state-dims 16 --attention-dims 16
-
-	python hnmt.py --load-model hnmt-sample.nlm \
-                --training-time 1 \
-                --save-model hnmt-sample.nlm
-
+# NOT YET WORKING ------------------------------------------------------------------------------------------------------------------->
 
 TRANSLATING
 

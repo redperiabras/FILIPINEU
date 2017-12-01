@@ -326,10 +326,6 @@ def train(parser, context, args):
 	parser.add_argument('--learning-rate', type=float, default=None, metavar='X',
 		help='Override the default learning rate for optimizer with X')
 
-	parser.add_argument('--training-time', type=float, default=24.0, metavar='HOURS',
-		required=True,
-		help='Training time')
-
 	parser.add_argument('--random-seed', type=int, default=123, metavar='N',
 		help='Random seed for repeatable sorting of data')
 
@@ -394,11 +390,6 @@ def train(parser, context, args):
 	target_test_data = read(args.target_test_data,
 		target_tokenizer,
 		config['backwards'])
-
-	if len(source_test_data) > args.batch_size:
-		log.information('Reducing Test set to batch size')
-		source_test_data = source_test_data[:args.batch_size]
-		target_test_data = target_test_data[:args.batch_size]
 
 	target_test_unencoded = target_test_data
 	source_test_data = [config['source_encoder'].encode_sequence(sent)
@@ -484,12 +475,11 @@ def train(parser, context, args):
 
 	start_time = time()
 	total_train_time = 0
-	end_time = start_time + 3600*args.training_time
 
 	log.information('Starting training')
-
+	log.information('Press Ctrl + c to stop training...')
 	try:
-		while time() < end_time:
+		while True:
 
 			train_samples = HalfSortedIterator(
 						iter(shuffled_training_data),
@@ -621,10 +611,9 @@ def train(parser, context, args):
 				if time() >= end_time: break
 
 			epochs += 1
-		log.information('Training finished')
 
 	except KeyboardInterrupt:
-		log.information('Training Interrupted')
+		log.information('Trainer Stopped...')
 
 	except Exception:
 		log.warning('Exception found, see console...')

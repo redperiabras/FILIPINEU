@@ -608,7 +608,6 @@ def train(parser, context, args):
 				model.lambda_a.set_value(np.array(
 					model.lambda_a.get_value() * config['alignment_decay'],
 					dtype=theano.config.floatX))
-				if time() >= end_time: break
 
 			epochs += 1
 

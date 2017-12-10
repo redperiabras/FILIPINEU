@@ -289,12 +289,6 @@ def train(parser, context, args):
 		default=None, required=True,
 		help='Existing Model file')
 
-	parser.add_argument('--save-every', type=int, default=1000, metavar='N', 
-		help='Save model every n batches')
-
-	parser.add_argument('--test-every', type=int, default=250, metavar='N',
-		help='Compute test set cross-entropy every n batches')
-
 	parser.add_argument('--translate-every', type=int, default=250, metavar='N',
 		help='Translate test set every N training batches')
 
@@ -341,6 +335,9 @@ def train(parser, context, args):
 	parser.add_argument('--beam-size', type=int, default=8, metavar='N',
 		help='Beam size during translation')
 
+	parser.add_argument('--train-for', type=int, default=1, metavar='N',
+		help='Train for N epochs')
+
 	args = parser.parse_args(args)
 
 	epochs = 0
@@ -366,7 +363,7 @@ def train(parser, context, args):
 		if not args.reset_optimizer:
 			try:
 				optimizer.load(f)
-				log.information('Continuing traning from update %d' % optimizer.n_updates)
+				log.information('Continuing traning from Epoch %d, Update %d' % (config['tn_epoch'], optimizer.n_updates))
 			except EOFError:
 				pass
 
@@ -399,7 +396,7 @@ def train(parser, context, args):
 	test_link_maps = [(None, None, None)]*len(source_test_data)
 	test_pairs = list(zip(source_test_data, target_test_data, test_link_maps))
 
-	source_sample_data = source_test_data[:args.batch_size]
+	source_sample_data = source_test_data
 	target_sample_data = target_test_unencoded
 
 	log.information('Loading Training Data')
@@ -413,7 +410,7 @@ def train(parser, context, args):
 		y = y + (np.ones(y[0].shape + (x[0].shape[0],),dtype=theano.config.floatX),)
 		return x, y
 
-	def validate(test_paris, start_time, optimizer, logf, sent_nr):
+	def validate(test_pairs, start_time, optimizer, logf, sent_nr):
 		result = 0.
 		att_result = 0.
 		t0 = time()
@@ -479,7 +476,7 @@ def train(parser, context, args):
 	log.information('Starting training')
 	log.information('Press Ctrl + c to stop training...')
 	try:
-		while True:
+		while epochs <= args.train_for:
 
 			train_samples = HalfSortedIterator(
 						iter(shuffled_training_data),
@@ -493,10 +490,6 @@ def train(parser, context, args):
 				print('Number of sentences: %d' % len(sent_pairs))
 
 				source_batch, target_batch = list(zip(*sent_pairs))
-
-				if (batch_nr + 1) % args.test_every == 0:
-					print('validation')
-					validate(test_pairs, start_time, optimizer, logf, sent_nr)
 
 				if config['backwards']:
 					source_batch = [source_sent[::-1] for source_sent in source_batch]
@@ -519,12 +512,6 @@ def train(parser, context, args):
 				t0 = time()
 				train_loss = optimizer.step(*(x + y))
 				train_loss *= (y[0].shape[1] / (y[1].sum()*np.log(2)))
-				# log.information('Batch %2d:%4d of shape %s has loss %.4f (%.2f s)' % (
-				# 	epochs + 1,
-				# 	optimizer.n_updates,
-				# 	' '.join(str(m.shape) for m in (x[0], x[2], y[0])),
-				# 	train_loss,
-				# 	time() - t0))
 				log.information('Batch %2d:%4d has loss %.4f (%.2f s)' % (
 					epochs + 1,
 					optimizer.n_updates,
@@ -534,85 +521,89 @@ def train(parser, context, args):
 					log.warning('NaN loss, aborting')
 					sys.exit(1)
 
-				batch_nr += 1
-
-				if batch_nr % args.save_every == 0:
-					filename = '%s-%d.nlm' % (
-						os.path.splitext(
-							os.path.basename(args.load_model))[0],
-						optimizer.n_updates)
-					log.information('Saving model at Epoch %d, Batch %d' % (epochs, optimizer.n_updates))
-					with open(filename, 'wb') as f:
-						pickle.dump(config, f)
-						model.save(f)
-						optimizer.save(f)
-						f.close()
-
-				if batch_nr % args.translate_every == 0: 
-					t0 = time()
-					test_dec = list(translate(source_sample_data, encode=False))
-					for source, target, test in zip(
-						source_sample_data, target_sample_data, test_dec):
-						log.information('Source:' )
-						log.information('%s' % detokenize(
-							config['source_encoder'].decode_sentence(source),
-							config['source_tokenizer']))
-						log.information('')
-						log.information('Target:')
-						log.information('%s' % detokenize(target, config['target_tokenizer']))
-						log.information('')
-						log.information('Output:')
-						log.information('%s' % test)
-						log.information('-'*40)
-					log.information('Translation finished %.2f s' % (time() - t0))
-
-					if config['target_tokenizer'] == 'char':
-						system = [
-							detokenize(word_tokenize(s), 'space')
-								for s in test_dec]
-						reference = [
-							detokenize(word_tokenize(
-								detokenize(s, 'char')), 'space')
-									for s in target_sample_data]
-					else:
-						system = test_dec
-						reference = [
-							detokenize(s, config['target_tokenizer'])
-								for s in target_sample_data]
-
-					bleu_result = BLEU(system, [reference])
-					chrf_result = chrF(reference, system)
-					is_best = chrf_result[0] >= chrf_max
-					chrf_max = max(chrf_result[0], chrf_max)
-					bleu_max = max(bleu_result[0], bleu_max)
-					log.information('BLEU = %f (%f, %f, %f, %f, BP = %f)' % bleu_result)
-					log.information('chrF = %f (precision = %f, recall = %f)' % chrf_result)
-
-					if evalf is not None:
-						print('%d\t%.3f\t%.3f\t%d\t%d' % (
-							int(t0 - start_time),
-							bleu_result[0],
-							chrf_result[0],
-							optimizer.n_updates,
-							sent_nr
-						), file=evalf, flush=True)
-
-					if is_best:
-						log.information('Saving new best model')
-						with open(args.load_model + ".best", 'wb') as f:
-							pickle.dump(config, f)
-							model.save(f)
-							optimizer.save(f)
-							f.close()
-
 				model.lambda_a.set_value(np.array(
 					model.lambda_a.get_value() * config['alignment_decay'],
 					dtype=theano.config.floatX))
 
+			#Validate Model
+			validate(test_pairs, start_time, optimizer, logf, sent_nr)
+
+			#Test Translate
+			t0 = time()
+			test_dec = list(translate(source_sample_data, encode=False))
+			for source, target, test in zip(
+				source_sample_data, target_sample_data, test_dec):
+				log.information('Source:' )
+				log.information('%s' % detokenize(
+					config['source_encoder'].decode_sentence(source),
+					config['source_tokenizer']))
+				log.information('')
+				log.information('Target:')
+				log.information('%s' % detokenize(target, config['target_tokenizer']))
+				log.information('')
+				log.information('Output:')
+				log.information('%s' % test)
+				log.information('-'*40)
+			log.information('Translation finished %.2f s' % (time() - t0))
+
+			if config['target_tokenizer'] == 'char':
+				system = [
+					detokenize(word_tokenize(s), 'space')
+						for s in test_dec]
+				reference = [
+					detokenize(word_tokenize(
+						detokenize(s, 'char')), 'space')
+							for s in target_sample_data]
+			else:
+				system = test_dec
+				reference = [
+					detokenize(s, config['target_tokenizer'])
+						for s in target_sample_data]
+
+			bleu_result = BLEU(system, [reference])
+			chrf_result = chrF(reference, system)
+			is_best = chrf_result[0] >= chrf_max
+			chrf_max = max(chrf_result[0], chrf_max)
+			bleu_max = max(bleu_result[0], bleu_max)
+			log.information('BLEU = %f (%f, %f, %f, %f, BP = %f)' % bleu_result)
+			log.information('chrF = %f (precision = %f, recall = %f)' % chrf_result)
+
+			if evalf is not None:
+				print('%d\t%.3f\t%.3f\t%d\t%d' % (
+					int(t0 - start_time),
+					bleu_result[0],
+					chrf_result[0],
+					optimizer.n_updates,
+					sent_nr
+				), file=evalf, flush=True)
+
+			if is_best:
+				log.information('Saving new best model')
+				with open(args.load_model + ".best", 'wb') as f:
+					pickle.dump(config, f)
+					model.save(f)
+					optimizer.save(f)
+					f.close()
+
+			#Save Model
+			filename = '%s-%d-%d.nlm' % (
+				os.path.splitext(
+					os.path.basename(args.load_model))[0],
+				config['tn_epoch'] + epochs,
+				optimizer.n_updates)
+			log.information('Saving model at Epoch %d, Batch %d' % (config['tn_epoch'] + epochs, optimizer.n_updates))
+			with open(filename, 'wb') as f:
+				pickle.dump(config, f)
+				model.save(f)
+				optimizer.save(f)
+				f.close()
+
 			epochs += 1
 
+		log.information('Training Finished')
+
 	except KeyboardInterrupt:
-		log.information('Trainer Stopped...')
+		log.information('Trainer Stopped')
 
 	except Exception:
 		log.warning('Exception found, see console...')
@@ -644,88 +635,57 @@ def translator(parser, context, args):
 		help='Model file(s) to load from')
 
 	parser.add_argument('--translate', type=str, metavar='FILE',
-		help='Name of the file to translate')
+		help='Sentence to translate')
+
+	parser.add_argument('--reference', type=str, metavar='FILE',
+		help='Reference file')
 
 	parser.add_argument('--output', type=str, metavar='FILE',
-		help='Name of the file to write translated text to')
+		help='Output Transalations')
+
+	parser.add_argument('--encode', action='store_false',
+		help="Encode sentence")
+
+	parser.add_argument('--nbest-list', type=int,
+		default=0,
+		metavar='N',
+		help='print n-best list in translation model')
+
+	parser.add_argument('--random-seed', type=int, default=123, metavar='N',
+		help='Random seed for repeatable sorting of data')
 
 	parser.add_argument('--beam-size', type=int, default=8, metavar='N',
 		help='Beam size during translation')
 
-
 	args = parser.parse_args(args)
 
-	models = []
-	configs = []
+	random.seed(args.random_seed)
 
-	options = {
-		'save_every': args.save_every,
-		'test_every': args.test_every,
-		'translate_every': args.translate_every,
-		'batch_size': args.batch_size,
-		'batch_budget': args.batch_budget,
-		'source_lowercase': args.source_lowercase,
-		'target_lowercase': args.target_lowercase,
-		'source_tokenizer': args.source_tokenizer,
-		'target_tokenizer': args.target_tokenizer,
-		'backwards': args.backwards,
-		'train': args.train,
-		'decoder_gate': args.decoder_gate,
-		'heldout_source': args.heldout_source,
-		'heldout_target': args.heldout_target,
-		'beam_size': args.beam_size,
-		'alpha': args.alpha,
-		'beta': args.beta,
-		'gamma': args.beta,
-		'len_smooth': args.len_smooth,}
+	with open(args.load_model, 'rb') as f:
+		log.information('Loading %s configuration' % os.path.basename(args.load_model))
+		config = pickle.load(f)
+		model = NMT('nmt', config)
 
-	# 'source_lowercase': 'yes' if args.source_lowercase else 'no',
-	# 'target_lowercase': 'yes' if args.target_lowercase else 'no',
-	# 'backwards': 'yes' if args.backwards else 'no',
+		log.information('Loading %s weights' % os.path.basename(args.load_model))
+		model.load(f)
 
-	if ':' in args.load_model:
-		print('FILIPINEU: will average model savepoints',
-			file=sys.stderr, flush=True)
-	if ',' in args.load_model:
-		print('FILIPINEU: will ensemble separate models',
-			file=sys.stderr, flush=True)
+		if args.learning_rate is not None:
+			optimizer.learning_rate = args.learning_rate
 
-	for group_filenames in args.load_model.split(','):
-		group_models = []
-		group_configs = []
-		for filename in group_filenames.split(':'):
-			print('FILIPINEU: Loading ensemble part %s...' %filename,
-				file=sys.stderr, flush=True)
-			with open(filename, 'rb') as f:
-				group_configs.append(pickle.load(f))
-				group_models.append(NMT('nmt', group_configs[-1]))
-				group_models[-1].load(f)
-		models.append(group_models[0])
-		if len(group_models) > 1:
-			models[-1].average_parameters(group_models[1:])
-
-	model = models[0]
-	config = configs[0]
-
-	for option in options:
-		if option in args:
-			config[option] = args[option]
-
-	for c in configs[1:]:
-		assert c['target_encoder'].vocab == config['target_encoder'].vocab
-
-	print('Translating...', file=sys.stderr, flush=True, end='')
-
-	tokenize_source = tokenizer(args.source_tokenizer, args.source_lowercase)
-	tokenize_target = tokenizer(args.target_tokenizer, args.target_lowercase)
+		if not args.reset_optimizer:
+			try:
+				optimizer.load(f)
+				log.information('Continuing traning from update %d' % optimizer.n_updates)
+			except EOFError:
+				pass
 
 	def translate(sents, encode=False, nbest=0, backwards=False):
 		for i in range(0, len(sents), config['batch_size']):
 			batch_sents = sents[i:i+config['batch_size']]
 			if encode:
-				batch_sents = [config['source_encoder'].encode_sequence(sent)
+				batch_sents = [config['src_encoder'].encode_sequence(sent)
 							   for sent in batch_sents]
-			x = config['source_encoder'].pad_sequences(
+			x = config['src_encoder'].pad_sequences(
 					batch_sents, fake_hybrid=True)
 			beams = model.search(
 					*(x + (args.max_target_length,)),
@@ -741,86 +701,62 @@ def translator(parser, context, args):
 				lines = []
 				for best in list(beam)[:max(1, nbest)]:
 					encoded = Encoded(best.history + (best.last_sym,), None)
-					decoded = config['target_encoder'].decode_sentence(encoded)
+					decoded = config['trg_encoder'].decode_sentence(encoded)
 					hypothesis = detokenize(
 						decoded[::-1] if backwards else decoded,
 						config['target_tokenizer'])
 					if nbest > 0:
-						lines.append(' ||| '.join((
-							str(i+batch_sent_idx), hypothesis,
-							str(best.norm_score))))
+						lines.append(' ||| '.join((str(i+batch_sent_idx), hypothesis, str(best.norm_score))))
 					else:
 						yield hypothesis
 				if lines:
 					yield '\n'.join(lines)
-	
-	outf = sys.stdout if args.output is None else open(
-		args.output, 'w', encoding='utf-8')
 
-	sents = read(args.translate,
-		tokenize_source,
-		config['backwards']
-		)
+	log.information('Transalating...')
+	outf = sys.stdout if args.output is None else open(args.output, 'w', encoding='utf-8')
+	sents = read_sents(args.translate,tokenize_src,config['backwards'] == 'yes')
 
-	if args.reference is not None:
-		hypothesis = []
-	if args.nbest_list:
-		nbest = args.nbest_list
-
-	for i, sent in enumerate(translate(sents, encode=True, nbest=nbest,backwards=(config['backwards']))):
-
-		print('.', file.sys.stderr, flush=True, end='')
-		print(sent, fule=outf, flush=True)
-
+	if args.reference: hypotheses = []
+	if args.nbest_list: nbest = args.nbest_list
+	else: nbest = 0
+	for i,sent in enumerate(translate(sents, encode=True, nbest=nbest, backwards=(config['backwards'] == 'yes'))):
+		print('.', file=sys.stderr, flush=True, end='')
+		print(sent, file=outf, flush=True)
 		if args.reference:
 			if nbest:
 				hypotheses.append(sent.split('\n')[0].split(' ||| ')[1])
 			else:
 				hypotheses.append(sent)
+	log.information(' done!')
 
-	print(' done!', file=sys.stderr, flush=True)
+	if args.output:
+		outf.close()
 
-	#Compute for BLEU if reference file is given
-	if args.reference is not None:
-		target = read(
-			args.reference,
-			tokenize_target,
-			backwards=False)
+	# compute BLEU if reference file is given
+	if args.reference:
+		# Now the translation is flipped, so the reference should not be
+		# flipped
+		trg = read_sents(args.reference,
+				tokenize_trg, False)
+		#config['backwards'] == 'yes')
 
-		if config['target_tokenizer'].mode == 'char':
-			system = [detokenize(word_tokenize(s), 'space') for s in hypotheses]
-			reference = [detokenize(word_tokenize(detokenize(s,'char')), 'space') for s in target]
-			print('BLEU = %f (%f, %f, %f, %f, BP = %f' % BLEU(
-				system, [reference]))
+		if config['target_tokenizer'] == 'char':
+			system = [detokenize(word_tokenize(s),'space')
+						for s in hypotheses]
+			reference = [detokenize(word_tokenize(detokenize(s,'char')), 'space')
+							for s in trg]
+			print('BLEU = %f (%f, %f, %f, %f, BP = %f)' % BLEU(
+				system,[reference]))
 			print('chrF = %f (precision = %f, recall = %f)' % chrF(
-				reference, system))
+				reference,system))
 		else:
-			reference = [detokenize(s, config['target_tokenizer']) for s in target]
-			print('BLEU = %f (%f, %f, %f, %f, BP = %f' % BLEU(
-				hypotheses, [reference]))
+			reference = [detokenize(s,config['target_tokenizer'])
+							for s in trg ]
+			print('BLEU = %f (%f, %f, %f, %f, BP = %f)' % BLEU(
+				hypotheses,[reference]))
 			print('chrF = %f (precision = %f, recall = %f)' % chrF(
-				reference, hypotheses))
+				reference,hypotheses))
 
-@subcmd('score', help='Score the sentence pairs defined by --test-target \
-					and --test-source and write scores to this file')
-def evaluator(parser, context, args):
-	parser.add_argument('--reset-optimizer', action='store_true',
-		help='Reset the optimizer state when resuming training (use with --load-model)')
-
-	parser.add_argument('--score-source', type=str, default=argparse.SUPPRESS, metavar='FILE',
-		help='Name of source languge file for sentence scoring')
-
-	parser.add_argument('--score-target', type=str, default=argparse.SUPPRESS, metavar='FILE',
-		help='Name of target language test file for sentence scoring')
-
-	parser.add_argument('--evaluate', action='store_true',
-		help='Perform evaluation using (using --score-target and --reference')
-
-	parser.add_argument('--rerank', action='store_true',
-		help='File specified by --score-target was produced by --nbest-list, and should be rescored by this model (note that this changes the output format of the file specified by --score')
-
-	args = parser.parse_args(args)
-	
 
 if __name__ == '__main__':
 	log = Logger()

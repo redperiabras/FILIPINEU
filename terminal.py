@@ -26,6 +26,7 @@ from datetime import datetime
 from time import time
 from pprint import pprint
 from nltk import word_tokenize
+from tqdm import tqdm
 
 @subcmd('runserver', help="Run the API Server")
 def runserver(parser, context, args):
@@ -476,7 +477,7 @@ def train(parser, context, args):
 	log.information('Starting training')
 	log.information('Press Ctrl + c to stop training...')
 	try:
-		while epochs <= args.train_for:
+		while epochs < args.train_for:
 
 			train_samples = HalfSortedIterator(
 						iter(shuffled_training_data),
@@ -486,8 +487,6 @@ def train(parser, context, args):
 						length=lambda pair: sum(map(len, pair)))
 
 			for sent_pairs in train_samples:
-				
-				print('Number of sentences: %d' % len(sent_pairs))
 
 				source_batch, target_batch = list(zip(*sent_pairs))
 
@@ -579,6 +578,8 @@ def train(parser, context, args):
 
 			if is_best:
 				log.information('Saving new best model')
+				config['tn_epoch'] += epochs
+				config['ts_train'] += time() - start_time
 				with open(args.load_model + ".best", 'wb') as f:
 					pickle.dump(config, f)
 					model.save(f)
@@ -586,12 +587,14 @@ def train(parser, context, args):
 					f.close()
 
 			#Save Model
-			filename = '%s-%d-%d.nlm' % (
+			filename = os.path.dirname(args.load_model) + '/%s-%d-%d.nlm' % (
 				os.path.splitext(
 					os.path.basename(args.load_model))[0],
 				config['tn_epoch'] + epochs,
 				optimizer.n_updates)
 			log.information('Saving model at Epoch %d, Batch %d' % (config['tn_epoch'] + epochs, optimizer.n_updates))
+			config['tn_epoch'] += epochs
+			config['ts_train'] += time() - start_time
 			with open(filename, 'wb') as f:
 				pickle.dump(config, f)
 				model.save(f)
@@ -609,17 +612,16 @@ def train(parser, context, args):
 		log.warning('Exception found, see console...')
 		print(traceback.format_exc())
 	
-	total_train_time = time() - start_time  
-
 	if logf: logf.close()
 	if evalf: evalf.close()
 
+	total_train_time = time() - start_time  
 	config['tn_epoch'] += epochs
 	config['ts_train'] += total_train_time
 
 	log.information('Model trained in %6d seconds for %d batches' % (total_train_time, batch_nr))
 	
-	log.information('Saving model')
+	log.information('Saving final model')
 	with open(args.load_model, 'wb') as f:
 		pickle.dump(config, f)
 		model.save(f)

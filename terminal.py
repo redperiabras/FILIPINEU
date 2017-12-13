@@ -486,7 +486,7 @@ def train(parser, context, args):
 						target_tokenizer=target_tokenizer,
 						length=lambda pair: sum(map(len, pair)))
 
-			for sent_pairs in train_samples:
+			for sent_pairs in train_samples.:
 
 				source_batch, target_batch = list(zip(*sent_pairs))
 
@@ -577,7 +577,7 @@ def train(parser, context, args):
 				), file=evalf, flush=True)
 
 			if is_best:
-				log.information('Saving new best model')
+				log.information('Marking as best model...')
 				config['tn_epoch'] += epochs
 				config['ts_train'] += time() - start_time
 				with open(args.load_model + ".best", 'wb') as f:

@@ -116,3 +116,4 @@ system.log
 
 # Model Files
 *.nlm
+*.nlm.best

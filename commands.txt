@@ -20,7 +20,7 @@ CREATE MODEL
 TRAIN MODEL
 	>> python terminal.py train --load-model models/en-fl/en-fl.nlm --train-data "models/en-fl/data/train/en-fl.data" --source-test-data "models/en-fl/data/test/data.src" --target-test-data "models/en-fl/data/test/data.tgt" --train-for 1
 
-	>> python terminal.py train --load-model models/fl-en/fl-en.nlm.best --train-data "models/fl-en/data/train/fl-en.data" --source-test-data "models/fl-en/data/test/data.src" --target-test-data "models/fl-en/data/test/data.tgt" --train-for 1
+	>> python terminal.py train --load-model models/fl-en/fl-en.nlm --train-data "models/fl-en/data/train/fl-en.data" --source-test-data "models/fl-en/data/test/data.src" --target-test-data "models/fl-en/data/test/data.tgt" --train-for 1
 
 # NOT YET WORKING ------------------------------------------------------------------------------------------------------------------->
 

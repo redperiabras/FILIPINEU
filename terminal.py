@@ -9,14 +9,12 @@ import theano
 from theano import tensor as T
 
 from bnas.optimize import iterate_batches
-
 from modules.sentence import tokenizer, read, detokenize
 from modules.text import TextEncoder, Encoded
 from modules.largetext import ShuffledText, HalfSortedIterator
 from modules.model import NMT
 from modules.bleu import BLEU
 from modules.chrF import chrF
-from modules.logger import Logger
 from modules.search import beam_with_coverage
 
 from prompter import prompt, yesno
@@ -26,17 +24,26 @@ from datetime import datetime
 from time import time
 from pprint import pprint
 from nltk import word_tokenize
-from tqdm import tqdm
 
-@subcmd('runserver', help="Run the API Server")
+from app import logger as log
+
+@subcmd('initdb', help="Initialize Database")
+def initdb(parser, context, args):
+	from app import db
+	db.create_all()
+	log.info('SQL database created.', 'green')
+
+@subcmd('dropdb', help='Drop Database')
+def dropdb(parser, context, args):
+	from app import db
+	if yesno('Are you sure you want to lose all your sql data?', default='yes'):	
+		db.drop_all()
+		log.info('SQL database has been deleted.', 'green')
+		
+@subcmd('runserver', help="Run the Server")
 def runserver(parser, context, args):
-	parser.add_argument('--host', default="localhost", help="Host")
-	parser.add_argument('--port', type=int, default=5000, help="Port")
-	parser.add_argument('-d', action='store_true',
-						help="Turn on Debugging Mode")
-	args = parser.parse_args(args)
-
-	app.run(host=args.host, port=args.port, debug=args.d)
+	from app import app
+	app.run(host=app.config['HOST'], port=app.config['PORT'], debug=app.config['DEBUG'])
 
 @subcmd('create-encoder', help="Encoder tool")
 def create_encoder(parser, context, args):
@@ -81,7 +88,7 @@ def create_encoder(parser, context, args):
 	character = args.tokenizer == 'char'    
 
 	for filename in args.files:
-		log.information('Processing %s' % os.path.basename(filename))
+		log.info('Processing %s' % os.path.basename(filename))
 		with open(filename, 'r', encoding='utf-8') as f:
 			for line in f:
 				line = line.lower() if args.lowercase else line
@@ -91,7 +98,7 @@ def create_encoder(parser, context, args):
 					char_count.update(''.join(tokens))
 			f.close()
 
-	log.information('Creating %s encoder' % os.path.splitext(args.save_to)[0])
+	log.info('Creating %s encoder' % os.path.splitext(args.save_to)[0])
 	if args.hybrid:
 		char_encoder = TextEncoder(
 				counts = char_count,
@@ -114,12 +121,12 @@ def create_encoder(parser, context, args):
 		if not yesno('%s' % log('Encoder already exist. Replace?'), default='yes'):
 			args.save_to = prompt('%s' % log('Enter new encoder name:'))
 
-	log.information('Exporting %s encoder' % os.path.basename(args.save_to))
+	log.info('Exporting %s encoder' % os.path.basename(args.save_to))
 	with open(os.path.splitext(args.save_to)[0] + ".vocab", 'wb') as f:
 		pickle.dump(encoder, f, -1)
 		f.close()
 
-	log.information('Success')
+	log.info('Success')
 
 @subcmd('create-model', help="Create new model")
 def create_model(parser, context, args):
@@ -214,12 +221,12 @@ def create_model(parser, context, args):
 
 	args = parser.parse_args(args)
 
-	log.information('Loading Source language encoder')
+	log.info('Loading Source language encoder')
 	with open(args.source_encoder, 'rb') as f:
 		args.source_encoder = pickle.load(f)
 		f.close()
 
-	log.information('Loading Target language encoder')
+	log.info('Loading Target language encoder')
 	with open(args.target_encoder, 'rb') as f:
 		args.target_encoder = pickle.load(f)
 		f.close()
@@ -230,7 +237,7 @@ def create_model(parser, context, args):
 			if args.target_tokenizer == 'char'
 			else args.word_embedding_dims)
 
-	log.information('Configuring model')
+	log.info('Configuring model')
 	config = {
 		'ts_train': 0, #total training time in seconds
 		'tn_epoch': 0, #total number of epochs
@@ -267,21 +274,21 @@ def create_model(parser, context, args):
 	if not config['source_encoder'].sub_encoder:
 		log.warning('Source encoder is not hybrid')
 
-	log.information('Checking existence')
+	log.info('Checking existence')
 	if os.path.isfile(args.save_model):
 		if not yesno(log('Model %s exist, replace? ' % os.path.basename(args.save_model)), default='yes'):
 			args.save_model = prompt(log('New model name: '))
 
-	log.information('Creating model')
+	log.info('Creating model')
 	model = NMT('nmt', config)
 	
-	log.information('Saving %s' % os.path.basename(args.save_model))
+	log.info('Saving %s' % os.path.basename(args.save_model))
 	with open(args.save_model, 'wb') as f:
 		pickle.dump(config, f)
 		model.save(f)
 		f.close()
 
-	log.information('Model Saved')
+	log.info('Model Saved')
 
 @subcmd('train', help="Model Trainer")
 def train(parser, context, args):
@@ -348,14 +355,14 @@ def train(parser, context, args):
 	random.seed(args.random_seed)
 
 	with open(args.load_model, 'rb') as f:
-		log.information('Loading %s configuration' % os.path.basename(args.load_model))
+		log.info('Loading %s configuration' % os.path.basename(args.load_model))
 		config = pickle.load(f)
 		model = NMT('nmt', config)
 
-		log.information('Loading %s weights' % os.path.basename(args.load_model))
+		log.info('Loading %s weights' % os.path.basename(args.load_model))
 		model.load(f)
 
-		log.information('Initializing Optimizer')
+		log.info('Initializing Optimizer')
 		optimizer = model.create_optimizer()
 
 		if args.learning_rate is not None:
@@ -364,7 +371,7 @@ def train(parser, context, args):
 		if not args.reset_optimizer:
 			try:
 				optimizer.load(f)
-				log.information('Continuing traning from Epoch %d, Update %d' % (config['tn_epoch'], optimizer.n_updates))
+				log.info('Continuing traning from Epoch %d, Update %d' % (config['tn_epoch'], optimizer.n_updates))
 			except EOFError:
 				pass
 
@@ -373,18 +380,18 @@ def train(parser, context, args):
 	evalf = open(args.load_model +
 		'-eval.log', 'a', encoding='utf-8')
 
-	log.information('Initializing Source Text Tokenizer')
+	log.info('Initializing Source Text Tokenizer')
 	source_tokenizer = tokenizer(config['source_tokenizer'], lowercase=config['source_lowercase'])
 
-	log.information('Initializing Target Text Tokenizer')
+	log.info('Initializing Target Text Tokenizer')
 	target_tokenizer = tokenizer(config['target_tokenizer'], lowercase=config['target_lowercase'])
 
-	log.information('Loading Source Language Testing data')
+	log.info('Loading Source Language Testing data')
 	source_test_data = read(args.source_test_data,
 		source_tokenizer,
 		config['backwards'])
 	
-	log.information('Loading Target Language Testing data')
+	log.info('Loading Target Language Testing data')
 	target_test_data = read(args.target_test_data,
 		target_tokenizer,
 		config['backwards'])
@@ -400,7 +407,7 @@ def train(parser, context, args):
 	source_sample_data = source_test_data
 	target_sample_data = target_test_unencoded
 
-	log.information('Loading Training Data')
+	log.info('Loading Training Data')
 	training_data = open(args.train_data, 'rb')
 	shuffled_training_data = ShuffledText(training_data, seed=args.random_seed)
 
@@ -474,8 +481,8 @@ def train(parser, context, args):
 	start_time = time()
 	total_train_time = 0
 
-	log.information('Starting training')
-	log.information('Press Ctrl + c to stop training...')
+	log.info('Starting training')
+	log.info('Press Ctrl + c to stop training...')
 	try:
 		while epochs < args.train_for:
 
@@ -486,7 +493,7 @@ def train(parser, context, args):
 						target_tokenizer=target_tokenizer,
 						length=lambda pair: sum(map(len, pair)))
 
-			for sent_pairs in train_samples.:
+			for sent_pairs in train_samples:
 
 				source_batch, target_batch = list(zip(*sent_pairs))
 
@@ -511,7 +518,7 @@ def train(parser, context, args):
 				t0 = time()
 				train_loss = optimizer.step(*(x + y))
 				train_loss *= (y[0].shape[1] / (y[1].sum()*np.log(2)))
-				log.information('Batch %2d:%4d has loss %.4f (%.2f s)' % (
+				log.info('Batch %2d:%4d has loss %.4f (%.2f s)' % (
 					epochs + 1,
 					optimizer.n_updates,
 					train_loss,
@@ -532,18 +539,18 @@ def train(parser, context, args):
 			test_dec = list(translate(source_sample_data, encode=False))
 			for source, target, test in zip(
 				source_sample_data, target_sample_data, test_dec):
-				log.information('Source:' )
-				log.information('%s' % detokenize(
+				log.info('Source:' )
+				log.info('%s' % detokenize(
 					config['source_encoder'].decode_sentence(source),
 					config['source_tokenizer']))
-				log.information('')
-				log.information('Target:')
-				log.information('%s' % detokenize(target, config['target_tokenizer']))
-				log.information('')
-				log.information('Output:')
-				log.information('%s' % test)
-				log.information('-'*40)
-			log.information('Translation finished %.2f s' % (time() - t0))
+				log.info('')
+				log.info('Target:')
+				log.info('%s' % detokenize(target, config['target_tokenizer']))
+				log.info('')
+				log.info('Output:')
+				log.info('%s' % test)
+				log.info('-'*40)
+			log.info('Translation finished %.2f s' % (time() - t0))
 
 			if config['target_tokenizer'] == 'char':
 				system = [
@@ -564,8 +571,8 @@ def train(parser, context, args):
 			is_best = chrf_result[0] >= chrf_max
 			chrf_max = max(chrf_result[0], chrf_max)
 			bleu_max = max(bleu_result[0], bleu_max)
-			log.information('BLEU = %f (%f, %f, %f, %f, BP = %f)' % bleu_result)
-			log.information('chrF = %f (precision = %f, recall = %f)' % chrf_result)
+			log.info('BLEU = %f (%f, %f, %f, %f, BP = %f)' % bleu_result)
+			log.info('chrF = %f (precision = %f, recall = %f)' % chrf_result)
 
 			if evalf is not None:
 				print('%d\t%.3f\t%.3f\t%d\t%d' % (
@@ -577,7 +584,7 @@ def train(parser, context, args):
 				), file=evalf, flush=True)
 
 			if is_best:
-				log.information('Marking as best model...')
+				log.info('Marking as best model...')
 				config['tn_epoch'] += epochs
 				config['ts_train'] += time() - start_time
 				with open(args.load_model + ".best", 'wb') as f:
@@ -592,7 +599,7 @@ def train(parser, context, args):
 					os.path.basename(args.load_model))[0],
 				config['tn_epoch'] + epochs,
 				optimizer.n_updates)
-			log.information('Saving model at Epoch %d, Batch %d' % (config['tn_epoch'] + epochs, optimizer.n_updates))
+			log.info('Saving model at Epoch %d, Batch %d' % (config['tn_epoch'] + epochs, optimizer.n_updates))
 			config['tn_epoch'] += epochs
 			config['ts_train'] += time() - start_time
 			with open(filename, 'wb') as f:
@@ -603,10 +610,10 @@ def train(parser, context, args):
 
 			epochs += 1
 
-		log.information('Training Finished')
+		log.info('Training Finished')
 
 	except KeyboardInterrupt:
-		log.information('Trainer Stopped')
+		log.info('Trainer Stopped')
 
 	except Exception:
 		log.warning('Exception found, see console...')
@@ -619,16 +626,16 @@ def train(parser, context, args):
 	config['tn_epoch'] += epochs
 	config['ts_train'] += total_train_time
 
-	log.information('Model trained in %6d seconds for %d batches' % (total_train_time, batch_nr))
+	log.info('Model trained in %6d seconds for %d batches' % (total_train_time, batch_nr))
 	
-	log.information('Saving final model')
+	log.info('Saving final model')
 	with open(args.load_model, 'wb') as f:
 		pickle.dump(config, f)
 		model.save(f)
 		optimizer.save(f)
 		f.close()
 
-	log.information('Model saved')
+	log.info('Model saved')
 
 @subcmd('translate', help='Translator tool')
 def translator(parser, context, args):
@@ -664,11 +671,11 @@ def translator(parser, context, args):
 	random.seed(args.random_seed)
 
 	with open(args.load_model, 'rb') as f:
-		log.information('Loading %s configuration' % os.path.basename(args.load_model))
+		log.info('Loading %s configuration' % os.path.basename(args.load_model))
 		config = pickle.load(f)
 		model = NMT('nmt', config)
 
-		log.information('Loading %s weights' % os.path.basename(args.load_model))
+		log.info('Loading %s weights' % os.path.basename(args.load_model))
 		model.load(f)
 
 		if args.learning_rate is not None:
@@ -677,7 +684,7 @@ def translator(parser, context, args):
 		if not args.reset_optimizer:
 			try:
 				optimizer.load(f)
-				log.information('Continuing traning from update %d' % optimizer.n_updates)
+				log.info('Continuing traning from update %d' % optimizer.n_updates)
 			except EOFError:
 				pass
 
@@ -714,7 +721,7 @@ def translator(parser, context, args):
 				if lines:
 					yield '\n'.join(lines)
 
-	log.information('Transalating...')
+	log.info('Transalating...')
 	outf = sys.stdout if args.output is None else open(args.output, 'w', encoding='utf-8')
 	sents = read_sents(args.translate,tokenize_src,config['backwards'] == 'yes')
 
@@ -729,7 +736,7 @@ def translator(parser, context, args):
 				hypotheses.append(sent.split('\n')[0].split(' ||| ')[1])
 			else:
 				hypotheses.append(sent)
-	log.information(' done!')
+	log.info(' done!')
 
 	if args.output:
 		outf.close()
@@ -759,9 +766,12 @@ def translator(parser, context, args):
 			print('chrF = %f (precision = %f, recall = %f)' % chrF(
 				reference,hypotheses))
 
-
 if __name__ == '__main__':
-	log = Logger()
+	with open('logo.txt', 'r') as f:
+	    text = f.read()
+	    for line in text.split('\n'):
+	        print(line)
+	        f.close()
 	handler = ArgumentHandler(enable_autocompletion=True,
 		description='FILIPINEU: Filipino - English Neural Machine Translation')
 	handler.run()

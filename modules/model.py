@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from bnas.model import Model, Linear, Embeddings, LSTMSequence
 from bnas.optimize import Adam, iterate_batches
 from bnas.init import Gaussian

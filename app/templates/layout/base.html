@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% import "macros.html" as m %}
+<html lang="en">
+
+	<head>
+		<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
+		<title>{{ title }}</title>
+
+		<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/vue.js') }}"></script>
+		
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/component.css') }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}"/>
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/servisyo.css') }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}"/>
+
+	</head>
+
+	<body id="container" class="cbp-spmenu-push">
+
+		{% if current_user.is_authenticated %}
+
+			<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+				<div class="side-top">
+					<img src="{{ url_for('static', filename='img/dp.png') }}" class="text-center dp" />=
+				</div>
+				<a href="{{ url_for('userbp.profile', user=current_user) }}" class="text-center">
+					<b>{{ current_user.first_name}} {{current_user.last_name}}</b>
+				</a>
+				<a href="/looking-for">Service Requests &nbsp;<span class="badge" style="background-color: red;">2</span><span class="fa fa-bell pull-right"></span></a>
+				<a href="/user/signout">Sign Out<span class="fa fa-sign-out pull-right"></span></a>
+			</nav>			
+			<div class="top-nav text-right">
+				<a href="/">
+					<img src="{{ url_for('static', filename='img/logo.png') }}" class="proj-logo pull-left" />
+				</a>
+				<button id="showRightPush" class="navigator-btn">
+					<span class="fa fa-reorder"></span>
+				</button>
+			</div>
+
+		{% else %}
+
+			<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+				<a href="/user/signin">Sign In</a>
+				<a href="/user/signup">Sign Up</a>
+			</nav>
+			<div class="top-nav text-right">
+				<a href="/">
+					<img src="{{ url_for('static', filename='img/logo.png') }}" class="proj-logo pull-left" />
+				</a>
+				<button id="showRightPush" class="navigator-btn">
+					<span class="fa fa-reorder"></span>
+				</button>
+			</div>
+
+		{% endif %}
+
+   		<div id="body" class="body">
+   			{% block content %}{% endblock %}
+   		</div>
+		<!-- <div id="footer">
+			<div class="ui divider"></div>
+	    		<div class="ui divided horizontal footer link list">
+			      	<div class="item">
+			        	All Rights Reserved &copy; 2017
+			      	</div>
+			      	<div class="item">
+			        	<a href="https://github.com/redperiabras/servisyo"><i class="github icon"></i></a>
+			      	</div>
+	    		</div>
+	  		</div>
+		</div> -->
+
+		{% block scripts %}
+		{% endblock %}
+
+		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/classie.js') }}"></script><!-- 
+		<script src="{{ url_for('static', filename='js/cbp.js') }}"></script> -->
+
+		<script>
+			var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+				showRight = document.getElementById( 'showRight' ),
+				showRightPush = document.getElementById( 'showRightPush' ),
+				body = document.body;
+
+			showRightPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toleft' );
+				classie.toggle( menuRight, 'cbp-spmenu-open' );
+			};
+
+		</script>
+
+
+	</body>
+
+</html>

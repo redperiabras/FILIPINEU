@@ -1,0 +1,43 @@
+{% extends "./layout/base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search-result.css') }}"/>
+<section class="search-results-section">
+	<div class="container">
+		<h2>People looking for carpenter</h2>
+		<div class="row" style="margin-bottom: 10px;">
+			<div class="col-xs-4" style="padding-top: 5px;">
+				<img class="img-responsive img-circle" src="../static/img/team-leader-pic1.jpg">
+			</div>
+			<div class="col-xs-8">
+				<h3><strong>Stanleigh Kinrade</strong></h3>
+				<!-- <span style="font-size: 15px; margin: 0; font-family: Montserrat; color: #000;">Plumber</span>&nbsp;&nbsp; <span style="color: #FFBD2C; font-size: 13px;"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> -->
+				<!-- </span> -->
+				<!-- <h3 style="margin: 0;"><small style="color: #63da47;"">Certified TESDA Worker <i class="fa fa-check"></i></small></h3> -->
+				<h5>Price:	Php 500.00</h5>
+				<h5>Date:	December 4, 2017</h5>
+				<h5>Time:	8:30 am</h5>
+
+				<i class="fa fa-check" aria-hidden="true"></i>
+				<i class="fa fa-times" aria-hidden="true"></i>
+			</div>
+		</div>
+		<div class="row" style="margin-bottom: 10px;">
+				<div class="col-xs-4" style="padding-top: 5px;">
+					<img class="img-responsive img-circle" src="../static/img/team-leader-pic2.jpg">
+				</div>
+			<div class="col-xs-8">
+				<h3><strong>Dorre Pluck</strong></h3>
+				<!-- <span style="font-size: 15px; margin: 0; font-family: Montserrat; color: #000;">Plumber</span>&nbsp;&nbsp; <span style="color: #FFBD2C; font-size: 13px;"><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> -->
+				<!-- </span> -->
+				<!-- <h3 style="margin: 0;"><small style="color: #63da47;"">Certified TESDA Worker <i class="fa fa-check"></i></small></h3> -->
+				<h5>Price:	Php 400.00</h5>
+				<h5>Date:	December 6, 2017</h5>
+				<h5>Time:	10:30 am</h5>
+				<i class="fa fa-check" aria-hidden="true"></i>
+				<i class="fa fa-times" aria-hidden="true"></i>
+			</div>
+		</div>	
+	</div>
+{% endblock %}

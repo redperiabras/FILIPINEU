@@ -3,6 +3,7 @@
 ## Setup
 
 - Clone this repository
+
 	`git clone https://github.com/redperiabras/filipineu.git`
 
 - Setup virtual environment
@@ -49,6 +50,7 @@
 	``
 
 - Create Model
+
 	``
 	python terminal.py create-model
 	--source-encoder <source encoder file>
@@ -57,6 +59,7 @@
 	``
 
 - Training Model
+
 	``
 	python terminal.py train
 	--load-model <language model file>

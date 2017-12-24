@@ -30,20 +30,26 @@ from app import logger as log
 @subcmd('initdb', help="Initialize Database")
 def initdb(parser, context, args):
 	from app import db
+
 	db.create_all()
 	log.info('SQL database created.', 'green')
 
 @subcmd('dropdb', help='Drop Database')
 def dropdb(parser, context, args):
 	from app import db
+
 	if yesno('Are you sure you want to lose all your sql data?', default='yes'):	
 		db.drop_all()
 		log.info('SQL database has been deleted.', 'green')
-		
+
 @subcmd('runserver', help="Run the Server")
 def runserver(parser, context, args):
 	from app import app
-	app.run(host=app.config['HOST'], port=app.config['PORT'], debug=app.config['DEBUG'])
+
+	app.run(
+		host=app.config['HOST'],
+		port=app.config['PORT'],
+		debug=app.config['DEBUG'])
 
 @subcmd('create-encoder', help="Encoder tool")
 def create_encoder(parser, context, args):

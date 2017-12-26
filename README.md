@@ -1,6 +1,7 @@
-# FILIPINEU:\
-Bidirectional Filipino - English\
+<h1>FILIPINEU:
+Bidirectional Filipino - English
 Neural Machine Translation
+</h1> 
 
 ## Setup
 

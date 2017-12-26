@@ -1,15 +1,249 @@
-{% extends "layout.html" %}
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1">
 
-{% block head %}
-    {{ super() }}
-{% endblock %}
+		<title>FILIPINEU</title>
+		<link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="img/x-icon">
 
-{% block content %}
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
 
-	<h1 class="ui header">{{ title }}</h1>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/responsive.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animate.css') }}">
 
-	{% if current_user.is_authenticated %}
-	  	<h2 class="ui header">Hi {{ current_user.first_name }}!</h2>
-	{% endif %}
+		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.1.8.3.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-scrolltofixed.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.easing.1.3.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.isotope.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/wow.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/classie.js') }}"></script>
+	</head>
+	<body>
+		<header class="header" id="header">
+			<div id="particles-js">
+			</div>
+			<div class="cover logo animated fadeInDown delay-07s">
+				FILIPINEU<br>
+				<p>
+					Bidirectional Filipino - English<br>
+					<b>Neural Machine Translation</b>
+				</p><br>
+				<a class="link animated fadeInUp delay-1s servicelink" href="#service">
+					<i class="fa fa-angle-down" aria-hidden="true"></i>
+				</a>
+			</div>
+		</header>
 
-{% endblock %}
+		<nav class="main-nav-outer navbar-fixed-top" id="test">
+			<div class="container">
+				<ul class="main-nav">
+					<li class="small-logo">
+						<a href="/"><img src="{{ url_for('static', filename='img/icon2.png') }}" alt="" class="logo-img"></a>
+					</li>
+					<li>
+						<a href="#" class="navbar-right">Contact Us</a>
+					</li>
+					<li>
+						<a href="#" class="navbar-right">How it works</a>
+					</li>
+					<li>
+						<a href="#" class="navbar-right">About</a>
+					</li>
+				</ul>
+				<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+			</div>
+		</nav>
+		<section class="main-section" id="service">
+			<div class="container">
+				<h2>Machine Translation using <span style="color: #0082B8; text-transform: uppercase;">Neural Networks</span></h2>
+				<h6>Neural Machine Translation (NMT) brings state of the art results</h6>
+				<div class="row">
+					<div class="col-lg-6 col-sm-4 wow fadeInLeft delay-05s">
+						<div class="div-section">
+							<div class="div-section-col">
+								<h3 style="color: ">Deep Learning Techniques</h3>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+							</div>
+						</div>
+						<div class="div-section">
+							<div class="div-section-col2">	
+								<h3 style="color: ">Fluency &amp; Higher Generic Quality</h3>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+							</div>
+						</div>
+					</div>	
+					<figure class="col-lg-6 col-sm-6  text-right wow fadeInUp delay-02s">
+						<img src="{{ url_for('static', filename='img/macbook1.png') }}" alt="">
+					</figure>
+				</div>
+			</div>
+		</section>
+		<section class="main-section" id="service">
+			<div class="container">
+				<h2>Previous approaches before <span style="color:#0082B8;"><br>Neural Machine Translation</span></h2>
+				<div class="row">
+					<div class="col-lg-6 col-sm-6 wow fadeInDown delay-05s">
+						<div class="div-section">
+							<div class="div-section-col3">
+								<h2><span style="color:#0082B8;">Rule Based</span> Approach</h2>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+								<a href="#" class="learn-link">Learn more</a>
+							</div>
+						</div>
+					</div>	
+					<div class="col-lg-6 col-sm-6 wow fadeInDown delay-05s">
+						<div class="div-section">
+							<div class="div-section-col3">
+								<h2><span style="color:#0082B8;">Statistical</span> Approach</h2>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+								<a href="#" class="learn-link">Learn more</a>
+							</div>
+						</div>
+					</div>	
+
+				</div>
+			</div>
+		</section>
+
+		<section class="main-section" id="how-it-works">
+			<div class="container">
+				<h2>how it works</h2>
+				<h6>Neural Machine Translation (NMT) brings state of the art results</h6>
+				<div class="row">
+					<figure class="col-lg-8 col-sm-8  text-right wow fadeInUp delay-02s">
+						<img src="{{ url_for('static', filename='img/translate.png') }}" alt="">
+					</figure>
+					<div class="col-lg-4 col-sm-4 wow fadeInLeft delay-05s">
+						<div class="div-section">
+							<div class="div-section-col2">
+								<h3>FILIPINEU</h3>
+								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</section>
+
+		
+
+		<section class="ready-section">
+			<h1 class="wow fadeInDown delay-02s">Ready to use Filipineu?</h1>
+			<a href="#" class="btn-translate wow fadeInDown delay-02s">Translate Now</a>
+		</section>
+		
+		<footer class="footer">
+			<div class="container">	
+				<!-- <img src="img/logo-1.png">
+				<span class="copyright pull-right">&copy; All Rights Reserved 2017</span> -->
+				<div class="row">
+					<div class="col-md-3">
+						<img src="{{ url_for('static', filename='img/icon1.png') }}">
+					</div>
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-3">
+						<span class="copyright pull-right">&copy; All Rights Reserved 2017</span>
+					</div>
+				</div>	
+			</div>
+		</footer>
+
+		<a href="#" class="scrollup" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+				$('#test').scrollToFixed();
+				$('.res-nav_click').click(function() {
+					$('.main-nav').slideToggle();
+					return false
+
+				});
+
+			});
+		</script>
+
+		<script>
+			wow = new WOW({
+				animateClass: 'animated',
+				offset: 100
+			});
+			wow.init();
+		</script>
+
+
+		<script type="text/javascript">
+			$(window).load(function() {
+
+				$('.main-nav li a, .servicelink').bind('click', function(event) {
+					var $anchor = $(this);
+
+					$('html, body').stop().animate({
+						scrollTop: $($anchor.attr('href')).offset().top - 102
+					}, 1500, 'easeInOutExpo');
+					if ($(window).width() < 768) {
+						$('.main-nav').hide();
+					}
+					event.preventDefault();
+				});
+			})
+		</script>
+
+		<script>
+			$(function () {
+			  $(document).scroll(function () {
+				  var $nav = $(".navbar-fixed-top");
+				  $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+				});
+			});
+		</script>
+		<script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+		<!-- <script src="js/lib/stats.js"></script> -->
+		<script>
+			var count_particles, stats, update;
+			stats = new Stats;
+			stats.setMode(0);
+			stats.domElement.style.position = 'absolute';
+			stats.domElement.style.left = '0px';
+			stats.domElement.style.top = '0px';
+			document.body.appendChild(stats.domElement);
+			count_particles = document.querySelector('.js-count-particles');
+			update = function() {
+			  	stats.begin();
+			  	stats.end();
+			  	if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+			  	  count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+			  	}
+			  	requestAnimationFrame(update);
+			};
+			requestAnimationFrame(update);
+		</script>
+
+		<script type="text/javascript">
+			$(window).scroll(function() {
+		    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+		        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+		    } else {
+		        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+		    }
+			});
+			$('#return-to-top').click(function() {      // When arrow is clicked
+		    $('body,html').animate({
+		        scrollTop : 0                       // Scroll to top of body
+		    }, 500);
+			});
+		</script>
+
+	</body>
+
+</html>

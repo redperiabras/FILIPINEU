@@ -95,7 +95,7 @@ def create_encoder(parser, context, args):
 
 	for filename in args.files:
 		log.info('Processing %s' % os.path.basename(filename))
-		with open(filename, 'r', encoding='utf-8') as f:
+		with open(filename, 'rt') as f:
 			for line in f:
 				line = line.lower() if args.lowercase else line
 				tokens = tokenize(line)
@@ -124,7 +124,7 @@ def create_encoder(parser, context, args):
 			)
 
 	if os.path.isfile(os.path.splitext(args.save_to)[0] + ".vocab"):
-		if not yesno('%s' % log('Encoder already exist. Replace?'), default='yes'):
+		if not yesno('Encoder already exist. Replace?', default='yes'):
 			args.save_to = prompt('%s' % log('Enter new encoder name:'))
 
 	log.info('Exporting %s encoder' % os.path.basename(args.save_to))

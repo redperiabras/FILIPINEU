@@ -7969,7 +7969,7 @@ have you got any service of lower price ?
 you can use the internet to make an ip call , and we only charge you a moderate amount of handling fee .
 there seems to be a mistake on my phone bill .
 i only talked a few minutes with an american friend .
-i want to make a long distance call to ....
+i want to make a long distance call to ...
 which do you want , an ordinary call or an emergency call ?
 what is the phone number at the other end ?
 i would like to mail this letter to new york .
@@ -11094,13 +11094,13 @@ what is the weather like in siam in summer ?
 it is rather hot .
 is it very cold in huahin in winter ?
 no , it is not very cold .
-the average temperature there in winter is more than 10 degrees   .
+the average temperature there in winter is more than 10 degrees celcius .
 what is autumn like in beijing ?
 autumn is the best season in beijing .
 what is the average temperature in beijing in october ?
 what is the weather like in beijing recently ?
 beidaihe is a wonderful summer resort .
-the average temperature there is less than 25 degrees   in summer .
+the average temperature there is less than 25 degrees celcius in summer .
 the average temperature in nanjing in may is about 20 ° .
 the average temperature in xi'an in september is about 23 ° .
 the best time for visiting chengde is from may to october .
@@ -14538,7 +14538,7 @@ you just turn left at the traffic light .
 this is a one-way street .
 how can we go to the other side ?
 you cannot make a u-turn here .
-the street sign says " yield . "
+the street sign says " yield " .
 we have to let the other cars pass .
 i have lost the way .
 what do you think we should do ?
@@ -17155,13 +17155,13 @@ is there a later flight this evening ?
 just one moment while i check , madam .
 one moment , please .
 we have got his reservation here .
-there is another flight at 10 .  10 tonight .
+there is another flight at 10:10 tonight .
 can you change the reservation then , please ?
 cancel the ticket for flight nc 310 and book one seat on flight na 317 to phayao .
-flight na 317 to phayao at 10 .  10 p.m. that is perfect .
-i have a reservation on the 2 .  30 p.m. flight to phayao this afternoon .
-well , i would like reschedule my flight for the tomorrow morning one at 9 .  05 . is that possible ?
-the 9 .  05 flight is completely booked .
+flight na 317 to phayao at 10:10 p.m. that is perfect .
+i have a reservation on the 2:30 p.m. flight to phayao this afternoon .
+well , i would like reschedule my flight for the tomorrow morning one at 9:05 . is that possible ?
+the 9:05 flight is completely booked .
 i can put you on a waiting list if you would like .
 i would like to confirm a flight tomorrow .
 american airlines , reservations office .
@@ -17327,7 +17327,7 @@ will it take long ?
 i do not think my luggage has arrived with my flight .
 could i see your ticket and baggage claim tags , sir ?
 i will look into it right away .
-it could take a few minutes , so why do you not have a seat .
+it could take a few minutes , so why do you not have a seat .
 we have not been able to locate your luggage yet .
 it may have missed your connecting flight in detroit . we are still checking .
 if it did miss the connection , will it arrive on the next flight ?

@@ -16,7 +16,7 @@ gusto kong magpabook ng mesa .
 gusto kong magpareserba ng mesa . 
 maaari ba akong magpareserba ng mesa ? 
 maaari ba akong magpabook ng mesa ? 
-gusto kong magpareserba para … 
+gusto kong magpareserba para â€¦ 
 maaari ka bang gumawa ng reserbasyon para sa akin ? 
 maaari ka bang magbook ng mesa para sa akin ? 
 maaari ka bang magreserba ng mesa para sa akin ? 
@@ -54,7 +54,7 @@ maaari ba akong manigarilyo rito ?
 pinahihintulutan ba ang paninigarilyo rito ? 
 pinahihintulutan niyo ba ang paninigarilyo ? 
 waiter ! 
-paumanhin … 
+paumanhin â€¦ 
 menu , pakiusap . 
 maaari ko bang makuha ang menu , pakiusap ? 
 maaari ko bang makita ang menu , pakiusap ? 
@@ -122,15 +122,15 @@ kantina
 bistro 
 kapiterya 
 buffet-style restawran 
-café 
+cafÃ© 
 kapihan 
 kapihan 
 vending machine 
 maaari ka bang magmungkahi ng magandang restawran ? 
 maaari ka bang magmungkahi ng bar ? 
-maaari ka bang magmungkahi ng café ? 
+maaari ka bang magmungkahi ng cafÃ© ? 
 mayroon bang restawran na malapit dito ? 
-mayroon bang café na malapit dito ? 
+mayroon bang cafÃ© na malapit dito ? 
 mayroon bang hapon na restawran na malapit dito ? 
 mayroon bang restawran na nagsisilbi ng lokal na putahe malapit dito ? 
 mayroon bang vegetarian restawran na malapit dito ? 
@@ -194,7 +194,7 @@ gusto mo bang subukan ang ibang menu .
 oo , gusto kong subukan ang ibang menu . 
 hindi , salamat kung gayon . 
 ano ang iyong maimumungkahi ? 
-maaari ka bang magmungkahi ng … ? 
+maaari ka bang magmungkahi ng â€¦ ? 
 maaari ka bang magmungkahi ? 
 mayroon ba kayong mga espesyal ? 
 ano ang interesante sa menu ngayong araw ? 
@@ -246,9 +246,9 @@ well-done , pakiusap .
 medium rare , pakiusap . 
 rare , pakiusap . 
 gusto ko ng... 200 gram . 
-gusto ko ng … dalawang kilo . 
-gusto ko ng … tatlong piraso . 
-gusto ko ng … anim na hiwa . 
+gusto ko ng â€¦ dalawang kilo . 
+gusto ko ng â€¦ tatlong piraso . 
+gusto ko ng â€¦ anim na hiwa . 
 tama na . 
 kaunti pa . 
 kaunti lamang. 
@@ -291,10 +291,10 @@ agahan
 brunch 
 tanghalian 
 hapunan 
-saan ko maaaring makita ang … ? 
-gusto ko ng … 
-gusto ko ng … 
-maaari ba akong kumuha ng … , pakiusap ? 
+saan ko maaaring makita ang â€¦ ? 
+gusto ko ng â€¦ 
+gusto ko ng â€¦ 
+maaari ba akong kumuha ng â€¦ , pakiusap ? 
 panaderiya 
 tinapay 
 double-decker 
@@ -442,12 +442,12 @@ maanghang mince baboy salad
 manok sa gata at galangal 
 piniritong baka na may talabang sarsa 
 piniritong isdang ilog na may bawang at paminta 
-sautéed baboy na may chilli at dahon ng basil 
-sautéed isda na may chilli paste 
+sautÃ©ed baboy na may chilli at dahon ng basil 
+sautÃ©ed isda na may chilli paste 
 piniritong grouper na inibabawan ng matamis , maasim , at maanghang na sarsa 
 maanghang piniritong manok na may dahon ng basil 
 pinaghalong piniritong gulay 
-sautéed na pinaghalong mga gulay sa talabang sarsa 
+sautÃ©ed na pinaghalong mga gulay sa talabang sarsa 
 maanghang na hito 
 piniritong baboy crackling 
 baboy na pinaghalo at piniritong may bawang at peppercorns 
@@ -534,9 +534,9 @@ gusto ko ng upuan sa hindi naninigarilyo .
 maaari ba kitang tulungan ? 
 maaari ko bang makuha ang iyong pangalan , pakiusap ? 
 maaari mo bang baybayin iyan para sa akin , pakiusap ? 
-nagbook ako sa ilalim ng pangalang … 
+nagbook ako sa ilalim ng pangalang â€¦ 
 wala akong reserbasyon . 
-isang mesa para … , pakiusap . 
+isang mesa para â€¦ , pakiusap . 
 para sa ilang tao ? 
 para sa ilan , ginoo ? 
 ilang tao , madam ? 
@@ -627,12 +627,12 @@ maaari mo ba itong dalhin agad ?
 maaari mo ba itong makuha agad ? 
 maaari ka bang magmadali pakiusap ? 
 ngayon na , pakiusap . 
-maaari ba akong humingi pa … ? 
-maaari ba kaming kumuha ng … ? 
-maaari ba kaming kumuha ng dagdag na … ? 
+maaari ba akong humingi pa â€¦ ? 
+maaari ba kaming kumuha ng â€¦ ? 
+maaari ba kaming kumuha ng dagdag na â€¦ ? 
 kaunti pa , pakiusap . 
-maaari mo ba kaming dalhan pa ng … ? 
-maaari mo ba kaming bigyan pa ng … ? 
+maaari mo ba kaming dalhan pa ng â€¦ ? 
+maaari mo ba kaming bigyan pa ng â€¦ ? 
 isa pa , pakiusap . 
 ang pareho muli , pakiusap . 
 maaari mo ba kaming dalhan ng isa pa , pakiusap ? 
@@ -759,7 +759,7 @@ may allergy ako sa gatas .
 may coeliac disease ako . 
 may allergy ako sa mani . 
 may allergy ako sa saging. 
-allergic ako sa … 
+allergic ako sa â€¦ 
 allergic ako sa pagkaing-dagat . 
 allergic ako sa hipon . 
 allergic ako sa shellfish . 
@@ -1251,7 +1251,7 @@ inaabangan namin ang inyong pagdating sa amin .
 inaabangan naming makita kayong muli , ginoo . 
 nag-aalok kami ng espesyal na menu para sa magkakaibang diyeta . 
 naglalabas lamang kami ng alak sa bawat bote . 
-bukas kami sa loob ng dalawampu’t apat na oras . 
+bukas kami sa loob ng dalawampuÂ’t apat na oras . 
 naglalabas kami ng itim na tsaa . 
 naglalabas kami ng berdeng tsaa . 
 aasikasuhin namin ito agad . 
@@ -1531,7 +1531,7 @@ nasa pagliko ang hagdanan .
 masasabing komplikado ito . ipakikita ko sa iyo ang daan . 
 maaari ko bang itali ang iyong bib ? 
 mayroon pa bang iba ? 
-gusto mo ba ng … ? 
+gusto mo ba ng ... ? 
 saan ka nakaupo ? 
 naaalala mo ba kung saan mo ito iniwan ? 
 kailan ka mo maaaring kolektahin ito ? 
@@ -1770,7 +1770,7 @@ gusto niyo ba ng magkakahiwalay na check , ginoo ?
 anong uri ng putahe ito ? 
 labis na magaang putahe ito . 
 bacon , kamatis at lettuce sandwich ito . 
-pinaghalo ito … na … . 
+pinaghalo ito ... na ... . 
 mayroon itong napakayamang lasa . 
 mayroon itong napakapinong lasa . 
 ikinalulungkot kong aabutin ang gratin ng mga 15 minuto upang maihanda , ginoo . 
@@ -1797,7 +1797,7 @@ anong gusto ninyong panimula ?
 ano ang gusto niyong kasama niyan ? 
 ano ang inyong kukunin kasunod ? 
 mayroon pa bang iba ? 
-kakain ba kayo ng a la carter o kukuha ng mesa d'hôte ? 
+kakain ba kayo ng a la carter o kukuha ng mesa d'hÃ´te ? 
 mayroon ba kayong iinumin ? 
 gusto niyo ba ng inumin bago ang iyong order , ginoo ? 
 gusto niyo ba ng maiinom ? 
@@ -1810,7 +1810,7 @@ hindi ko gustong kumuha ng buong putahe .
 personal kong gusto ang mga piniritong sausages . 
 gusto ko ang pagkaing-dagat . 
 kakaunti lamang ang aking oras subalit baka maaari mo akong dalhan ng itim na kape bago ko tapusin ang pangunahing kurso ? 
-sa tingin ko gusto ko ng buong kurso ng mesa d 'hôte . 
+sa tingin ko gusto ko ng buong kurso ng mesa d 'hÃ´te . 
 sa tingin ko kukuha muna ako ng mga pickle . 
 sa tingin ko kukuha ako ng sabaw bilang panimula . 
 sa tingin ko oorder ako ng la carte . 
@@ -1886,7 +1886,7 @@ magandang marinig ang inyong mga papuri sa aming mga tauhan .
 kaya ako labis na masaya . 
 mayroon pa bang espesyal doon ? 
 gusto ko itong subukan . 
-paano kung piña colada gawa sa puting rum , buko krema at katas ng pinya ? isa ito sa mga paborito ng bar . 
+paano kung piÃ±a colada gawa sa puting rum , buko krema at katas ng pinya ? isa ito sa mga paborito ng bar . 
 bigyan mo ako ng isa . 
 mmm , perpekto . 
 katulad muli , g. bush ? 
@@ -1967,7 +1967,7 @@ salamat , ginoo .
 paalam . 
 mayroon ka pa bang ibang gusto ? 
 maaari ko bang makuha ang bill , pakiusap ? 
-mmn … subalit sa tingin ko may pagkakamali rito . 
+mmn â€¦ subalit sa tingin ko may pagkakamali rito . 
 para saan ang 50 baht ? 
 para iyan sa piniritong talaba . 
 hindi kami nakakuha ng piniritong talaba . naaalala ko bang hiniling kong ibalik mo ito ? 
@@ -1983,7 +1983,7 @@ oo , narito .
 kung ilalagda mo ang iyong pangalan dito , pagbabayarin ka ng hotel sa iyong pag-alis . 
 ayos lamang iyon . salamat . 
 ano ang numero ng iyong kwarto muli , pakiusap ? 
-room 335 . 
+room 335 .
 salamat . 
 umaasa akong natuwa ka sa iyong hapunan . 
 tunay nga . maraming salamat . 
@@ -2284,7 +2284,7 @@ hindi ko maintindihan kung paano niyo nagawa ang ganito kalaking bill . umaabot 
 maaari mo bang sabihin sa akin kung paano mo isinama-sama ang mga bagay ? 
 sandali lamang , pakiusap . titignan ko . 
 pupunta ang waiter sa kahera at babalik nang hawak ang bill . 
-tignan mo , ginoo , walumpu't pitong dolyar para sa piniritong prawns at inihaw na lobster . 
+tignan mo , ginoo , walumpu ' t pitong dolyar para sa piniritong prawns at inihaw na lobster . 
 pakiusap hati-hatiin mo ito para sa akin . 
 sige . iyon , limampu't walong dolyar para sa piniritong prawns at dalawampu't siyam na dolyar para sa inihaw lobster . 
 tama ba iyon ? 
@@ -3235,7 +3235,7 @@ hindi ako kumakain ng maanghang na pagkain .
 vegetarian ako . 
 hindi angkop sa aking panlasa ang masyadong mayaman na pagkain . 
 maaari ka bang magmungkahi ng ilang masasarap na pagkain ? 
-paano kung sautéed isda at baka in pampalasa ? 
+paano kung sautÃ©ed isda at baka in pampalasa ? 
 mabuti ! isang isda , isang baka , pakiusap . 
 anong mga gulay ang gusto niyo ? 
 ilang peas and mashed potatoes . 
@@ -3372,12 +3372,12 @@ katanggap-tanggap ang kahit alin .
 ginawa ang bill gamit ang renminbi . kung magbabayad ka gamit ang us dolyar , isasalin namin ang renminbi sa us dolyar laban sa exchange rate ngayong araw . 
 ganoon ba . 
 narito ang iyong bill , ginoo . 
-tatlong daan at walumpu't pitong baht . 
+tatlong daan at walumpu ' t pitong baht . 
 pakiusap suriin niyo ito . 
 wow ! 
 halos apat na raang baht para sa iisang putahe ? 
 kung maghihintay lamang kayo , mga ginoo , iisa-isahin ko ang mga detalye . 
-kumuha kayo ng isang shark's fin sabaw . walumpung baht iyon . piniritong sea crab meat na isang daang baht . para sa piniritong prawns ang walumpu't walong baht na ito . mayroon dinroast beijing duck , mga gulay at inyong mga inumin . kabilang na rin ang service charge , syempre . 
+kumuha kayo ng isang shark's fin sabaw . walumpung baht iyon . piniritong sea crab meat na isang daang baht . para sa piniritong prawns ang walumpu ' t walong baht na ito . mayroon dinroast beijing duck , mga gulay at inyong mga inumin . kabilang na rin ang service charge , syempre . 
 sa tingin ko makatwiran ang bayarin . 
 hayaan mong tignan ko ito . okay . 
 narito ang 400 baht . 
@@ -3682,9 +3682,9 @@ gusto ko ng itim na kape .
 gusto ko ng espresso . 
 gusto ko ng cappuccino. 
 gusto ko ng latte . 
-gusto ko ng café mocha . 
-gusto ko ng café americano. 
-gusto ko ng café au lait . 
+gusto ko ng cafÃ© mocha . 
+gusto ko ng cafÃ© americano. 
+gusto ko ng cafÃ© au lait . 
 gusto ko ng frappuccino. 
 gusto ko ng mochasippi . 
 gusto ko ng cortado . 
@@ -3845,7 +3845,7 @@ ayaw ko sanang aminin ito . wala akong masyadong alam tungkol sa alak .
 maaari ba akong magmungkahi ? 
 oo naman , syempre . 
 bakit hindi mo konsultahin ang aming bartender ? 
-matutuwa siyang magbigay ng mga mungkahi sa ’ yo . 
+matutuwa siyang magbigay ng mga mungkahi sa iyo . 
 ok iyon kung hindi ito labis na mahal . 
 cheers ! 
 napakasarap ng serbesang iyon ! 
@@ -3969,7 +3969,7 @@ ibibigay ko sa inyo ang unang maliit na lamesang mayroon . ayos lamang ba ito ?
 sa tingin ko katanggap-tanggap na . 
 ano ang gusto ninyong inumin , ginoo ? 
 gusto ko munang tignan ang listahan ng maiinom . 
-whisky ... puro … malt ... bells ... haig... cocktails … 
+whisky ... puro â€¦ malt ... bells ... haig... cocktails â€¦ 
 well , ano ang mga dahon ng tubo ? 
 isang cocktail na gawa sa tsinong produkto --- green bamboo leaf liquor at chinese vermouth . 
 mukhang interesante . 
@@ -4029,7 +4029,7 @@ homesickness ?
 hindi ito kapani-paniwala . 
 walang pagbibiro . 
 ngayon , paano yung isa pang kalahati ? 
-siguradong ‘ aalisin ’ ng hapong serbesa ang iyong homesickness . 
+siguradong ' aalisin ' ng hapong serbesa ang iyong homesickness . 
 magandang ideya ! 
 magandang hapon , mga binibini at mga ginoo . 
 isang lamesa para sa apat ? 
@@ -4084,7 +4084,7 @@ syempre , ginoo .
 isang mga binibini at isang canadian club na may yelo . 
 sandali lamang , pakiusap . 
 magkano ang babayaran ko rito ? 
-walongpu’t limang baht ang kabuuan . 
+walumpu ' t limang baht ang kabuuan . 
 pero maaari ninyong hawakan ang bayad hanggang sa magdesisyon kayong umalis ng bar . 
 naglalabas ng pera 
 pakiusap itago mo ito para sa iyong serbisyo . 
@@ -4268,8 +4268,8 @@ budweiser , pakiusap .
 dadalhin ko ang patatas sa inyo lamesa mamaya . 
 whisky at tubig , pakiusap . 
 doble o isang single ? 
-hindi pinahihintulutan sa loob ang mga taong nasa edad na mababa sa dalawampu ’ t isa . 
-mahigit na ako sa dalawampu’t isa . 
+hindi pinahihintulutan sa loob ang mga taong nasa edad na mababa sa dalawampu ' t isa . 
+mahigit na ako sa dalawampu ' t isa . 
 patingin ako ng identification , pakiusap . 
 gusto ko ng makakain . 
 pakiusap bumili muna ng tiket , pagkatapos dalhin ito sa counter . 
@@ -4682,7 +4682,7 @@ subalit ikinalulungkot kong wala na akong sapat na oras upang maghintay .
 mayroon akong tipan ng 7 : 00 sa aking kwarto . 
 ngayon 6 : 50 na . 
 kung ganoon , tatawagin ko ang punong waiter . sandali lamang , pakiusap . 
-lubhang paumanhin sa nangyari g … . 
+lubhang paumanhin sa nangyari , ginoo . 
 norman , joseph norman . 
 g. norman , kung sasabihin mo sa aking ang numero ng iyong silid , ipadadala ko sa room service ang isang merienda nang 9 : 30 ngayong gabi , at makukuha mo ang iyong paboritong sweet and sour fish . lahat ito sagot namin . 
 at aalisin namin ang sweet and sour pork sa bill . 
@@ -4881,7 +4881,7 @@ nagsisimula ang karaniwang hapunang tsinong sa malalamig na putahe at nagtatapos
 ilalabas ko ang mga putahe sandali lamang. 
 gusto niyo bang umorder na ngayon ? 
 nakapagdesisyon na ba kayo kung ano ang gusto niyo ? 
-gusto niyo bang a la carte o kumuha ng table d 'hôte ? 
+gusto niyo bang a la carte o kumuha ng table d 'hÃ´te ? 
 ano ang inyong gustong pampagana ? 
 paano naman ang panghimagas ? 
 anong uri ng sarsa ang gusto niyo sa inyong salad ? 
@@ -5020,11 +5020,11 @@ aandar na ang bus .
 lumisan lamang ang isang bus ilang minuto ang nakalilipas . 
 uupo ako sa tabi mo . 
 saan mauuwi ang tahaking ito ? 
-gusto kong makita … 
+gusto kong makita â€¦ 
 mayroon bang mga tour na may gabay na nagsasalita sa pranses ? 
 kailan tayo magsisimula ? 
 anong oras tayo makakabalik ? 
-gusto naming makita … 
+gusto naming makita â€¦ 
 maaari ba kaming kumuha ng larawan dito ? 
 maaari ba kaming bumili ng mga pasalubong dito ? 
 maaari ba kaming pumunta ng banyo rito ? 
@@ -5338,9 +5338,9 @@ magkano ang admisyon ?
 magkano ang tiket ? 
 saan ako makakakuha ng tiket ? 
 saan sila nagbebenta ng tiket ? 
-ito ba ang daan patungo sa … ? 
-gaano kalayo sa … ? 
-nasaan ang … kalye ? 
+ito ba ang daan patungo sa â€¦ ? 
+gaano kalayo sa â€¦ ? 
+nasaan ang â€¦ kalye ? 
 nasaan ang adres na ito ? 
 nasaan ang highway . 
 nawawala ako . 
@@ -5632,23 +5632,23 @@ pakiusap po , ipakita ninyo sa akin ang inyong tiket .
 ilabas ang inyong tiket para mabutasan , pakiusap po . 
 pumunta ako para ihatid ang isang kaibigan . 
 ito ba ang opisina ng impormasyon ? 
-maaari mo bang sabihin sa akin kung paano makapupunta ng … mula rito sakay ng tren ? 
-maaari mo bang sabihin sa aking ang mga tren para sa … ? 
-intensyon mo bang dumeretso sa … ? 
-gusto mo bang magliwaliw patungo sa … ? 
-maaari kang pumunta sa … na may ilang paghinto sa daan . 
+maaari mo bang sabihin sa akin kung paano makapupunta ng ... mula rito sakay ng tren ? 
+maaari mo bang sabihin sa aking ang mga tren para sa â€¦ ? 
+intensyon mo bang dumeretso sa â€¦ ? 
+gusto mo bang magliwaliw patungo sa â€¦ ? 
+maaari kang pumunta sa ... na may ilang paghinto sa daan . 
 gusto kong gumawa ng ilang magliwaliw sa daan . 
-may marami bang mga lugar ng interesante patungo sa … ? 
-may mga magagandang lugar ba sa daan patungong … ? 
-aling mga syudad ang aking bibisitahin sa daang patungo … ? 
-aling mga lugar ang sa tingin mong mabibisita ko sa daang patungo … ? 
+may marami bang mga lugar ng interesante patungo sa â€¦ ? 
+may mga magagandang lugar ba sa daan patungong â€¦ ? 
+aling mga syudad ang aking bibisitahin sa daang patungo â€¦ ? 
+aling mga lugar ang sa tingin mong mabibisita ko sa daang patungo ... ? 
 anong importanteng syudad daraan ang tren ? 
-gagawin kong … . , kailangan ko bang lumipat ng tren ? 
-ilang tren ang mayroon mula rito patungo … kada araw ? 
-kailan aalis ang tren para … sa ngayon ? 
-anong oras ang susunod na tren para sa … ? 
+gagawin kong ... , kailangan ko bang lumipat ng tren ? 
+ilang tren ang mayroon mula rito patungo ... kada araw ? 
+kailan aalis ang tren para ... sa ngayon ? 
+anong oras ang susunod na tren para sa ... ? 
 maaari ko bang malaman kung nasa oras ang express train no. 122 ? 
-saan ako makakakuha ng tiket para sa … ? 
+saan ako makakakuha ng tiket para sa â€¦ ? 
 makakaligtaan na natin ang tren . 
 masama ang pakiramdam ko sa puwestong nasa likuran ang makina . 
 ilagay ang mga ito sa ilalim ng upuan sa pansamantalang panahon . 
@@ -5895,13 +5895,13 @@ kailangan ko bang lumipat ?
 kailangan ko bang magpalit ng tren kung tutungo ako sa chiang mai ? 
 nakumpleto mo na ba ang pormalidad ng paglipat ? 
 pakiusap po , meron po bang treng dumederetso sa nakhon sawan ? 
-posible bang makahinto ako sa … nang isang araw ? 
+posible bang makahinto ako sa ... nang isang araw ? 
 pumunta po kayo sa window no. i para sa pormalidad ng paglipat . 
 kinakailangan mo bang sakyan ang treng ito ? 
 mula sa aling platform lilisan ang tren ? 
 saan ko mapapaendorso ang aking tiket ? 
 maaari ba akong magpapalit ng ruta ? 
-maaari ko bang pahabain ang aking paglalakbay patungong … ? 
+maaari ko bang pahabain ang aking paglalakbay patungong ... ? 
 nasaan ang hugasan ? 
 may sabon ba sa banyo ? 
 gaano katagal mananatili rito ang tren ? 
@@ -5969,7 +5969,7 @@ maaari ba akong makahingi ng baso ng malamig na tubig ?
 makukuha mo ba ako ng makakain ? 
 magpapadala ba siya ng pagkain sa aking kompartimento ? 
 makukuha mo ba ako ng mababasa ? 
-may mga magagandang lugar ba sa … ? 
+may mga magagandang lugar ba sa ... ? 
 gaano kalayo ka makapaglalakbay gamit ang iyong tiket ? 
 saan ko dapat bayaran ang sobrang pamasahe ? 
 maaari ba akong maligo sa tren ? 
@@ -6058,7 +6058,7 @@ pupunta ka ba sakay ng kotse o ng tren ?
 ano ang nakita mo sa daan ? 
 saan tayo makasasakay ng bus ? 
 anong daan ang dapat ko munang kunin ? 
-maglakad sa direksyon patungong … 
+maglakad sa direksyon patungong ... 
 direktang nasa harapan ito ng bangko . 
 maaari kang maglakad patungo roon sa sampung minuto . 
 napakalapit noon dito . 
@@ -6076,7 +6076,7 @@ paano ako makararating sa labasan ?
 gaano karaming pagtigil ang kailangan kong madaanan ? 
 madali bang makahanap ng estante ng taksi ? 
 heto na ang tren . 
-nandito na tayo … estasyon . 
+nandito na tayo ... estasyon . 
 saan ako makakakuha ng talaan ng iskedyul para sa mga shuttle bus ? 
 anong oras aalis ang tren ko ? 
 isang maligayang paglalakbay sa iyo ! 
@@ -6642,11 +6642,11 @@ maaari mo ba itong balutin sa magandang pambalot na papel ?
 kailangan niyong magbayad nang dagdag na 20 baht para sa pagbalot . 
 may maitutulong ba ako sa inyo ? 
 puwede niyo bang sabihin sa akin kung saan ako makakakuha ng asukal , harina , karne , sabon at kanin ? 
-naghahanap ako ng librong pinamagatang “ abc “ . 
+naghahanap ako ng librong pinamagatang Â“ abc Â“ . 
 maaari niyo po bang ipakita sa akin kung anong meron ninyo sa linya ng mga delata ? 
 ano kaya kung ang brand na ito ? 
 mayroon ba kayong partikular na hinahanap ngayon ? 
-hindi ko mahanap ang … 
+hindi ko mahanap ang Â… 
 maipapakita mo ba sa akin kung nasaan ang salamin ? 
 saan mo ito binili ? 
 gustong-gusto ko ito . 
@@ -6669,7 +6669,7 @@ nahanap mo ba ang hinahanap mo ?
 iyon lang po ba para ngayon ? 
 may tumutulong ba sa iyo dito ? 
 paano mo gustong ipadala ito ? 
-maaari niyo itong ipadala sa pamamagitan ng priority airmail nang … baht o regular airmail nang … baht . 
+maaari niyo itong ipadala sa pamamagitan ng priority airmail nang Â… baht o regular airmail nang Â… baht . 
 anong kaibahan ng presyo ? 
 gusto niyo bang ipa-insyur ang laman ? 
 gusto kong ipadala ang sulat na ito sa hong kong. 
@@ -6685,9 +6685,9 @@ magkano ito ?
 kukunin ko iyon . 
 iyon lang po salamat . 
 puwede mo ba akong tulungan ? 
-mayroon ba kayong … ? 
-nasaan ang … ? 
-puwede ko bang makita ang … ? 
+mayroon ba kayong â€¦ ? 
+nasaan ang â€¦ ? 
+puwede ko bang makita ang â€¦ ? 
 puwede mo bang ibalot ito para sa akin ? 
 puwede mo bang ideliver ito para sa akin ? 
 anong magagawa ko para sa iyo ? 
@@ -6793,11 +6793,11 @@ gusto ko ng magasin .
 gusto ko ng posporo . 
 gusto ko ng dyaryo . 
 gusto ko ng mapa ng ruta . 
-gusto ko ng isang … mapa . 
+gusto ko ng isang â€¦ mapa . 
 gusto ko ng selyo . 
 puwede ba akong tumingin-tingin lang. 
 puwede ba kitang tulungan ? 
-oo , naghahanap ako ng … 
+oo , naghahanap ako ng â€¦ 
 hindi , tumitingin lang ako . 
 ito kaya ? 
 napakalaki nito . 
@@ -6846,7 +6846,7 @@ nagbebenta ba kayo ng mga mapa ng envelop ?
 nagbebenta ba kayo ng dyaryo sa ingles ? 
 may seksyon ba ng wikang ingles ? 
 may malapit bang tindahan ng libro na nasa wikang ingles ? 
-may mga libro ba kayo sa ingles ni  … ? 
+may mga libro ba kayo sa ingles ni  Â… ? 
 naghahanap ako ng carabao cd . 
 anong grupong popular sa thailand ? 
 nasaan ang seksyon ng pandayuhang musika ? 
@@ -6864,24 +6864,24 @@ ano ang halaga nito ?
 magkano ito ? 
 nakadiskuwentro ba ito ? 
 binababaan ba ito ng presyo ? 
-mayroon ba kayong … ? 
-maaari ba akong makahingi ng … ? 
-naghahanap ako ng … ? 
-mayroon ba kayong stock ng … ? 
+mayroon ba kayong â€¦ ? 
+maaari ba akong makahingi ng â€¦ ? 
+naghahanap ako ng â€¦ ? 
+mayroon ba kayong stock ng â€¦ ? 
 tumitingin lang ako . 
 nagbabasa-basa lang ako . 
 puwede ba akong magbasa-basa ? 
-pakipakita sa akin … 
-maaari ko bang tingnan ang … ? 
+pakipakita sa akin â€¦ 
+maaari ko bang tingnan ang â€¦ ? 
 maaari ba akong tumingin-tingin ? 
-gusto kong makita … 
-gusto kong tingnan ang … 
-puwede ka ba magrekomenda ng … ? 
-mapapayuhan mo ba ako kung … ? 
-ano sa tingin mo ang … ? 
-puwede ba kayong magmungkahi … ? 
-puwede mo ba akong bigyan ng opinyon sa … ? 
-makapagpapayo ka ba … ? 
+gusto kong makita â€¦ 
+gusto kong tingnan ang â€¦ 
+puwede ka ba magrekomenda ng â€¦ ? 
+mapapayuhan mo ba ako kung â€¦ ? 
+ano sa tingin mo ang â€¦ ? 
+puwede ba kayong magmungkahi â€¦ ? 
+puwede mo ba akong bigyan ng opinyon sa â€¦ ? 
+makapagpapayo ka ba â€¦ ? 
 mayroon ka bang katulad nito ? 
 anong mayroon mo na katulad nito ? 
 mayroon ka bang parang ganito ? 
@@ -6917,7 +6917,7 @@ gusto ko itong masubukan .
 maaari ko ba itong masubukan para makita ang sukat ? 
 gusto kong makita kung sakto ito . 
 gusto kong makita kung maganda ito sa akin . 
-sukat … ako 
+sukat â€¦ ako 
 anong sukat nito ? 
 may malaki ka ba ? 
 mayroon ba nito sa mas malaking sukat ? 
@@ -7140,7 +7140,7 @@ gawa ba ang lahat nang ito sa totoong balat ?
 gusto kong makita ang mga pitaka . 
 mayroon ba kayong mga mas maliit ? 
 sinusubukan kong makahanap ng isang sumbrero para sa aking sarili, pero hindi pa ako makapili kung alin ang kukunin sapagka't maraming mga estilo .
-para sa disenyo , katanggap-tanggap ito , pero ang kulay … 
+para sa disenyo , katanggap-tanggap ito , pero ang kulay Â… 
 mas gusto ko ang berde kaysa sa ibang kulay , lalo na sa aking sombrero . 
 tumitingin lang ako . 
 anong sukat nito ? 
@@ -7242,7 +7242,7 @@ ano-ano ang mga termino ninyo ?
 mayroon may kayong mga modelo ng tangke na de-remote control ? 
 okay na ba ang pambatang tangkeng tumatakbo sa baterya ? 
 gaano katagal ito bago ma-charge muli ? 
-mayroon ba kayo noong … ? 
+mayroon ba kayo noong ... ? 
 nasa dulo na ito ng aking dila pero nakalimutan ko pa . 
 gusto kong bumili ng bra . 
 mayroon ba kayong may pad na bra sa parehong kulay ? 
@@ -7452,7 +7452,7 @@ kailan ito maiinstall ?
 narito ang invoice at garantiya . pakiingatan ang pagtago sa mga ito . 
 kailan matatapos ang garantiya ? 
 napakamahal magbayad para sa pagpapaggawa paglipas ng expiration ng garantiya , hindi ba ? 
-mayroon ba kayo ng pinakabagong isyu ng “ national geography “ ? 
+mayroon ba kayo ng pinakabagong isyu ng " national geography " ? 
 puwede mo bang palitan ang buo kong pera ng barya ? 
 kailangan kong tumawag. 
 puwede ba akong kumuha ng mas malaking bag para sa lahat ng gamit ko . 
@@ -7567,7 +7567,7 @@ nagbebenta kayo ng mga modelo , hindi ba ?
 gusto namin magkaroon ng mga aktuwal na modelo . 
 kailangan namin ng tangke . para sa hukbong pranses , kailangan namin ng 14 r35s at 12 fcm36s ; para sa british , 19 m4cs ; para sa aleman , 17 pz38s . 
 wala kami ngayon ng parehong mortar at anti-aircraft na baril para sa hukbong dutch at mga mga automatic rifle para sa hukbong + b1371 belgian . 
-mayroon ba kayong buwanang magasing amerikano na “ national geographic “ ? 
+mayroon ba kayong buwanang magasing amerikano na " national geographic " ? 
 gusto niyo bang magpareserba ng kopya ? 
 pakireserba ang isa para sa akin . 
 magkano ang mga kamiseta ? 
@@ -7594,8 +7594,8 @@ sobrang mahal nito .
 hayaan mong isipin ko ito . 
 kukunin ko ito . 
 sobrang mahal . 
-magbabayad lamang ako ng … baht . 
-mayroon lamang akong … 
+magbabayad lamang ako ng â€¦ baht . 
+mayroon lamang akong â€¦ 
 ito ba ang presyong mabibigay mo ? 
 bigyan mo ako ng diskwentro . 
 magkano ito ? 
@@ -7610,8 +7610,8 @@ may mali sa bill .
 sobrang taas ng presyo . 
 maaari niyo bang babaan ang presyo ? 
 may mga mas mura ba kayo ? 
-bigyan mo ako … 
-hindi hihigit sa … 
+bigyan mo ako â€¦ 
+hindi hihigit sa â€¦ 
 babalik ako mamaya . 
 dadaan ako nang mamayang konti . 
 ibabalik ko ito mamaya . 
@@ -7871,9 +7871,9 @@ nagbebenta ba kayo ng tsinelas ?
 nagbebenta ba kayo ng snikers ? 
 sukat 6 . 
 sukat 6 1 / 2 . 
-sukat … 
+sukat â€¦ 
 puwede ko ba itong sukatin ? 
-ang sukat ko ay … 
+ang sukat ko ay â€¦ 
 hindi ito kasya . 
 sobrang luwang nito . 
 sobrang sikip nito . 
@@ -7969,7 +7969,7 @@ may mas mababang presyo pa ba kayo ?
 puwede kayong gumamit ng internet para makapag-ip call , at sisingilin ko lamang kayo sa halaga ng pagtulong sa pagsasaayos . 
 mukhang may mali sa bill ng aking telepono. 
 ilang minuto lang akong nakipag-usap sa amerikanong kaibigan . 
-gusto kong tumawag nang long- distance sa … 
+gusto kong tumawag nang long- distance sa ... 
 alin ang gusto mo , isang ordinaryong tawag o isang tawag na pang-emergensi ? 
 ano ang numero ng telepono sa kabilang linya ? 
 gusto kong ipadala ang sulat na ito sa new york . 
@@ -8056,7 +8056,7 @@ talagang magandang laban iyon !
 nakakatamad na laban ? 
 sinusundan mo ba ang football ? 
 sino ang nasa itaas ng liga ? 
-paborito kong manlalaro si … 
+paborito kong manlalaro si â€¦ 
 siya ay naglaro brilliantly sa pagtutugma laban sa manchester united . 
 paano ako makakapunta sa stadium ? 
 nasaan ang stadium ? 
@@ -9035,12 +9035,12 @@ may dalawa akong tiket para sa konsyerto ngayong gabi . gusto mo bang sumama sa 
 sinong tumutugtog ? 
 anong oras ito magsisimula ngayong gabi ? 
 alam mo bang magkakaroon ng malaking sayawan ngayong katapusan ng linggo ? 
-mayroon pa bang advance na tiket ng “ inception “ ? 
+mayroon pa bang advance na tiket ng " inception " ? 
 saan at kailan ako makapagrereserba ng upuan ? 
 narinig ko na mayroon kayong boston symphony orchestra na konsyerto sa ika-22 . 
 iniisip ko kung mayroon pa bang upuan sa may balcony . 
 pakitalaga ang dalawang upuan sa orkestra para sa amin . 
-maaari mo bang sabihin sa akin kung ipinapalabas ngayon ang “ my fair lady “ ? 
+maaari mo bang sabihin sa akin kung ipinapalabas ngayon ang " my fair lady " ? 
 may puwesto ka ba na mga 300 baht ? 
 anong hanay ? 
 may maganda bang tanawin ? 
@@ -9158,7 +9158,7 @@ gusto kong makinig ng musikang pop .
 sa katapusan ng linggo , pumupunta ako paminsan sa disco o sa sinehan . 
 nakikinig ako sa mga banda tulad ng etc . 
 interesado ako sa punk . 
-narinig mo na ba ang awit na “ 24.7 “ ? 
+narinig mo na ba ang awit na Â“ 24.7 Â“ ? 
 kaninong awitin ito ? 
 makapapanood ba tayo ng pelikula ngayon ? 
 anong uri ng pelikula ang masisiyahan tayo ? 
@@ -9269,7 +9269,7 @@ magkita tayo bukas .
 ipagpaumanhin mo , nahuli ako . 
 ano ang gusto mong kainin ? 
 anong klase ng side dish ang mayroon kayo ? 
-gusto ko ng … 
+gusto ko ng â€¦ 
 wala pong yelo . 
 ako na ito . 
 salamat , pero hindi ko ito gusto . 
@@ -9571,7 +9571,7 @@ ito lang ba ang tanging music square sa thailand ?
 malamang hindi , ngunit ito ang pinakamalaki . 
 para saan ang kumikinang na toreng iyon ? 
 iyon ang tore ng tv . 
-kapag dumating ka sa tuktok , magkakaroon ka ng bird ’ s eye view ng lungsod . 
+kapag dumating ka sa tuktok , magkakaroon ka ng bird's eye view ng lungsod . 
 lubhang malinis dito ar medyo malapad ang mga kalsada . 
 isa itong lungsod na may katamtamang-sukat na tanyag para sa kapaligiran nito . 
 totoo iyon . 
@@ -9880,7 +9880,7 @@ narito ang iyong mga tiket .
 salamat . 
 isa itong bagong parke , hindi ba ? 
 oo , bukas ito noong nakaraang taon . 
-noong gabi sa ganap na humigit-kumulang 7 o ’clock , isasaentablado ang isang drama sa teatro sa parke . 
+noong gabi sa ganap na humigit-kumulang 7 o'clock , isasaentablado ang isang drama sa teatro sa parke . 
 o , natatakot akong magiging mahirap ito para sa akin . 
 hindi ako makaintindi ng kahit isang thai na salita . 
 huwag mag-alala , isa itong dance drama . 
@@ -9891,7 +9891,7 @@ maganda iyan !
 tingnan mo , ito ang sikat na world trade centre . 
 napakalaki nito , hindi ba ? 
 oo nga . 
-gusto mo bang pumunta sa tutok at magkaroon ng bird’ s eye view ng lungsod ? 
+gusto mo bang pumunta sa tutok at magkaroon ng bird's eye view ng lungsod ? 
 bakit , oo naman . 
 saan tayo makakasakay ng elevator ? 
 dito ang daan , pakiusap . 
@@ -10003,7 +10003,7 @@ ito ang jiangjun cliff . sa kanan , ang yuanyang waterfall .
 o , tingnan mo yung mga tao doon ! 
 nakasuot sila nang kakaiba . 
 o , mga tao sila ng minoryang grupong tujia . 
-tahanan ang lugar na ito sa tatlo sa mga katutubong tao ng probinsya – tujia , miao at bai . 
+tahanan ang lugar na ito sa tatlo sa mga katutubong tao ng probinsya-tujia , miao at bai . 
 nagpapatuloy ang mga minoryang grupong ito sa pagsasalita ng kanilang mga wika at pagpapanatili ng kanilang tradisyunal na kultura . 
 a , ganoon pala . 
 sa daan pataas , mayroong isang jumping fish pool . 
@@ -10044,7 +10044,7 @@ narinig ko na isang kaakit-akit na karanasan ang pagbisita sa mga kuweba .
 gaya nang naplano , bibisitahin natin ang ilang sikat na mga kuweba . 
 oo . 
 sa loob ng mga kuweba makikita mo ang mga kagila-gilalas na mga stalagmite , kurtinang bato , at mga bulaklak . 
-pumuporma sila ng iba’t ibang kaakit-akit na mga senaryo . 
+pumuporma sila ng iba't ibang kaakit-akit na mga senaryo . 
 doon ! 
 mukhang isang elepante ang burol . 
 naalala ko na nakita ko iyan sa isang dako . 
@@ -10103,7 +10103,7 @@ hindi mo makikita ang lahat ng amusement park sa isang araw .
 gaano kalaki ang parke ? 
 humigit-kumulang 180 acres . 
 mayroon itong limang pangunahing mga seksyon . pinangalanan silang main street , frontier-land , fantasy-land , tomorrow-land at adventure-land . 
-madalas tinatawag na “ magic kingdom “ ang disneyland . 
+madalas tinatawag na " magic kingdom " ang disneyland . 
 mayroong napakaraming mga bagay na makikita sa parke . 
 ano ang pinakamasiyahan ka ? 
 ang jungle river boat safari , sleeping beauty castle walkthrough , submarine voyage and tom sawyer island . sa palagay , kabigha-bighani silang lahat . 
@@ -10159,7 +10159,7 @@ itinayo ng ating mga ninuno ang pader na ito upang ipagtanggol ang kanilang mga 
 kaya kinailangang gawin nila itong napakahaba , sa ibabaw ng mga bundok at patawid sa mga kapatagan , mula sa lupa hanggang sa dagat . 
 ganoon pala . 
 kaya itinayo ang great wall para sa kapatakan ng kapayapaan . 
-sa kasong iyan , dapat itong tawagin na ang “ peace wall ” . 
+sa kasong iyan , dapat itong tawagin na ang " peace wall " . 
 hindi iyan masamang ideya , ngunit medyo huli na ngayon . 
 dapat mong ginawa ang mungkahing ito sa unang tsinong emperador matagal na ang nakalipas . 
 kailan dapat yun ? 
@@ -10209,7 +10209,7 @@ mas pinipili ko ang mga prangkang dula .
 sa kabuuan , hindi kasiya-siya ang dula . 
 ganap na tama ka riyan . 
 sa palagay ko maaari pang mapagbuti ang pag-arte . 
-bagama’t para maging patas , kahanga-hanga kapwa ang mga kasuotan at mga senaryo . 
+bagama't para maging patas , kahanga-hanga kapwa ang mga kasuotan at mga senaryo . 
 hindi ko nagustuhan ang mga kasuotan ng mga lalaki , ngunit maganda ang mga damit ng mga babae . 
 sino ang aktor na gumaganap na duktor ? 
 si william bush iyan . 
@@ -10352,7 +10352,7 @@ siguro kahanga-hanga ang mga obra-maestrang tsinong pambayang musika .
 ilang uri ng mga tradisyunal na tsinong pangmusikang instrumento ang naroon ? 
 hindi ko eksaktong nalalaman , ngunit tiyak ako na mayroon kahit 300 uri . maaari silang igrupo sa apat na mga kategorya : mga stringed instrument , plucked instrument , percussion instrument at wind instrument . 
 pinamamalaki mo siguro iyan . 
-ipinakilala ang isang tsinong instrumento , tinatawag na ‘ sheng ’ sa persia at kalaunan sa europa . 
+ipinakilala ang isang tsinong instrumento , tinatawag na ' sheng ' sa persia at kalaunan sa europa . 
 narinig ko na mayroong mahigit sa 50 mga nasyunalidad sa china . 
 sa palagay ko mayroong kanilang sariling pambihirang musika bawat isa sa kanila , hindi ba ? 
 tama ka . 
@@ -10630,14 +10630,14 @@ gusto mo ba akong tulungan sa problemang ito ?
 kailangan ko ang iyong tulong sa tanong na ito ? 
 maaari mo ba akong tulungan sa problemang ito ? 
 nagsasalita ka ba ng ingles ? 
-paano mo sasabihin ang “ patawad ” sa thai ? 
+paano mo sasabihin ang " patawad " sa thai ? 
 sabihin mo pa nang minsan pakiusap ? 
 pakiusap magsalita ng mas mabagal . 
 umupo pakiusap . 
 pakiusap isulat ito para sa akin . 
 magkano ito ? 
 mayroon bang isang information counter dito ? 
-paano ko sasabihin ang “ salamat ” sa thai ? 
+paano ko sasabihin ang " salamat " sa thai ? 
 hindi ko naiintindihan ang kung ano ang sinasabi niya . 
 pakiusap ipaliwanag ang ano ang dapat kong gawin . 
 maraming salamat . 
@@ -10651,13 +10651,13 @@ may problema ako .
 hindi ko maunawaan ang sinasabi ng tagubilin . 
 maaari mo bang giyahan tungo sa tourist information ? 
 gusto mo bang itama ang aking pagbigkas ? 
-hindi ako tiyak kung paano sabihin ang “ mahal ” sa thai . 
+hindi ako tiyak kung paano sabihin ang " mahal " sa thai . 
 kailangan ko ng isang tagasalin . saan aji nakakahanap ng isang ahensya ? 
 kailangan kong maipasalin ang mga dokumentong ito . saan mo iminumungkahi na pumunta ako ? 
 hindi ko maunawaan ang sinasabi ng mga senyas . maaari mo bang isalin sila sa english ? 
 mayroon ba ritong nakakapagsalita ng pranses ? 
 hindi gaanong nakakaintindi ng maraming ingles ang pranses na pamilyang ito . 
-paano ko masasabi ang “ lumiko sa kaliwa ” sa german ? 
+paano ko masasabi ang " lumiko sa kaliwa " sa german ? 
 hindi natin mabibigkas ang tonong thai . lubhang napakahirap nito . 
 nakakaunawa ako ng ilang pranses ngunit hindi makagamit ng wastong wika . 
 maaari mo bang isulat ang pangalan ko sa mga titik na thai ? 
@@ -10666,7 +10666,7 @@ magandang umaga sa lahat .
 masaya akong makilala kayong lahat . 
 napakagandang araw . 
 dapat ba tayong pumunta sa parke ngayon ? 
-paano ko sasabihin ang “ hello ” sa thai ? 
+paano ko sasabihin ang " hello " sa thai ? 
 bago ako dito . 
 pakiusap ipakilala mo ako sa kapitbahayan . 
 kumusta . nakatira ako sa tabi mo . 
@@ -10901,9 +10901,9 @@ li . binabaybay ito na may dalawang titik lamang : l at i .
 tingnan ko ... l ... i ... 
 ah ! 
 narito . 
-ngunit isa pang pangalan na nagkataong “ li “ rin ! 
+ngunit isa pang pangalan na nagkataong " li " rin ! 
 nakuha ba natin nang tama ? 
-walang pasubali itong tama . 
+walang pasubali itong tamacelcius
 babae , 24 , tsino , dalaga , post-graduate , literaturang english , tama ? 
 ako nga iyan . 
 mabuti ! 
@@ -11094,21 +11094,21 @@ gaya ng ano ang panahon sa siam sa tag-araw ?
 medyo mainit ito . 
 lubha bang malamig sa huahin sa taglamig ? 
 hindi , hindi gaanong malamig. 
-mahigit sa 10 degrees „ ƒ ang karaniwang temperatura doon sa taglamig. 
+mahigit sa 10 degrees celcius ang karaniwang temperatura doon sa taglamig. 
 gaya ng ano ang taglagas sa beijing ? 
 pinakamaganda panahon ang taglagas sa beijing. 
 ano ang karaniwang temperatura sa beijing sa oktubre ? 
 gaya ng ano ang panahon kamakailan lamang sa beijing ? 
 isang kahanga-hangang summer resort ang beidaihe . 
-mas mababa sa 25 degrees „ ƒ ang karaniwang temperatura doon sa tag-araw . 
-humigit-kumulang 20 ° ang karaniwang temperatura sa nanjing sa may . 
-humigit-kumulang 23 ° ang karaniwang temperatura sa xi'an sa september . 
+mas mababa sa 25 degrees celcius ang karaniwang temperatura doon sa tag-araw . 
+humigit-kumulang 20 Â° ang karaniwang temperatura sa nanjing sa may . 
+humigit-kumulang 23 Â° ang karaniwang temperatura sa xi'an sa september . 
 mula mayo hanggang oktubre ang pinaka magandang panahon para bisitahin ang chengde . 
 sa taglamig ang pinaka magandang panahon para bisitahin ang harbin . 
-humigit-kumulang 20 ° sa mas mababa sa zero ang karaniwang temperatura sa enero . 
+humigit-kumulang 20 Â° sa mas mababa sa zero ang karaniwang temperatura sa enero . 
 sa taglagas ang pinaka magandang panahon para bisitahin ang hunan . 
 mas mabuting bisitahin ang hangzhou at suzhou sa tagsibol . 
-humigit-kumulang 15 ° ang karaniwang temperatura sa panahong iyan . 
+humigit-kumulang 15 Â° ang karaniwang temperatura sa panahong iyan . 
 maaari mong bisitahin ang kunming anumang oras ng taon . 
 isa itong lungsod ng walang hanggang tagsibol . 
 mayroong isang sunog sa tindahan sa kanto . 
@@ -11533,11 +11533,11 @@ binibining wang , narinig ko na pinamamahalaan ng ilang mga kombensyon ang tradi
 tunay na magpapasalamat ako kung maaari mo akong sabihan ng tungkol dito . 
 well , nagbuhat ang beijing opera sa huling bahagi ng 1700s . umunlad ito mula sa ilang lokal na mga opera sa mga probinsya ng anhui at hubei . 
 naging isang pambihirang nagtatanghal na sining ito ngayon na isinasama ang pag-awit , dayalogo , pag-arte at labanang akrobatiko . 
-kaiba rin ang mga aktor at aktres mula sa isa’t-isa ayon sa mga tauhang kanilang ginagampanan . 
+kaiba rin ang mga aktor at aktres mula sa isa't-isa ayon sa mga tauhang kanilang ginagampanan . 
 mayroong apat na pangunahing mga grupo ng mga tauhan , lalo na ang pangunahing lalaki , ang pangunahing babae , ang pininturahang mukha at ang payaso . 
 nasa ulap pa rin ako . 
 hayaan mo akong magpaliwanag. 
-ginagampanan ng ‘ pangunahing lalaki ’ ang papel ng isang ordinaryong tao ; gumaganap ng papel ng isang ordinaryong babae ang ‘ pangunahing babae ’ ; tumatayo ang ‘ pininturahang mukha ’ para sa mga lalaking na may natatanging kaibang hitsura at mga katangian . 
+ginagampanan ng ' pangunahing lalaki ' ang papel ng isang ordinaryong tao ; gumaganap ng papel ng isang ordinaryong babae ang ' pangunahing babae ' ; tumatayo ang ' pininturahang mukha ' para sa mga lalaking na may natatanging kaibang hitsura at mga katangian . 
 mukhang lubhang interesante ito ! 
 bukod riyan , halos maaaring hatiin ang beijing opera sa mga dulang militar at ang mga umaawit na dula . 
 mayroon bang mga baril ang mga aktor sa mga dulang militar ? 
@@ -11645,9 +11645,9 @@ napakahusay nito .
 paano mo nagustuhan ang pelikulang rain man ? 
 sa palagay ko napakahusay nito . 
 aling bahagi ang pinaka gusto mo ? 
-palagay ko ang eksena na nakabighani sa akin ng husto nang nakikipag-usap ang magkapatid sa isa’t-isa . 
+palagay ko ang eksena na nakabighani sa akin ng husto nang nakikipag-usap ang magkapatid sa isa't-isa . 
 wala akong nakitang gayong napakahusay na pag-arte sa loob ng mahabang panahon . 
-kung isa ako sa mga hurado , pipiliin ko ito bilang ‘ pinakamahusay na pelikula ng taon ’ . 
+kung isa ako sa mga hurado , pipiliin ko ito bilang ' pinakamahusay na pelikula ng taon ' . 
 inisip ng mga kritiko na isa ito sa mga pinakamahusay na pelikula nitong nakaraang sampung taon . 
 nawili talaga ako sa pelikulang iyan . 
 lubhang sentimental ang kuwentong ito . 
@@ -11735,7 +11735,7 @@ anong oras ?
 maaari ka bang pumunta bukas ng gabi ? 
 pupunta ako sa isang birthday party . 
 kung gayon , kailan ka namin aasahan para sa hapunan ? 
-biyernes , sabado … linggo , paano kung linggo ? 
+biyernes , sabado â€¦ linggo , paano kung linggo ? 
 malilibre ako nang buong araw na iyon . 
 mabuti ! 
 nasa bahay ako maghihintay para sa iyo sa ganap na ika-kalahati pagkaraan ng ika-pito . 
@@ -12505,11 +12505,11 @@ ano ang problema mo , g. sun ?
 masakit ang aking ulo , lalamunan at ubo . 
 at nagkaroon ako ng malubhang sakit ng tiyan kaninang umaga . 
 buksan mo ang iyong bibig , pakiusap . 
-gusto ko lamang tignan ang iyong lalamunan . sabihin mo ' aah … ' 
+gusto ko lamang tignan ang iyong lalamunan . sabihin mo ' aah Â… ' 
 aah ... 
 hmm , pula ito . 
 hayaan mong tignan ko ang iyong dibdib . 
-tanggalin mo lamang ang butones ng iyong damit , pakiusap . ngayon , huminga nang malalim … lumanghap … palabas … lumanghap … palabas . sapat na iyon , salamat . 
+tanggalin mo lamang ang butones ng iyong damit , pakiusap . ngayon , huminga nang malalim ... lumanghap ... palabas ... lumanghap ... palabas . sapat na iyon , salamat . 
 bibigyan kita ng mga pill at tableta at mixture ng ubo . 
 narito ang reseta . 
 kunin mo ang medisina bawat apat na oras . 
@@ -12524,7 +12524,7 @@ mayroong dugo sa aking suka kahapon .
 ginagawa mo ba ito madalas ? 
 hindi , kailanman hindi ko pa ito nagawa . 
 ganoon ba . 
-hayaan mong tignan ko ang resulta ng iyong x-ray … 
+hayaan mong tignan ko ang resulta ng iyong x-ray ... 
 ( hinawakan ang negative plate laban sa ilaw ) 
 mmm ... 
 inakala ko nga . 
@@ -13074,15 +13074,15 @@ gusto kong magpapalit ng mga pound sa mga baht .
 gusto kong magpapalit ng mga yuan sa baht . 
 gusto kong magpapalit ng mga yen sa mga baht . 
 gusto kong magpapalit ng mga euro sa mga baht . 
-gusto kong ipalit ng salapi ang mga traveler’s check . 
-gusto kong ipalit ng salapi ang mga traveler’s cheque . 
+gusto kong ipalit ng salapi ang mga travelerÂ’s check . 
+gusto kong ipalit ng salapi ang mga travelerÂ’s cheque . 
 gusto kong ipalit ng salapi ang mga eurocheque . 
 gusto kong kumuha ng cash advance . 
 ano ang halaga ng palitan ? 
 ano ang bayad sa pagpapalit ? 
 sa palagay ko mayroong pagkakamali . 
-nawala ko ang aking mga traveler’s check . 
-nawala ko ang aking mga traveler’s cheque . 
+nawala ko ang aking mga travelerÂ’s check . 
+nawala ko ang aking mga travelerÂ’s cheque . 
 nawala ang aking kard . 
 ninakaw ang aking kard . 
 hindi gumagana ang aking kard . 
@@ -13108,14 +13108,14 @@ pakiusap maaari mo bang sabihin sa akin ang halaga para sa mga dolyar ?
 pakiusap maaari mo bang sabihin sa akin ang halaga para sa mga dolyar ? 
 ano ang iyong halaga ng palitan para sa mga dolyar ? 
 ano ang halaga ng palitan ng dolyar ? 
-maaari ko bang ipalit ng salapi ang mga traveler’s check dito ? 
-maaari ko bang ipalit ng salapi ang mga traveler’s check ? 
-posible ba na ipalit sa salapi ang traveler’s check na ito dito ? 
-posible ba na ipalit sa salapi ang aking traveler’s check dito ? 
-gusto kong ipalit ng salapi ang traveler’s check na ito , pakiusap . 
-gusto kong ipalit ng salapi ang aking traveler’s check , pakiusap . 
-maaari ba akong makakuha ng salapi para sa mga traveler’s check ? 
-maaari ba ko bang ipalait ng salapi ang ilang traveler’s check ? 
+maaari ko bang ipalit ng salapi ang mga traveler's check dito ? 
+maaari ko bang ipalit ng salapi ang mga traveler's check ? 
+posible ba na ipalit sa salapi ang traveler's check na ito dito ? 
+posible ba na ipalit sa salapi ang aking traveler's check dito ? 
+gusto kong ipalit ng salapi ang traveler's check na ito , pakiusap . 
+gusto kong ipalit ng salapi ang aking traveler's check , pakiusap . 
+maaari ba akong makakuha ng salapi para sa mga traveler's check ? 
+maaari ba ko bang ipalait ng salapi ang ilang traveler's check ? 
 ano ang komisyon ? 
 ano ang halaga ng komisyon ? 
 magkano komisyon ang iyong sinisingil ? 
@@ -13988,7 +13988,7 @@ pakibigyan ako ng mga numero na tatawagan sa kaso ng problema .
 sino ang tatawagan ko kung mayroon anumang problema ? 
 pakibigyan ako ng listahan ng mga numero ng telepono na matatawan sa kaso na mayroong isang problema . 
 pakipaliwanag kung saan ako tatawag kung anuman ang mangyari . 
-ito ang aking driver’s license . 
+ito ang aking driverÂ’s license . 
 narito ang aking driving permit . 
 maaari ko bang iwanan ang kotse sa aking destinasyon ? 
 maaari ko bang isoli ang kotse sa punto ng destinasyon ? 
@@ -14435,7 +14435,7 @@ nagmamaneho siya sa top gear nang maganap ang aksidente .
 naipit siya sa isang teribleng pagsisikip ng trapiko sa taipei . 
 lubhang mahirap ang pagsusulit sa pagmamaneho sa bansang ito . 
 hindi ako makakapagmaneho ng isang trak dahil mayroon lamang akong ordinaryong lisensya . 
-napakasaya ni sharon nang ipagpalit niya ang kanyang learner’s license para sa isang ganap na lisensya . 
+napakasaya ni sharon nang ipagpalit niya ang kanyang learnerÂ’s license para sa isang ganap na lisensya . 
 pinaatras ng salesman ang kanyang kotse sa isang pader at nayupi ang bumper . 
 ginamit ni linda ang kanyang indicator light upang ipakita na gusto niyang lumiko sa kaliwa . 
 hinimok ng traffic reporter ang mga motorista na gamitin ang kanilang mga fog light . 
@@ -14452,7 +14452,7 @@ mayroon siyang 10-milyang pagmamaneho bawat araw papunta at pabalik mula sa kany
 naubusan ako ng gas . 
 huwag iparada ang kotse sa kalsadang ito . 
 huwag iparada ang kotse dito , isa itong sonang tow-away . 
-gusto kong uminom ng kaunti sa pagtitipon ngayong gabi kaya ’ t sumakay tayo ng isang taksi . 
+gusto kong uminom ng kaunti sa pagtitipon ngayong gabi kaya't sumakay tayo ng isang taksi . 
 kung mayaman tayo , gusto kong maglayag sa southern pacific sa loob ng anim na buwan sa isang pribadong yate . 
 isang pamilyar na tanawin ang mga jeepney sa mga kalsada ng manila . 
 isa ang trans-siberian railway sa epikong paglalakbay sa riles ng mundo . 
@@ -14514,7 +14514,7 @@ magkano ang isang tiket patungo sa estasyon ng tren ?
 dalawa para sa zoo , pakiusap . 
 dito tayo bababa . 
 kailangan na natin bumaba ngayon . nandito na tayo sa iyong destinasyon . 
-sa halagang 20 baht maaari kang makakuha ng isang commuter’s pass dito . 
+sa halagang 20 baht maaari kang makakuha ng isang commuter's pass dito . 
 malaking katipiran iyan kung mananatili ka rito ng ilang panahon . 
 magagamit lamang ang tiket sa loob ng isang buwan . 
 nagsisimula ang unang bus sa ganap na ika-5 : 00 sa umaga . 
@@ -14538,7 +14538,7 @@ kumaliwa ka lamang sa traffic light .
 isa itong one-way na kalsada . 
 paano tayo makakapunta sa kabilang panig ? 
 hindi na maaaring gumawa ng isang u-turn dito . 
-sinasabi ng street sign na “ yield ” . 
+sinasabi ng street sign na " yield " . 
 kailangan nating hayaan makaraan ang ibang mga kotse . 
 naligaw ako ng daan . 
 ano sa palagay mo ang dapat nating gawin ? 
@@ -14776,7 +14776,7 @@ ibabalik niya ito sa iyo bago dumating sa iyong destinasyon .
 mayroon kayong napakagandang serbisyo . 
 ito lamang ang dapat nating gawin . 
 malapit na nating ma-miss ang tren . bilisan ! 
-sandali lamang , hindi ko pa naririnig ang pito , kaya ’ t may oras pa . 
+sandali lamang , hindi ko pa naririnig ang pito , kaya ' t may oras pa . 
 sa aling tren tayo naroroon ? 
 hayaan mong tingnan ko . 
 ito ang pinakadulo ng tren . 
@@ -14793,7 +14793,7 @@ ilagay sila sa ilalim ng upuan pansamantala .
 ayun na ang pito . umaalis na tayo . 
 alam mo ba kung kailan darating ang tren sa bangkok ? 
 hindi ako gaanong tiyak . 
-inaabot ng humigit-kumulang 15 oras , kaya’t darating tayo humigit-kumulang 10 o'clock bukas ng umaga . 
+inaabot ng humigit-kumulang 15 oras , kaya't darating tayo humigit-kumulang 10 o'clock bukas ng umaga . 
 mabuti iyan . 
 magkakaroon tayo ng sapat na oras upang maghanap ng isang otel at magkaroon ng maayos na tulog. 
 umaasa ako na gayon . 
@@ -15107,7 +15107,7 @@ mayroon bang mga lugar ng interes sa daan patungo sa chiangmai ?
 gusto kong bisitahin ang korat habang daan patungo sa chiangmai . 
 sa kasong iyan , mas mabuti para sa iyo na ireserba ang berth ticket para sa korat sa halip na chiangmai . 
 mayroong maraming mga tren mula korat patungo sa chiangmai . 
-maaari mong pasayahin ang iyong sarili sa korat hangga’t gusto mo . 
+maaari mong pasayahin ang iyong sarili sa korat hanggaÂ’t gusto mo . 
 maaari mo bang pakisabi sa akin kung paano makarating sa hualumphong ? 
 mayroong isang through train mula lumpang patungo sa hualumphong. 
 maaari kang dumiretso doon nang hindi nagpapalit ng mga tren . 
@@ -15431,7 +15431,7 @@ ano ang mayroon kayo ?
 mayroon kaming isa sa 6 at isa sa 11 : 40 . 
 non-stop ang huli . 
 gusto kong kumuha ng isang non-stop , ngunit lubhang nakapaaga nito . 
-kung gayon maaari mong kunin ang tren na 11 : 40. bagama’t mayroong mas maraming hinto . 
+kung gayon maaari mong kunin ang tren na 11 : 40. bagama't mayroong mas maraming hinto . 
 ok , bigyan mo ako ng isang tiket para sa tren na 11 : 40 . 
 pakiusap na i-tsek upang makita kung tama sila . 
 gaano katagal balido ang isang return ticket ? 
@@ -15533,7 +15533,7 @@ sa daan patungo sa bangkok , maaari mong bisitahin ang chonburi .
 sa daan patungo sa bangkok , maaari mong bisitahin ang pattaya . 
 sa daan patungo sa bangkok , maaari mong bisitahin ang chachoengsao . 
 gaano ako katagal aabutin upang makarating doon ? 
-aabutin ka ng humigit-kumulang apatnapu’t-limang oras upang makarating doon sa pamamagitan ng through passenger train . 
+aabutin ka ng humigit-kumulang apatnapu't-limang oras upang makarating doon sa pamamagitan ng through passenger train . 
 gaano ako katagal aabutin upang makarating doon sa pamamagitan ng tren ? 
 gaano ako katagal aabutin upang makarating doon ? 
 maaari kang pumunta nang diretso doon sa pamamagitan ng isang fast passenger train . 
@@ -15854,7 +15854,7 @@ narito ang iyong parcel ticket .
 pakiusap na i-tsek ang mga bagay . 
 maaari ko bang makuha ang aking bagahe sa oras na dumating ako ? 
 ipapadala ba ang bagahe sa parehong tren kasama ko ? 
-ipapadala ito sa parehong tren kasama mo hangga ’ t maaari . 
+ipapadala ito sa parehong tren kasama mo hangga't maaari . 
 tatlumpung kilong sobra sa timbang ang iyong bagahe . 
 maaari mo bang sabihin sa akin kung magkano para maipasok sa bangkok ang maletang ito ? 
 lubha itong mabigat para dalhin ko . 
@@ -16876,7 +16876,7 @@ narito na ba ang lahat ?
 hayaan mong bilangin ko . oo , narito na silang lahat . 
 nasa labas ng paliparan ang ating bus , pakiusap na sundan ako . 
 maaari ba kitang tulungan ? 
-hayaan mong makita ko ang iyong drives’s license , pakiusap . 
+hayaan mong makita ko ang iyong driver's license , pakiusap . 
 gumawa ba ako ng anumang mali ? 
 nagmamatulin ka . 
 tumatakbo lamang ako ng 50 . 
@@ -16897,7 +16897,7 @@ kumusta ang milyahe at gas ?
 walang singil para sa milyahe . 
 at punuin ang gas kapag isinauli ang kotse sa amin dahil hindi ito kabilang. 
 susubok ako ng isang pinto . 
-maaari bang ibigay sa akin ang iyong driver’s license ? 
+maaari bang ibigay sa akin ang iyong driver's license ? 
 narito . 
 ilang araw mo gustong upahan ang kotseng ito ? 
 tatlong araw lamang. 
@@ -16913,7 +16913,7 @@ aayusin ko ang isang sedan na toyota para sa iyo .
 gusto kong magkaroon ang ganap na seguro . magkano ito kada araw upang umupa ng isang kotse ? 
 maaari ba naming ibalik ang kotse sa alinman sa inyong mga opisina ? 
 gusto kong umupa ng isang midsized na kotse . 
-maaari ko bang makita ang iyong driver’s license . 
+maaari ko bang makita ang iyong driver's license . 
 magkano ang inyong singil para sa kotseng iyan ? 
 nag-aalok na kayo ng seguro sa pinauupahang kotseng ito ? 
 ilang tao ang magmamaneho ng kotse ? 
@@ -16922,7 +16922,7 @@ gusto kong magpatuloy at kumuha rin ng seguro , pagkatapos .
 narito ang aming pangkagipitang roadside service phone number . 
 kung magkaroon ka ang anumang mga problema , tawagan lamang at mayroong darating upang sunduin ka . 
 maaari ko bang isauli ang kotse sa isa pa sa inyong mga ahensya ? 
-basta tiyakin na ipakita sa kanila ang iyong driver’s license . 
+basta tiyakin na ipakita sa kanila ang iyong driver's license . 
 makakaya nilang makuha ang lahat ng iyong impormasyon mula sa kompyuter . 
 maaari ba kitang tulungan ginoo ? 
 gusto ko ng isang compact na kotse na nakakakuha ng magandang milyahe . 
@@ -16932,7 +16932,7 @@ awtomatiko na ito ?
 awtomatiko ang lahat ng aming mga kotse . 
 magkano ang singil ninyo para sa kotseng iyan ? 
 gusto ko ng isang full insurance coverage . 
-maaari mo bang ipakita sa akin ang isang pangunahing credit kard at ang iyong driver’s license . 
+maaari mo bang ipakita sa akin ang isang pangunahing credit kard at ang iyong driver's license . 
 ok ba ang master kard ? 
 para sa ilang araw mo gusto ang kotse ? 
 2 : 30 na ngayon , kaya nangangahulugang isasauli mo ang kotse pagdating ng 2 : 30 sa ika-24 . 
@@ -16952,7 +16952,7 @@ gusto ko ng isang awtomatikong sedan .
 gaano mo ito katagal na kailangan ? 
 magkano ang singil ? 
 kabilang na diyan ang seguro ? 
-isa itong international driver’s license at ito ang aking credit kard . 
+isa itong international driverÂ’s license at ito ang aking credit kard . 
 isang maliit na ekonomya na kotse , pakiusap . 
 gaano mo katagal gustong gamitin ang kotse ? 
 maaari ba akong magbayad sa cash ? 
@@ -17002,7 +17002,7 @@ pupunuin namin ito para sa iyo bago ka umalis .
 regular unleaded ang gas para sa kotseng ito . 
 maaari ko ba itong iwanan sa isa pang sangay ? 
 maaari mong iwanan ang kotse sa alinman sa aming mga lugar sa north america , sakop sa karagdagang gastos . 
-maaari ko bang makita ang iyong international driver’s license at pasaporte , pakiusap ? 
+maaari ko bang makita ang iyong international driver's license at pasaporte , pakiusap ? 
 maaari ko bang makita muna ang kotse ? 
 dadalhin kita sa labas upang makita ito . 
 paano mo gustong magbayad ? 
@@ -17025,7 +17025,7 @@ nakapagreserba ka na ba ng isa ?
 makakapagrekomenda ka ba ng isa na mura at madaling imaneho ? 
 kukuha ako ng isa na mag-tsek upang tingnan kung may magagamit na isa . 
 maaari bang i-fill out mo ang pormang ito ? 
-kakailanganin ko ang iyong pasaporte , driver’s license at credit kard . 
+kakailanganin ko ang iyong pasaporte , driver's license at credit kard . 
 maaari mo bang sabihin sa akin ang singil kada araw ? 
 narito ang isang listahan ng aming mga singil . 
 mayroon ba kayong drop-off service ? 
@@ -17117,7 +17117,7 @@ ngayon kailangan nating umalis ng highway .
 pakiusap na tulungan akong tumingin para sa road sign . 
 iyan ang susunod na labasan . 
 manatili sa kanang daan . 
-sinasabi ng street sign na “ yield . ” 
+sinasabi ng street sign na " yield . "
 kailangan nating padaanin ang ibang kotse . 
 anong uri ng kotse ang naiisip mo ? 
 mag-aayos ako ng isang benz para sa iyo . 
@@ -17130,7 +17130,7 @@ magiging magkano ito sa loob ng dalawang linggo ?
 dalawampung baht kada araw , at tatlumpung sentimo kada milya . 
 ipapakita ko ba sa iyo ang tsart ng singil ? 
 gusto mo ba ang kotse ngayon ? 
-maaari ko bang makita ang iyong international driver’s license at pasaporte , pakiusap ? 
+maaari ko bang makita ang iyong international driver's license at pasaporte , pakiusap ? 
 maaari ko bang iwanan ang kotse sa anumang ahensya ? 
 maaari mong iwanan ito kahit saan sa estados unidos , maliban sa alaska . 
 maaari ko bang makita ang kotse ? 
@@ -17160,7 +17160,7 @@ kung gayon maaari mo bang palitan ang reserbasyon , pakiusap ?
 ikansela ang tiket para sa paglipad nc 310 at mag-book ng isang upuan sa paglipad na 317 patungo sa phayao . 
 paglipad na 317 patungo sa phayao sa ganap na 10:10 p.m. perpekto iyan . 
 mayroon akong reserbasyon sa 2:30 p.m. na paglipad patungo sa phayao ngayong hapon . 
-kung gayon , gusto kong i-reschedule ang aking paglipad para bukas ng umaga sa ganap na 9.š05. posible ba ito ? 
+kung gayon , gusto kong i-reschedule ang aking paglipad para bukas ng umaga sa ganap na 9:05. posible ba ito ? 
 ganap na puno ang 9:05 na paglipad . 
 maaari kitang ilagay sa waiting list kung gusto mo . 
 gusto kong ikumpirma ang isang paglipad bukas . 
@@ -17172,7 +17172,7 @@ mayroong isa pang paglipad sa ganap na 11 : 00 ngayong gabi .
 dapat makolekta ang tiket bago 10 : 30 ngayong gabi . 
 paglipad 207 patungo sa miami ? 
 saan tayo sasakay ng eroplano ? 
-ano ang oras ng pag check – in dito sa paliparan ? 
+ano ang oras ng pag check - in dito sa paliparan ? 
 aling paglipad ang iyong kukunin ? 
 nasa sa kalahating oras iyan . nagbayad ka na ba ng dalawmpung-yuan para sa airport fee ? 
 nabayaran ko ang kabayaran at sumailalim sa safety inspection . 
@@ -17299,7 +17299,7 @@ narito ako upang mag-check in para sa paglipad patungo sa l.a.
 narito ang aking tiket at pasaporte . 
 pakiusap na ilagay ang iyong maleta dito , ginoo . 
 gusto kong i-tsek ng tuloy-tuloy ang mga ito patungo sa l.a. 
-gaano ka katagal mananatili sa l .a ? 
+gaano ka katagal mananatili sa l.a. ? 
 ilang araw lamang. 
 hindi ko kakailanganin ang bagahe sa l.a. 
 hindi namin maaaring i-check ang iyong bagahe nang tuloy-tuloy patungo sa tokyo kung mayroon kang mahigit sa 24 oras sa pagitan ng nag-uugnay na mga paglipad . 
@@ -17332,7 +17332,7 @@ hindi pa namin mahanap ang iyong bagahe .
 maaaring nakalampas ito sa iyong nag-uugnay na paglipad sa detroit . nagsisiyasat pa kami . 
 kung nalampasan nito ang koneksyon , darating ba ito sa susunod na paglipad ? 
 ang paglalagay nito sa susunod na paglipad kung mayroon espasyo ang palakad . 
-lubhang abala sa panahong ito ng taon , kaya ’ t hindi ako makakagawa ng anumang mga pangako . 
+lubhang abala sa panahong ito ng taon , kaya ' t hindi ako makakagawa ng anumang mga pangako . 
 kahit makita nila ang aking mga bag sa detroit , magiging matagal bago sila dumating. 
 titiyakin ng kompanya ng eroplano na maipapadala ang iyong bagahe sa iyo , sa lalong madaling panahon . 
 ano ang patakaran ngayon ? 
@@ -17422,7 +17422,7 @@ gusto kong kumuha ng isang upuan sa isang paglipad patungo sa amsterdam bukas .
 sandali lamang , pakiusap . 
 titingnan ko para sa iyo . 
 salamat para sa paghihintay . 
-mayroon kaming dalawang paglipad – isa sa ganap na 2 : 00 p.m. at isa sa ganap na 5 : 40 p.m.. 
+mayroon kaming dalawang paglipad - isa sa ganap na 2 : 00 p.m. at isa sa ganap na 5 : 40 p.m. . 
 gusto kong kunin ang unang makukuhang paglipad . 
 o , napaka kombenyente niyan . 
 walang tiket na makukuha sa araw na iyon . ngunit mayroon kaming mga paglipad para sa lumpang sa susunod na araw . 
@@ -17479,7 +17479,7 @@ ano ang numero ng paglipad , at petsa ng pag-alis ?
 paglipad 728 ng aa sa hunyo ika-5. seattle patungo sa bangkok . 
 hawakan ang linya , pakiusap . 
 kumpirmado ang iyong upuan . 
-darating ka sa laguardia airport , 8 o clock lokal na oras , sa ika-5 . 
+darating ka sa laguardia airport , 8 o'clock lokal na oras , sa ika-5 . 
 gusto ko ring palitan ang aking pabalik na paglipad , pakiusap , mula bangkok patungo sa hong kong. 
 pakiusap na manatili . 
 sa hunyo ika-10 , paglipad aa 769 mula bangkok patungo sa hong kong ? 
@@ -17492,7 +17492,7 @@ gusto mo ba ng isang umaga o isang hapon na paglipad ?
 natatakot akong na puno na ang paglipad . ngunit magche-check ako upang makita kung nagkaroon ng anumang mga kanselasyon . sandali lamang , pakiusap . 
 fully booked ito sa mga sandaling ito . 
 maaari mo bang i-check ang iba pang mga paglipad na umaalis ng phayao para sa bangkok sa hapon ng ika-5, 
-mayroong mga upuan na makukuha sa isang paglipad na aalis sa ganap na 18 : 25. gusto mo ba ang paglipad na ito ? 
+mayroong mga upuan na makukuha sa isang paglipad na aalis sa ganap na 18 : 25 . gusto mo ba ang paglipad na ito ? 
 isang primera klaseng single ticket , pakiusap , sa pangalan ni wanghong. 
 sige . nag-book na ako ng isang upuan para sa iyo sa paglipad 351 . 
 maaari mong kumpirmahin ang booking na ito sa susunod na linggo . 
@@ -17549,7 +17549,7 @@ ano ang pamasahe patungo sa chonburi ?
 nakasulat ito sa tiket . 
 mayroon bang bawas para sa mga pasahero na mula sa mga sosyalistang bansa ? 
 para lamang sa mga paglipad sa pagitan ng sosyalistang bansa ang pagbabawas . 
-mayroon lamang akong mga traveler’s cheques sa sterling , puwede ba ang mga ito ? 
+mayroon lamang akong mga traveler's cheques sa sterling , puwede ba ang mga ito ? 
 mas gusto mo ba ito sa baht ? 
 ayos na ang mga notang pound . 
 dapat mag-check in sa paliparan ang mga pasahero isang oras bago lumipad ang eroplano. 
@@ -17619,7 +17619,7 @@ mayroon ilang mga upuang natitira para sa paglipad be 103 bukas .
 13 : 45 oras sa lokal na oras ang oras ng pag-alis , at darating ka sa chonburi sa ganap na 15 : 50 oras g.m .t . 
 ayos lang ba ito ? 
 magkano ang tiket ng eroplano ? 
-mayroon akong mga treveller’s cheque sa sterling. 
+mayroon akong mga treveller's cheque sa sterling. 
 narito ang mga cheke na nagkakahalaga ng 160 pounds . 
 narito ang sukli , at narito ang iyong tiket . 
 dapat magcheck in sa paliparan ang mga pasahero isang oras bago lumipad ang eroplano. 
@@ -17643,7 +17643,7 @@ wala kaming direktang paglipad patungo sa san francisco , ngunit magiging masaya
 maaari kang lumipad sa thailand airlines patungo sa los angeles . 
 sa l.a. maaari kang sumakay ng isang nag-uugnay na paglipad patungo sa san francisco . 
 gaano kabilis akong makakakuha ng isang mag-uugnay na paglipad ? 
-mayroong isang paglipad kada oras mula sa l.a. patungo sa san francisco , kaya’t hindi ka magkakaproblema sa pagkuha ng isang upuan . 
+mayroong isang paglipad kada oras mula sa l.a. patungo sa san francisco , kaya't hindi ka magkakaproblema sa pagkuha ng isang upuan . 
 pakiusap na ilagay ako sa pinaka maagang nag-uugnay na paglipad patungo sa san francisco . 
 bagong booking ? 
 kailan at saan ka pupunta ? 
@@ -18055,7 +18055,7 @@ ano ang walang bayad na timbang ng hand luggage kada pasahero ?
 dalawampung kilo ang walang bayad na timbang para sa isang pasahero . 
 maaaring magdala ng dalawampung kilo ng hand luggage nang libre ang isang adult na pasahero at sampung kilo ang isang bata . 
 mayroong isang libreng luggage allowance ng dalawampung kilo on board ang bawat pasahero . 
-maaaring magdala ang isang diplomatiko ng tatlumpu’t-limang kilo ng hand luggage nang walang bayad . 
+maaaring magdala ang isang diplomatiko ng tatlumpu't-limang kilo ng hand luggage nang walang bayad . 
 dapat i-check ang labis na mga bagay . 
 dapat na i-check ang labis na mga bagay bilang bagahe . 
 dapat i-check ang mga labis na bagay bilang parsela . 
@@ -18158,7 +18158,7 @@ paano ang prutas ?
 magdadala ka ng ilang prutas ? 
 hindi pinahihintulatan ang mga masisira . 
 dapat mong unang ipakita ang iyong customs declaration sa opisyal . 
-kaya ’ t kailangan kong magbayad ng buwis doon ? 
+kaya Â’ t kailangan kong magbayad ng buwis doon ? 
 gagawin ng opisyal ang iyong duty memo . 
 babayaran mo ang buwis sa mesa at kukunin ang resibo . 
 anu-anong mga bagay ang dutiable ? 
@@ -18171,7 +18171,7 @@ hindi duty free ang ganyang mga kalakal .
 bumili ako ng ilang mga produktong sutla para sa aking mga kaibigan . dapat ba akong magbayad ng buwis para sa kanila ? 
 magkano sila nagkakahalaga ? 
 humigit-kumulang 500 baht . 
-pinapahintulutan ka ng 800 baht na duty free , kaya’t hindi mo kailangang magbayad para sa kanila . 
+pinapahintulutan ka ng 800 baht na duty free , kaya't hindi mo kailangang magbayad para sa kanila . 
 maghintay tayo dito para sa ating turno upang dumaan sa customs . 
 tututol ka ba sa pagpunta dito upang kilalanin ang iyong mga gamit ? 
 narito ang mga porma ng deklarasyon . 
@@ -18206,7 +18206,7 @@ cleared ! tapos ka na .
 ipakita sa akin ang iyong pasaporte , pakiusap . 
 mayroon ka bang anumang idedeklara , ginoo ? 
 nagawa mo na ba ang customs declaration form ? 
-kung walang kang idedeklara , ilagay lamang ang “ personal na gamit ” . 
+kung walang kang idedeklara , ilagay lamang ang " personal na gamit " . 
 pakiusap na ilagaya ang lahat ng mga gamit na bakala sa conveyor belt . 
 pakiusap na dumaan sa tarangkahan at kolektahin ang iyong mga ari-arian . 
 kailangan namin itong i-check . utos ito mula sa itaas . 
@@ -18268,7 +18268,7 @@ saan ako dapat dumaan sa customs kung wala ako idedeklara dito ?
 maaari kang dumaan sa berdeng channel . 
 nagsisiyasat ng mga pasaporte at visa ang opisyal ng imigrasyon . 
 ihanda na sila . 
-palaging magulo na dumaan sa customs – pagpi-fill in ng mga porma , pagpapakita ng iyong pasaporte sa opisyal ng imigrasyon at pagpapakita ng iyong embarkation kard . 
+palaging magulo na dumaan sa customs - pagpi-fill in ng mga porma , pagpapakita ng iyong pasaporte sa opisyal ng imigrasyon at pagpapakita ng iyong embarkation kard . 
 kailangan mong sagutin ang kanilang mga tanong. 
 wala akong thailand departure kard . saan ko ito makukuha ? 
 nasa banda roon ito sa counter . 
@@ -19407,7 +19407,7 @@ gaano katagal ba tayo nagmamaneho ?
 alam mong 55 milya per oras ang limitasyon sa bilis dito . 
 sa tingin ko halos naroon na tayo . 
 gusto mo bang gawin ko ? 
-pumasok ka sa likurang upuan at matulog muna habang ako … 
+pumasok ka sa likurang upuan at matulog muna habang ako Â… 
 may pagkiling ang aking makina na uminit nang labis sa mainit na araw tulad nito . 
 mukhang mababa ka sa gasolina . 
 dapat tumigil ako sa susunod na estasyon ng serbisyo para sa gas . 
@@ -21287,7 +21287,7 @@ paumanhin , wala , wala sa anumang ekonomikal na kwarto , subalit mayroong malak
 mag-check in ako . 
 narito ang aking passport ; kapag ginawa mo ang registration , maaari mong kopyahin ang aking pangalan at lahat ng ibang bagay na gusto mong malaman mula sa passport . 
 makakatipid ito ng oras . 
-mm … nakikita kong napakatalino mong babae . 
+mm ... nakikita kong napakatalino mong babae . 
 subalit paumanhin , madam , maaari mo bang punuin ang mga blangko sa register-book mismo ? 
 titignan ko sa iyong passport pagkatapos . 
 hindi ba sa tingin mo magiging mas mabilis ito ? 
@@ -21664,7 +21664,7 @@ ano ang maaari kong gawin sa aking bagahe hanggang umalis ako ?
 ilalagay namin ito sa kwartong imbakan . kapag handa ka na umalis , maaari mo itong kunin . 
 sige , salamat . 
 babalik ako ng alas sais . 
-nasaan ang internet café ? 
+nasaan ang internet cafÃ© ? 
 maaari ko bang magamit ang internet dito ? 
 maaari ba akong tumingin ng e-mail dito ? 
 magkano bawat oras ? 

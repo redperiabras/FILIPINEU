@@ -6,11 +6,11 @@ RUNNING API SERVER
 	>> python terminal.py runserver -d
 
 CREATE ENCODER
-	>> python terminal.py create-encoder --files "data/_PH Tourism Parallel Corpus/data.en" --tokenizer word --hybrid --save-to "models/en-fl/source.vocab"
-	>> python terminal.py create-encoder --files "data/_PH Tourism Parallel Corpus/data.fl" --tokenizer char --save-to "models/en-fl/target.vocab"
+	>> python terminal.py create-encoder --files "data/PHTPC - Ilao et. al./Orig.en.txt" --tokenizer word --hybrid --save-to "models/en-fl/source.vocab"
+	>> python terminal.py create-encoder --files "data/PHTPC - Ilao et. al./Orig.fl.txt" --tokenizer char --save-to "models/en-fl/target.vocab"
 
-	>> python terminal.py create-encoder --files "data/_PH Tourism Parallel Corpus/data.fl" --tokenizer word --hybrid --save-to "models/fl-en/source.vocab"
-	>> python terminal.py create-encoder --files "data/_PH Tourism Parallel Corpus/data.en" --tokenizer char --save-to "models/fl-en/target.vocab"
+	>> python terminal.py create-encoder --files "data/PHTPC - Ilao et. al./Orig.fl.txt" --tokenizer word --hybrid --save-to "models/fl-en/source.vocab"
+	>> python terminal.py create-encoder --files "data/PHTPC - Ilao et. al./Orig.en.txt" --tokenizer char --save-to "models/fl-en/target.vocab"
 
 CREATE MODEL
 	>> python terminal.py create-model --source-encoder models/en-fl/source.vocab --target-encoder models/en-fl/target.vocab --save-model models/en-fl/en-fl.nlm
@@ -18,9 +18,9 @@ CREATE MODEL
 	>> python terminal.py create-model --source-encoder models/fl-en/source.vocab --target-encoder models/fl-en/target.vocab --save-model models/fl-en/fl-en.nlm
 
 TRAIN MODEL
-	>> python terminal.py train --load-model models/en-fl/en-fl.nlm --train-data "models/en-fl/data/train/en-fl.data" --source-test-data "models/en-fl/data/test/data.src" --target-test-data "models/en-fl/data/test/data.tgt" --train-for 1
+	>> python terminal.py train --load-model models/en-fl/en-fl.nlm --train-data "models/en-fl/data/train/source ||| target.data.train" --source-test-data "models/en-fl/source.data.test" --target-test-data "models/en-fl/target.data.test" --train-for 1
 
-	>> python terminal.py train --load-model models/fl-en/fl-en.nlm --train-data "models/fl-en/data/train/fl-en.data" --source-test-data "models/fl-en/data/test/data.src" --target-test-data "models/fl-en/data/test/data.tgt" --train-for 1
+	>> python terminal.py train --load-model models/fl-en/fl-en.nlm --train-data "models/fl-en/source ||| target.data.train" --source-test-data "models/fl-en/source.data.test" --target-test-data "models/fl-en/target.data.test" --train-for 1
 
 # NOT YET WORKING ------------------------------------------------------------------------------------------------------------------->
 

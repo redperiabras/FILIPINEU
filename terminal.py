@@ -633,15 +633,6 @@ def train(parser, context, args):
 	config['ts_train'] += total_train_time
 
 	log.info('Model trained in %6d seconds for %d batches' % (total_train_time, batch_nr))
-	
-	log.info('Saving final model')
-	with open(args.load_model, 'wb') as f:
-		pickle.dump(config, f)
-		model.save(f)
-		optimizer.save(f)
-		f.close()
-
-	log.info('Model saved')
 
 @subcmd('translate', help='Translator tool')
 def translator(parser, context, args):

@@ -1,5 +1,4 @@
-<h1>FILIPINEU:
-Bidirectional Filipino - English
+<h1>FILIPINEU: Bidirectional Filipino - English <br/>
 Neural Machine Translation
 </h1> 
 

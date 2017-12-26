@@ -1,4 +1,6 @@
-# FILIPINEU: Bidirectional Filipino - English Neural Machine Translation
+# FILIPINEU:
+# Bidirectional Filipino - English
+# Neural Machine Translation
 
 ## Setup
 

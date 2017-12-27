@@ -488,7 +488,7 @@ def train(parser, context, args):
 	total_train_time = 0
 
 	log.info('Starting training')
-	log.info('Press Ctrl + c to stop training...')
+	log.info('Press Ctrl + C to stop training...')
 	try:
 		while epochs < args.train_for:
 
@@ -500,6 +500,8 @@ def train(parser, context, args):
 						length=lambda pair: sum(map(len, pair)))
 
 			for sent_pairs in train_samples:
+
+				print('Number of Sentences: %d' % len(sent_pairs))
 
 				source_batch, target_batch = list(zip(*sent_pairs))
 
@@ -536,6 +538,8 @@ def train(parser, context, args):
 				model.lambda_a.set_value(np.array(
 					model.lambda_a.get_value() * config['alignment_decay'],
 					dtype=theano.config.floatX))
+
+			epochs += 1
 
 			#Validate Model
 			validate(test_pairs, start_time, optimizer, logf, sent_nr)
@@ -605,16 +609,22 @@ def train(parser, context, args):
 					os.path.basename(args.load_model))[0],
 				config['tn_epoch'] + epochs,
 				optimizer.n_updates)
-			log.info('Saving model at Epoch %d, Batch %d' % (config['tn_epoch'] + epochs, optimizer.n_updates))
+
 			config['tn_epoch'] += epochs
 			config['ts_train'] += time() - start_time
+			
+			log.info('Saving model at Epoch %d, Batch %d' % (config['tn_epoch'] + epochs, optimizer.n_updates))
 			with open(filename, 'wb') as f:
 				pickle.dump(config, f)
 				model.save(f)
 				optimizer.save(f)
 				f.close()
 
-			epochs += 1
+			with open(args.load_model) as f:
+				pickle.dump(config, f)
+				model.save(f)
+				optimizer.save(f)
+				f.close()
 
 		log.info('Training Finished')
 

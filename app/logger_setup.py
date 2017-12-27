@@ -56,7 +56,7 @@ class Logger:
 			app.logger.info(colored(text, color))
 
 	def warning(self, message, color='red'):
-		for i in range(0, len(message, 52)):
+		for i in range(0, len(message), 52):
 			text = message[0+i:52+i]
 			app.logger.warning(colored(text, color))
 

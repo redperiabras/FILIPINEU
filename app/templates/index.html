@@ -1,23 +1,38 @@
 <!doctype html>
 <html>
 	<head>
+
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, maximum-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
 		<title>FILIPINEU - Home </title>
+
 		<link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 		<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="img/x-icon">
-		<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/googlefonts.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+		<!-- Bootstrap Core CSS -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+
+		<!-- Custom Fonts -->
+		<link rel='stylesheet' href="{{ url_for('static', filename='css/googlefonts.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='simple-line-icons/css/simple-line-icons.css') }}">
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+		<!-- Plugin CSS -->
+    	<link rel="stylesheet" href="{{ url_for('static', filename='device-mockups/device-mockups.min.css') }}">
+
+		<!-- Custom styles -->
+    	<link href="{{ url_for('static', filename='css/new-age.css') }}" rel="stylesheet">
+
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/responsive.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animate.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-scrolltofixed.js') }}"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.easing.1.3.js') }}"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.isotope.js') }}"></script>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/wow.js') }}"></script>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/classie.js') }}"></script>
 	</head>
@@ -32,16 +47,23 @@
 					<b>Neural Machine Translation</b>
 				</p><br>
 				<a class="link animated fadeInUp delay-1s servicelink" href="#service">
-					<i class="fa fa-angle-down" aria-hidden="true"></i>
+					<i class="fa fa-angle-down" aria-hidden="true">
+						
+					</i>
 				</a>
 			</div>
 		</header>
-
 		<nav class="main-nav-outer navbar-fixed-top" id="test">
 			<div class="container">
 				<ul class="main-nav">
+
 					<li class="small-logo">
-						<a href="/"><img src="{{ url_for('static', filename='img/icon2.png') }}" alt="" class="logo-img"></a>
+						<a href="/">
+							<!-- <img src="{{ url_for('static', filename='img/icon2.png') }}" class="logo-img"> -->
+							<h5>
+								FILIPINEU
+							</h5>
+						</a>
 					</li>
 					<li>
 						<a href="/api/apidocs" class="navbar-right translate">Get Started</a>
@@ -192,6 +214,16 @@
 		</footer>
 
 		<a href="#" class="scrollup" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+
+		<!-- Bootstrap Core Javascript -->
+		<script type="text/javascript" src="{{ url_for('static', filename='jquery/jquery.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+		<!-- Plugin JavaScript -->
+	    <script src="{{ url_for('static', filename='jquery-easing/jquery.easing.min.js') }}"></script>
+
+	    <!-- Custom scripts for this template -->
+	    <script src="{{ url_for('static', filename='js/new-age.min.js') }}"></script>
 	
 		<script src="{{ url_for('static', filename='js/particles.js') }}"></script>
 		<script src="{{ url_for('static', filename='js/app.js') }}"></script>

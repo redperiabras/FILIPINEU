@@ -613,14 +613,14 @@ def train(parser, context, args):
 			config['tn_epoch'] += epochs
 			config['ts_train'] += time() - start_time
 			
-			log.info('Saving model at Epoch %d, Batch %d' % (config['tn_epoch'] + epochs, optimizer.n_updates))
+			log.info('Saving model at Epoch %d, Batch %d' % (config['tn_epoch'], optimizer.n_updates))
 			with open(filename, 'wb') as f:
 				pickle.dump(config, f)
 				model.save(f)
 				optimizer.save(f)
 				f.close()
 
-			with open(args.load_model) as f:
+			with open(args.load_model, 'wb') as f:
 				pickle.dump(config, f)
 				model.save(f)
 				optimizer.save(f)

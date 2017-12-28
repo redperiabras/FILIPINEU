@@ -1,293 +1,230 @@
 <!doctype html>
 <html>
-	<head>
 
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, maximum-scale=1">
 
-		<title>FILIPINEU - Home </title>
+	<title>FILIPINEU</title>
+	
+	<link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="img/x-icon">
 
-		<link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
-		<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="img/x-icon">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
 
-		<!-- Bootstrap Core CSS -->
-		<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+	<link href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename='lib/font-awesome/css/font-awesome.css' ) }}" rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename='css/animate.css') }}" rel="stylesheet" type="text/css">
 
-		<!-- Custom Fonts -->
-		<link rel='stylesheet' href="{{ url_for('static', filename='css/googlefonts.css') }}">
-		<link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
-		<link rel="stylesheet" href="{{ url_for('static', filename='simple-line-icons/css/simple-line-icons.css') }}">
-		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+	<script type="text/javascript" src="{{ url_for('static', filename='lib/jquery/jquery.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-scrolltofixed.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='lib/jquery-easing/jquery.easing.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.isotope.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/wow.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/classie.js') }}"></script>
 
-		<!-- Plugin CSS -->
-    	<link rel="stylesheet" href="{{ url_for('static', filename='device-mockups/device-mockups.min.css') }}">
+</head>
 
-		<!-- Custom styles -->
-    	<link href="{{ url_for('static', filename='css/new-age.css') }}" rel="stylesheet">
+<body>
 
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/responsive.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animate.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-		<script type="text/javascript" src="{{ url_for('static', filename='js/wow.js') }}"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='js/classie.js') }}"></script>
-	</head>
-	<body>
-		<header class="header" id="header">
-			<div id="particles-js">
-			</div>
+	<nav class="main-nav-outer navbar-fixed-top" id="test">
+		<div class="container">
+			<ul class="main-nav">
+				<li class="small-logo">
+					<a href="#"><img src="{{ url_for('static', filename='img/icon-white.png') }}" alt="" class="logo-img"></a>
+				</li>
+				<li>
+					<a href="/api" class="navbar-right">Get Started</a>
+				</li>
+				<li>
+					<a href="/about" class="navbar-right">About</a>
+				</li>
+				<li>
+					<a href="/" class="navbar-right">Home</a>
+				</li>
+			</ul>
+			<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+		</div>
+	</nav>
+	
+	<header class="header" id="header">
+			<div id="particles-js"></div>
 			<div class="cover logo animated fadeInDown delay-07s">
 				FILIPINEU<br>
-				<p>
-					Bidirectional Filipino - English<br>
-					<b>Neural Machine Translation</b>
-				</p><br>
-				<a class="link animated fadeInUp delay-1s servicelink" href="#service">
-					<i class="fa fa-angle-down" aria-hidden="true">
-						
-					</i>
-				</a>
+				<p>A Bidirectional Filipino-English<br><b>Neural Machine Translation</b></p><br>
+				<a class="link animated fadeInUp delay-1s servicelink" href="#service"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
 			</div>
-		</header>
-		<nav class="main-nav-outer navbar-fixed-top" id="test">
-			<div class="container">
-				<ul class="main-nav">
+	</header>
 
-					<li class="small-logo">
-						<a href="/">
-							<!-- <img src="{{ url_for('static', filename='img/icon2.png') }}" class="logo-img"> -->
-							<h5>
-								FILIPINEU
-							</h5>
-						</a>
-					</li>
-					<li>
-						<a href="/api/apidocs" class="navbar-right translate">Get Started</a>
-					</li>
-					<li>
-						<a href="/about" class="navbar-right">About</a>
-					</li>
-					<li>
-						<a href="/" class="navbar-right">Home</a>
-					</li>
-				</ul>
-				<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
-			</div>
-		</nav>
-		<section class="main-section" id="service">
-			<div class="container">
-				<h2>
-					Machine Translation using
-					<span style="color: #0082B8; text-transform: uppercase;">
-						Neural Networks
-					</span>
-				</h2>
-				<h6>
-					Neural Machine Translation (NMT) brings state of the art results
-				</h6>
-				<div class="row">
-					<div class="col-lg-6 col-sm-4 wow fadeInLeft delay-05s">
-						<div class="div-section">
-							<div class="div-section-col">
-								<h3>
-									Deep Learning Techniques
-								</h3>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-							</div>
-						</div>
-						<div class="div-section">
-							<div class="div-section-col2">	
-								<h3>
-									Fluency &amp; Higher Generic Quality
-								</h3>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-							</div>
-						</div>
-					</div>	
-					<figure class="col-lg-6 col-sm-6  text-right wow fadeInUp delay-02s">
-						<img src="{{ url_for('static', filename='img/macbook1.png') }}">
-					</figure>
-				</div>
-			</div>
-		</section>
-		<section class="main-section" id="service">
-			<div class="container">
-				<h2>
-					Previous approaches before
-					<span style="color:#0082B8;">
-						<br>
-						Neural Machine Translation
-					</span>
-				</h2>
-				<div class="row">
-					<div class="col-lg-6 col-sm-6 wow fadeInDown delay-05s">
-						<div class="div-section">
-							<div class="div-section-col3">
-								<h2>
-									<span style="color:#0082B8;">
-										Rule Based
-									</span>
-									Approach
-								</h2>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-								<a href="#" class="learn-link">
-									Learn more
-								</a>
-							</div>
-						</div>
-					</div>	
-					<div class="col-lg-6 col-sm-6 wow fadeInDown delay-05s">
-						<div class="div-section">
-							<div class="div-section-col3">
-								<h2>
-									<span style="color:#0082B8;">
-										Statistical
-									</span> 
-									Approach
-								</h2>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-								<a href="#" class="learn-link">
-									Learn more
-								</a>
-							</div>
-						</div>
-					</div>	
-				</div>
-			</div>
-		</section>
-		<section class="main-section" id="how-it-works">
-			<div class="container">
-				<h2>
-					how it works
-				</h2>
-				<h6>
-					Neural Machine Translation (NMT) brings state of the art results
-				</h6>
-				<div class="row">
-					<figure class="col-lg-8 col-sm-8  text-right wow fadeInUp delay-02s">
-						<img src="{{ url_for('static', filename='img/translate.png') }}" alt="">
-					</figure>
-					<div class="col-lg-4 col-sm-4 wow fadeInLeft delay-05s">
-						<div class="div-section">
-							<div class="div-section-col2">
-								<h3>
-									FILIPINEU
-								</h3>
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-							</div>
-						</div>
-					</div>	
-				</div>
-			</div>
-		</section>
+	
 
-		<section class="ready-section">
-			<h1 class="wow fadeInDown delay-02s">
-				Ready to use Filipineu?
-			</h1>
-			<a href="#" class="btn-translate wow fadeInDown delay-02s">
-				Translate Now
-			</a>
-		</section>
-		
-		<footer class="footer">
-			<div class="container">	
-				<!-- <img src="img/logo-1.png">
-				<span class="copyright pull-right">&copy; All Rights Reserved 2017</span> -->
-				<div class="row">
-					<div class="col-md-3">
-						<img src="{{ url_for('static', filename='img/icon1.png') }}">
+	<section class="main-section" id="service">
+		<div class="container">
+			<h2>Machine Translation using <span style="color: #0082B8; text-transform: uppercase;">Neural Networks</span></h2>
+			<h6>Neural Machine Translation (NMT) brings state of the art results</h6>
+			<div class="row">
+				<div class="col-lg-6 col-sm-4 wow fadeInLeft delay-05s">
+					<div class="div-section">
+						<div class="div-section-col">
+							<h3 style="color: ">Deep Learning Techniques</h3>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+						</div>
 					</div>
-					<div class="col-md-3">
+					<div class="div-section">
+						<div class="div-section-col2">	
+							<h3 style="color: ">Fluency &amp; Higher Generic Quality</h3>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+						</div>
 					</div>
-					<div class="col-md-3">
+				</div>	
+				<figure class="col-lg-6 col-sm-6  text-right wow fadeInUp delay-02s">
+					<img src="{{ url_for('static', filename='img/macbook1.png') }}" alt="">
+				</figure>
+
+			</div>
+		</div>
+	</section>
+	<section class="main-section" id="service">
+		<div class="container">
+			<h2>Previous approaches before <span style="color:#0082B8;"><br>Neural Machine Translation</span></h2>
+			<div class="row">
+				<div class="col-lg-6 col-sm-6 wow fadeInDown delay-05s">
+					<div class="div-section">
+						<div class="div-section-col3">
+							<h2><span style="color:#0082B8;">Rule Based</span> Approach</h2>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+							<a href="#" class="learn-link">Learn more</a>
+						</div>
 					</div>
-					<div class="col-md-3">
-						<span class="copyright pull-right">&copy; All Rights Reserved 2017</span>
+				</div>	
+				<div class="col-lg-6 col-sm-6 wow fadeInDown delay-05s">
+					<div class="div-section">
+						<div class="div-section-col3">
+							<h2><span style="color:#0082B8;">Statistical</span> Approach</h2>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+							<a href="#" class="learn-link">Learn more</a>
+						</div>
+					</div>
+				</div>	
+
+			</div>
+		</div>
+	</section>
+
+	<section class="main-section" id="how-it-works">
+		<div class="container">
+			<h2>how it works</h2>
+			<h6>Neural Machine Translation (NMT) brings state of the art results</h6>
+			<div class="row">
+				<figure class="col-lg-8 col-sm-8  text-right wow fadeInUp delay-02s">
+					<img src="{{ url_for('static', filename='img/translate.png') }}" alt="">
+				</figure>
+				<div class="col-lg-4 col-sm-4 wow fadeInLeft delay-05s">
+					<div class="div-section">
+						<div class="div-section-col2">
+							<h3>FILIPINEU</h3>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+						</div>
 					</div>
 				</div>	
 			</div>
-		</footer>
+		</div>
+	</section>
 
-		<a href="#" class="scrollup" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-
-		<!-- Bootstrap Core Javascript -->
-		<script type="text/javascript" src="{{ url_for('static', filename='jquery/jquery.min.js') }}"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-		<!-- Plugin JavaScript -->
-	    <script src="{{ url_for('static', filename='jquery-easing/jquery.easing.min.js') }}"></script>
-
-	    <!-- Custom scripts for this template -->
-	    <script src="{{ url_for('static', filename='js/new-age.min.js') }}"></script>
 	
-		<script src="{{ url_for('static', filename='js/particles.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
-		<script type="text/javascript">
-			
-			// 
+	<section class="ready-section">
+		<h1 class="wow fadeInDown delay-02s">Ready to use Filipineu?</h1>
+		<a href="#" class="btn-translate wow fadeInDown delay-02s">Translate Now</a>
+	</section>
+	
+	<footer class="footer">
+		<div class="container">	
+			<div class="row">
+				<div class="col-md-3">
+					<img src="{{ url_for('static', filename='img/icon-white.png') }}">
+				</div>
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-3">
+					<span class="copyright pull-right">&copy; All Rights Reserved 2017</span>
+				</div>
+			</div>	
+		</div>
+	</footer>
 
-			$(document).ready(function(e) {
-				$('#test').scrollToFixed();
-				$('.res-nav_click').click(function() {
-					$('.main-nav').slideToggle();
-					return false
-				});
+	<a href="#" class="scrollup" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+
+	<script type="text/javascript">
+		$(document).ready(function(e) {
+			$('#test').scrollToFixed();
+			$('.res-nav_click').click(function() {
+				$('.main-nav').slideToggle();
+				return false
 
 			});
 
-			// WOW
+		});
+	</script>
 
-			wow = new WOW({
-				animateClass: 'animated',
-				offset: 100
+	<script>
+		wow = new WOW({
+			animateClass: 'animated',
+			offset: 100
+		});
+		wow.init();
+	</script>
+
+
+	<script type="text/javascript">
+		$(window).load(function() {
+
+			$('.main-nav li a, .servicelink').bind('click', function(event) {
+				var $anchor = $(this);
+
+				$('html, body').stop().animate({
+					scrollTop: $($anchor.attr('href')).offset().top - 102
+				}, 1500, 'easeInOutExpo');
+				if ($(window).width() < 768) {
+					$('.main-nav').hide();
+				}
+				event.preventDefault();
 			});
-			wow.init();
+		})
+	</script>
 
-			// 
-
-			$(window).load(function() {
-				$('.main-nav li a, .servicelink').bind('click', function(event) {
-					var $anchor = $(this);
-					$('html, body').stop().animate({
-						scrollTop: $($anchor.attr('href')).offset().top - 102
-					}, 1500, 'easeInOutExpo');
-					if ($(window).width() < 768) {
-						$('.main-nav').hide();
-					}
-					event.preventDefault();
-				});
-			})
-
-			// 
-
-			$(function () {
-			  $(document).scroll(function () {
-				  var $nav = $(".navbar-fixed-top");
-				  $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-				});
+	<script>
+		$(function () {
+		  $(document).scroll(function () {
+			  var $nav = $(".navbar-fixed-top");
+			  $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
 			});
+		});
+	</script>
+	<script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
-			// 
+	<script type="text/javascript">
+		$(window).scroll(function() {
+	    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+	        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+	    } else {
+	        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+	    }
+		});
+		$('#return-to-top').click(function() {      // When arrow is clicked
+	    $('body,html').animate({
+	        scrollTop : 0                       // Scroll to top of body
+	    }, 500);
+		});
+	</script>
 
-			$(window).scroll(function() {
-		    	if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
-		        	$('#return-to-top').fadeIn(200);    // Fade in the arrow
-		    	} else {
-		        	$('#return-to-top').fadeOut(200);   // Else fade out the arrow
-		   		}
-			});
+</body>
 
-			$('#return-to-top').click(function() {      // When arrow is clicked
-		    	$('body,html').animate({
-		        	scrollTop : 0                       // Scroll to top of body
-		    		}, 500);
-			});
-		</script>
-	</body>
 </html>

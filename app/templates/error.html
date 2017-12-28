@@ -2,13 +2,29 @@
 
 {% block head %}
     {{ super() }}
+
+    <style>
+    	html,
+		body {
+		    height: 100%;
+		}
+
+		.container {
+		    height: 100%;
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		}
+    </style>
 {% endblock %}
 
 {% block content %}
-
-    <div class="error-box" align="center">
-        <img class="ui medium image error-image" src="{{ url_for('static', filename='img/error.png') }}">
-        <h1 class="ui header">{{ message }}<h1>
-    </div>
+	
+	<div class="container">
+		<div>
+			<img src="{{ url_for('static', filename='img/favicon.ico') }}" alt="">
+			<h1>{{ message }}</h1>
+		</div>
+	</div>
 
 {% endblock %}

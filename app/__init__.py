@@ -19,13 +19,17 @@ mail = Mail(app)
 
 # Setup the debug toolbar
 from flask_debugtoolbar import DebugToolbarExtension
-app.config['DEBUG_TB_TEMPLATE_EDITOR_ENABLED'] = True
-app.config['DEBUG_TB_PROFILER_ENABLED'] = True
+app.config['DEBUG_TB_TEMPLATE_EDITOR_ENABLED'] = False
+app.config['DEBUG_TB_PROFILER_ENABLED'] = False
 toolbar = DebugToolbarExtension(app)
 
 # Setup the password crypting
 from flask.ext.bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
+
+# Setup Swagger
+from flasgger import Swagger
+swagger = Swagger(app) 
 
 # Import the views
 from app.views import main, api, error

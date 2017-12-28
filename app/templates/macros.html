@@ -1,10 +1,10 @@
 {# myapp/templates/macros.html #}
 
 <!-- Highlight the current tab -->
-{% macro nav_link(endpoint, text, class="") %}
+{% macro nav_link(endpoint, text) %}
 	{% if request.endpoint is not none %}
 		{% if request.endpoint.endswith(endpoint) %}
-		    <a class="navbar-right active {{ class }}" href="{{ url_for(endpoint) }}">{{ text }}</a>
+		    <a class="navbar-right active " href="{{ url_for(endpoint) }}">{{ text }}</a>
 		{% else %}
 		    <a class="navbar-right {{ class }}" href="{{ url_for(endpoint) }}">{{ text }}</a>
 		{% endif %}

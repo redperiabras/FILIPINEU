@@ -1,0 +1,27 @@
+html,
+body {
+	height: 100%;
+	width: 100%;
+	color: #243e52;
+	background-color: #e9ebee;
+}
+
+footer {
+    background-color: #243e52;
+    color: #f5f5f5;
+    padding: 32px;
+}
+
+footer a {
+    color: #f5f5f5;
+}
+
+footer a:hover {
+    color: #888;
+    text-decoration: none;
+}
+
+footer .container {
+	padding-top: 5%;
+}
+

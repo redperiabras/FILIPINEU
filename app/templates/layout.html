@@ -24,9 +24,12 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='lib/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='lib/simple-line-icons/css/simple-line-icons.css') }}">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+
 	{% endblock %}
 
-	<body>
+	<body id="top">
 
 		{% with messages = get_flashed_messages(with_categories=true) %}
 			<!-- Message flashing -->
@@ -42,6 +45,15 @@
    		{% block content %}
 
    		{% endblock %}
+
+		<footer class="text-center">
+			<a href="#top" data-toggle="tooltip" title="Back to Top">
+			    <i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true"></i>
+			</a>
+			<div class="container">
+				<p>&copy; 2017 FILIPINEU. All Rights Reserved.</p>
+			</div>
+		</footer>
 
 		{% block script %}
 			<!-- Bootstrap Core Javascript -->

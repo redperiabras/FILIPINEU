@@ -4,17 +4,15 @@
     {{ super() }}
 
     <style>
-    	html,
-		body {
-		    height: 100%;
-		}
 
 		.container {
 		    height: 100%;
 		    display: flex;
 		    justify-content: center;
 		    align-items: center;
+		    text-align: center;
 		}
+
     </style>
 {% endblock %}
 
@@ -23,7 +21,13 @@
 	<div class="container">
 		<div>
 			<img src="{{ url_for('static', filename='img/favicon.ico') }}" alt="">
-			<h1>{{ message }}</h1>
+			<h1>{{ status }}</h1>
+			<h3>{{ message }}</h3>
+			<p>
+				<a href="/">
+					Return Home
+				</a>
+			</p>
 		</div>
 	</div>
 

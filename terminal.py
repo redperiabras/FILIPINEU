@@ -593,10 +593,11 @@ def train(parser, context, args):
 					sent_nr
 				), file=evalf, flush=True)
 
+			config['tn_epoch'] += 1
+			config['ts_train'] += time() - start_time
+
 			if is_best:
 				log.info('Marking as best model...')
-				config['tn_epoch'] += epochs
-				config['ts_train'] += time() - start_time
 				with open(args.load_model + ".best", 'wb') as f:
 					pickle.dump(config, f)
 					model.save(f)
@@ -607,11 +608,8 @@ def train(parser, context, args):
 			filename = os.path.dirname(args.load_model) + '/%s-%d-%d.nlm' % (
 				os.path.splitext(
 					os.path.basename(args.load_model))[0],
-				config['tn_epoch'] + epochs,
+				config['tn_epoch'],
 				optimizer.n_updates)
-
-			config['tn_epoch'] += epochs
-			config['ts_train'] += time() - start_time
 			
 			log.info('Saving model at Epoch %d, Batch %d' % (config['tn_epoch'], optimizer.n_updates))
 			with open(filename, 'wb') as f:
@@ -637,12 +635,6 @@ def train(parser, context, args):
 	
 	if logf: logf.close()
 	if evalf: evalf.close()
-
-	total_train_time = time() - start_time  
-	config['tn_epoch'] += epochs
-	config['ts_train'] += total_train_time
-
-	log.info('Model trained in %6d seconds for %d batches' % (total_train_time, batch_nr))
 
 @subcmd('translate', help='Translator tool')
 def translator(parser, context, args):

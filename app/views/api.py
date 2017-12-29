@@ -1,6 +1,6 @@
 from flask import (Blueprint, render_template, redirect, url_for,
 				   abort, flash, jsonify, request)
-from flask.ext.login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required
 from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
 from app.forms import user as user_forms
@@ -189,8 +189,8 @@ def translate():
 	    description: Client API key
 	    in: query
 	    type: string
-	    example: asdf1234ghjk5678
-	    default: asdf1234ghjk5678
+	    example: 0d600f2643ae8ffcdcf66965679c863aedc31c74661be4f2
+	    default: 0d600f2643ae8ffcdcf66965679c863aedc31c74661be4f2
 
 	definitions:
 		Text:
@@ -286,7 +286,16 @@ def translate():
 	else:
 		api_key = request.args.get('key')
 
-	    #TODO Verify the api key
+	    #Verify the api key
+		user = models.User.query.filter_by(key=api_key).first()
+
+		if user is None:
+			return jsonify(
+			{
+				'status': 403,
+				'description': 'Forbidden',
+				'message': 'Client Key not recognized'
+			}), 403
 
 	if request.form.get('lang') not in ('en', 'fl', None):
 
@@ -364,18 +373,44 @@ def translate():
 	
 	elapsed_time = time() - t0
 
+	# Saved the Request details
+
+	input_data = models.Input(
+			lang_id=lang_id,
+			text=input_text
+		)
+	db.session.add(input_data)
+	db.session.flush()
+
+	output_data = models.Output(
+			lang_id='en' if lang_id == 'fl' else 'fl',
+			text=result.__next__()
+		)
+	db.session.add(output_data)
+	db.session.flush()
+
+	translation = models.Translation(
+			key=api_key,
+			input_id=input_data.id,
+			output_id=output_data.id,
+			elapsed_time=elapsed_time
+		)
+	db.session.add(translation)
+	db.session.flush()
+	db.session.commit()
+
 	return jsonify({
-		'data' : {
-			'input' : {
-				'lang' : lang_id,
-				'text' : input_text
+		'data': {
+			'input': {
+				'lang': input_data.lang_id,
+				'text': input_data.text
 			},
-			'output' : {
-				'lang' : 'en' if lang_id == 'fl' else 'fl',
-				'text' : result.__next__()
+			'output': {
+				'lang': output_data.lang_id,
+				'text': output_data.text
 			},
-			'timestamp' : datetime.now(),
-			'elapsed_time' : elapsed_time
+			'timestamp': translation.timestamp,
+			'elapsed_time': translation.elapsed_time
 		},
 		'description' : 'Success',
 		'message' : 'Translation Response',

@@ -7,7 +7,7 @@
 {% block content %}
 
 	<div class="ui form-user center raised very padded text container segment">
-		<form class="ui form" action="/user/signin" method="post">
+		<form class="ui form" action="/api/signin" method="post">
 			<h4 class="ui dividing header">Login</h4>
 	    	{{ m.render_field(form.email) }}
 	    	{{ m.render_field(form.password) }}

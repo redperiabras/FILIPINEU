@@ -7,7 +7,7 @@
 	{% block head %}
 
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -27,9 +27,11 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
 
+    <script type="text/javascript" scr="{{ url_for('static', filename='js/layout.js') }}"></script>
+
 	{% endblock %}
 
-	<body id="top">
+	<body id="page-top">
 
 		{% with messages = get_flashed_messages(with_categories=true) %}
 			<!-- Message flashing -->
@@ -47,11 +49,11 @@
    		{% endblock %}
 
 		<footer class="text-center">
-			<a href="#top" data-toggle="tooltip" title="Back to Top">
-			    <i class="fa fa-arrow-circle-up fa-3x" aria-hidden="true"></i>
+			<a href="#page-top" data-toggle="tooltip" title="Back to Top">
+			    <i class="fa fa-chevron-up fa-3x" aria-hidden="true"></i>
 			</a>
 			<div class="container">
-				<p>&copy; 2017 FILIPINEU. All Rights Reserved.</p>
+				<p>&copy; 2018 FILIPINEU. All Rights Reserved.</p>
 			</div>
 		</footer>
 

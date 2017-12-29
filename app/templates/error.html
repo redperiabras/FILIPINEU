@@ -14,13 +14,14 @@
 		}
 
     </style>
+    
 {% endblock %}
 
 {% block content %}
 	
 	<div class="container">
 		<div>
-			<img src="{{ url_for('static', filename='img/favicon.ico') }}" alt="">
+			<img src="{{ url_for('static', filename='img/icon.png') }}" height="300">
 			<h1>{{ status }}</h1>
 			<h3>{{ message }}</h3>
 			<p>

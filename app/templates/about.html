@@ -3,16 +3,45 @@
 {% block head %}
     {{ super() }}
 
-    <style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
 
-    </style>
-    
 {% endblock %}
 
 {% block content %}
+	
+	<section class="h-100">
+		<div class="container">
+			<div class="row">
+				<h1>Researchers</h1>
+				<div class="col-md-4">
+					
+				</div>
+				<div class="col-md-4">
+					
+				</div>
+				<div class="col-md-4">
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="h-100">
+		<div class="container">
+			<h1>Section 2</h1>
+		</div>
+	</section>
+
 
 {% endblock %}
 
 {% block scripts %}
-
+	<script>
+		$(function () {
+		  $(document).scroll(function () {
+			  var $nav = $(".navbar-fixed-top");
+			  $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+			});
+		});
+	</script>
 {% endblock %}

@@ -154,9 +154,7 @@ class NMT(Model):
 				+ self.lambda_a*attention_xent
 
 	def search(self, inputs, inputs_mask, chars, chars_mask,
-			   max_length, beam_size=8,
-			   alpha=0.2, beta=0.2, gamma=1.0, len_smooth=5.0, others=[],
-			   **kwargs):
+			   max_length, beam_size=8, others=[], **kwargs):
 		# list of models in the ensemble
 		models = [self] + others
 		n_models = len(models)
@@ -206,11 +204,10 @@ class NMT(Model):
 				self.config['target_encoder']['</S>'],
 				max_length,
 				inputs_mask,
-				beam_size=beam_size,
-				alpha=alpha,
-				beta=beta,
-				gamma=gamma,
-				len_smooth=len_smooth,
+				alpha=self.config['alpha'], 
+				beta=self.config['beta'],
+				gamma=self.config['gamma'],
+				len_smooth=self.config['len_smooth'],
 				**kwargs)
 		#self.beam_ends[i] += 1
 		return result

@@ -1,10 +1,17 @@
 from flask import (Blueprint, render_template, redirect, url_for,
-				   abort, flash)
+				   abort, flash, jsonify, request)
 from flask.ext.login import login_user, logout_user, login_required
 from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
 from app.forms import user as user_forms
 from app.toolbox import email
+
+from models import en_fl, fl_en
+from modules.sentence import tokenizer, detokenize
+from modules.text import Encoded
+from time import time
+from datetime import datetime
+from langdetect import detect
 
 # Serializer for generating random tokens
 ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
@@ -151,3 +158,226 @@ def reset(token):
 			flash('Unknown email address.', 'negative')
 			return redirect(url_for('api.forgot'))
 	return render_template('user/reset.html', form=form, token=token)
+
+
+@api.route('/translate', methods=['POST'])
+def translate():
+	"""
+	Endpoint for translating texts
+	---
+
+	tags:
+	- translate
+
+	parameters:
+
+	  - name: text
+	    description: Text input to be translated 
+	    in: formData
+	    type: string
+	    required: true
+
+	  - name: lang
+	    description: Language ID of the text input
+	    in: formData
+	    type: string
+	    enum: ['fl', 'en']
+	    default: 'en'
+	    required: false
+
+	  - name: key
+	    description: Client API key
+	    in: query
+	    type: string
+	    example: asdf1234ghjk5678
+	    default: asdf1234ghjk5678
+
+	definitions:
+		Text:
+			type: object
+			properties:
+			    lang:
+			        type: string
+			        description: Language ID
+			        required: true
+			        example: en
+			    text:
+			        type: string
+			        description: Input Language Text
+			        required: true
+			        example: Hello there!
+		Translation:
+			type: object
+			properties:
+			    input:
+			        type: object
+			        $ref: '#/definitions/Text'
+			        required: true
+			    output:
+			        type: object
+			        $ref: '#/definitions/Text'
+			        required: true
+			    elapsed time:
+			    	type: float
+			    	descrption: Time elapsed in translating (seconds)
+			    	required: true
+			    timestamp:
+			        type: string
+			        description: Timestamp
+			        required: true
+			        form: timestamp
+		Success:
+			type: object
+			properties:
+			    status:
+			        type: integer
+			        description: HTTP Response Code
+			        required: true
+			    description:
+			        type: string
+			        description: HTTP Response Description
+			        required: true
+			    message:
+			        type: string
+			        description: System Message
+			        required: true
+			    data:
+			        type: object
+			        $ref: '#/definitions/Translation'
+			        required: true
+		Error:
+			type: object
+			properties:
+			    status:
+			        type: integer
+			        description: HTTP Response Code
+			        required: true
+			    description:
+			        type: string
+			        description: HTTP Response Description
+			        required: true
+			    message:
+			        type: string
+			        description: System Message
+			        required: true
+	responses:
+		200:
+			description: Success
+			schema:
+				$ref: '#/definitions/Success'
+		400:
+			description: Bad Request
+			schema:
+				$ref: '#/definitions/Error'
+		403:
+			description: Fobidden
+			schema:
+				$ref: '#/definitions/Error'
+	"""
+
+	#Get provided api key
+	if 'key' not in request.args:
+		return jsonify(
+			{
+				'status': 400,
+				'description': 'Bad Request',
+				'message': 'Client Key required'
+			}), 400
+	else:
+		api_key = request.args.get('key')
+
+	    #TODO Verify the api key
+
+	if request.form.get('lang') not in ('en', 'fl', None):
+
+		return jsonify(
+			{
+				'status': 400,
+				'description': 'Bad Request',
+				'message': 'Invalid Language ID'
+			}), 400
+	elif request.form.get('lang') is not None:
+
+		lang_id = request.form.get('lang')
+	else:
+
+		lang_id = 'en'
+		if detect(request.form.get('text')) != 'en':
+			lang_id = 'fl'
+
+	model = en_fl if lang_id == 'en' else fl_en
+
+	if 'text' not in request.form:
+		return jsonify(
+			{
+				'status': 400,
+				'description': 'Bad Request',
+				'message': 'Text to be translated required'
+			}), 400
+	else:
+		input_text = request.form.get('text')
+
+	# Translator
+
+	MAX_TARGET_LEN = 1000
+	BEAM_SIZE = 8
+
+	def translate(sent, encode=False, nbest=0, backwards=False):
+		
+		if encode:
+			sent = [model.config['source_encoder'].encode_sequence(sent)]
+
+		x = model.config['source_encoder'].pad_sequences(
+				sent, fake_hybrid=True)
+		
+		beams = model.search(
+				*(x + (MAX_TARGET_LEN,)),
+				beam_size=BEAM_SIZE,
+				prune=(nbest == 0))
+
+		nbest = min(nbest, BEAM_SIZE)
+
+		for batch_sent_idx, (_, beam) in enumerate(beams):
+			lines = []
+			for best in list(beam)[:max(1, nbest)]:
+				encoded = Encoded(best.history + (best.last_sym,), None)
+				decoded = model.config['target_encoder'].decode_sentence(encoded)
+				hypothesis = detokenize(
+					decoded[::-1] if backwards else decoded,
+					model.config['target_tokenizer'])
+				if nbest > 0:
+					lines.append(' ||| '.join((str(i+batch_sent_idx), hypothesis, str(best.norm_score))))
+				else:
+					yield hypothesis
+			if lines:
+				yield '\n'.join(lines)
+
+	t0 = time()
+	
+	sent_tokenizer = tokenizer(model.config['source_tokenizer'],
+		lowercase=model.config['source_lowercase'])
+
+	input_tokens = sent_tokenizer(input_text)
+
+	result = translate(
+                input_tokens, encode=True, nbest=0, backwards=model.config['backwards'])
+	
+	elapsed_time = time() - t0
+
+	return jsonify({
+		'data' : {
+			'input' : {
+				'lang' : lang_id,
+				'text' : input_text
+			},
+			'output' : {
+				'lang' : 'en' if lang_id == 'fl' else 'fl',
+				'text' : result.__next__()
+			},
+			'timestamp' : datetime.now(),
+			'elapsed_time' : elapsed_time
+		},
+		'description' : 'Success',
+		'message' : 'Translation Response',
+		'status' : 200
+		}), 200

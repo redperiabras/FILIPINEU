@@ -6,6 +6,114 @@ body {
 	background-color: #e9ebee;
 }
 
+/* Content Control
+-------------------------------*/
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+/* Navigation
+--------------------------------*/
+nav {
+	padding:0;
+	margin:10px 0 0px;
+	background: transparent;
+	height: 100px;
+	transition: background-color .3s linear;
+  	-webkit-transition: .3s;
+	list-style:none;
+}
+
+nav li{
+	display:inline;
+	margin:0 1px;
+}
+nav li a{
+	display:inline-block;
+	color:#fff;
+	/*text-transform:uppercase;*/
+	/*font-family: 'Montserrat', sans-serif;*/
+	font-family: inherit;
+	font-size: 16px;
+	text-decoration: none;
+	line-height:20px;
+	/*margin:17px 32px;*/
+	padding: 8px 25px;
+	transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-webkit-transition:all 0.3s ease-in-out;
+}
+
+nav li a:hover{ 
+	text-decoration:none;
+	color: #96d3ec;
+}
+
+nav li a.highlight {
+	border: 2px solid #fff;
+	border-radius: 50px;
+	padding: 8px 25px
+}
+
+nav li a.highlight:hover {
+/*	color: #96d3ec;
+	background-color: #0082B8;
+	border: 2px solid #96d3ec;
+	border-radius: 50px;*/
+	padding: 8px 25px
+}
+
+.fixed-top.scrolled {
+  	/*background-color: #fff !important;*/
+  	/*background-color: rgba(0,0,0,0.2);*/
+  	background-color: #0082B8;
+  	/*background-color: #0b2534;*/
+  	/*background-color: #000;*/
+  	opacity: 0.9;
+  	transition: background-color .3s linear;
+  	-webkit-transition: .3s;
+  	/*text-align:center;*/
+	padding:0;
+	list-style:none;
+	padding-top: 5px;
+	width: 100%;
+	height: 70px;
+}
+
+.fixed-top.scrolled .logo-img {
+	display: none;
+	-webkit-transition: .3s;
+}
+.fixed-top.scrolled .main-nav li a {
+  /*color:#0082B8;*/
+  color: #fff;
+}
+
+.fixed-top.scrolled .main-nav li a:hover {
+  	text-decoration:none;
+  	/*color: #7cc576;*/
+}
+
+.fixed-top.scrolled .main-nav li a.translate:hover {
+  	text-decoration:none;
+  	/*color: #7cc576;*/
+  	color: #fff;
+	background-color: #0082B8;
+	/*background-color: rgba(0, 0, 0, 0.2);*/
+	border: 2px solid #fff;
+	border-radius: 50px;
+	padding: 8px 25px
+}
+
+/* Footer
+--------------------------------*/
+
 footer {
     background-color: #243e52;
     color: #f5f5f5;

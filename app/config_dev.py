@@ -22,7 +22,7 @@ SWAGGER = {
 			},
 		"version": "0.0.1"
 	},
-	"basePath": "/api",  # base bash for blueprint registration
+	"basePath": "/",  # base bash for blueprint registration
 	"schemes": [
 		"http",
 		"https"

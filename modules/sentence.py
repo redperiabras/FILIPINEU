@@ -49,16 +49,3 @@ def read(filename, tokenizer, backwards, nbest=False):
 
 	with open_func(filename) as f:
 		return list(map(process, f))
-
-def translate(sents, model, src_encoder, batch_size, max_length,
-	encode=False, nbest=0, backwards=False):
-	for i in range (0, len(sents), batch_size):
-		batch_sents = sents[i:i+batch_size]
-
-		if encode:
-			batch_sents = [src_encoder.encode_sequence(sent) for sent in batch_sents]
-
-		x = src_encoder.pad_sequences(batch_sents, fake_hybrid=True)
-
-		# beams = model.search(
-			# *(x + ))

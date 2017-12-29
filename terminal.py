@@ -455,15 +455,13 @@ def train(parser, context, args):
 			if encode:
 				batch_sents = [config['source_encoder'].encode_sequence(sent)
 							   for sent in batch_sents]
+
 			x = config['source_encoder'].pad_sequences(
 					batch_sents, fake_hybrid=True)
+			
 			beams = model.search(
 					*(x + (args.max_target_length,)),
 					beam_size=args.beam_size,
-					alpha=config['alpha'],
-					beta=config['beta'],
-					gamma=config['gamma'],
-					len_smooth=config['len_smooth'],
 					prune=(nbest == 0))
 			nbest = min(nbest, args.beam_size)
 			for batch_sent_idx, (_, beam) in enumerate(beams):

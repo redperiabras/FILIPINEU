@@ -299,6 +299,13 @@ class NMT(Model):
 					 for other in others],
 					axis=0))
 
+	def prepare_batch(self, batch_pairs):
+		src_batch, trg_batch, links_maps_batch = list(zip(*batch_pairs))
+		x = self.config['source_encoder'].pad_sequences(src_batch, fake_hybrid=True)
+		y = self.config['target_encoder'].pad_sequences(trg_batch)
+		y = y + (np.ones(y[0].shape + (x[0].shape[0],),dtype=theano.config.floatX),)
+		return x, y
+
 	def translate(self, sents, encode=False, nbest=0, batch_size=32, beam_size=8,
 		max_target_len=1000):
 		for i in range(0, len(sents), batch_size):

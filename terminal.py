@@ -16,7 +16,6 @@ from modules.model import NMT
 from modules.bleu import BLEU
 from modules.chrF import chrF
 from modules.search import beam_with_coverage
-from modules.batch import prepare_batch
 
 from nltk import word_tokenize
 from nltk.translate.bleu_score import sentence_bleu
@@ -423,7 +422,7 @@ def train(parser, context, args):
 		att_result = 0.
 		t0 = time()
 		for batch_pairs in iterate_batches(test_pairs, args.batch_size):
-			test_x, test_y = prepare_batch(batch_pairs)
+			test_x, test_y = model.prepare_batch(batch_pairs)
 			test_outputs, test_outputs_mask, test_attention = test_y
 			test_xent, test_xent_attention = model.xent_fun(*(test_x + test_y))
 			scale = (test_outputs.shape[1] / (test_outputs_mask.sum()*np.log(2)))
@@ -481,7 +480,7 @@ def train(parser, context, args):
 
 				sent_nr += len(batch_pairs)
 
-				x, y = prepare_batch(batch_pairs)
+				x, y = model.prepare_batch(batch_pairs)
 
 				t0 = time()
 				train_loss = optimizer.step(*(x + y))

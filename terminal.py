@@ -644,7 +644,7 @@ def translator(parser, context, args):
 		hypotheses = []
 
 	nbest = args.nbest_list if args.nbest_list else 0
-
+	
 	for i, sent in enumerate(model.translate(source_eval, encode=True)):
 		print(sent, file=output, flush=True)
 		if args.target_eval:

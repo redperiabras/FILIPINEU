@@ -5,6 +5,8 @@ from bnas.utils import softmax_3d
 from bnas.loss import batch_sequence_crossentropy
 from bnas.fun import function
 
+from modules.sentence import tokenizer, detokenize
+from modules.text import Encoded
 from modules.search import beam_with_coverage
 
 import sys
@@ -296,3 +298,37 @@ class NMT(Model):
 					[other.parameter(name).get_value(borrow=True)
 					 for other in others],
 					axis=0))
+
+	def translate(self, sents, encode=False, nbest=0, batch_size=32, beam_size=8,
+		max_target_len=1000):
+		for i in range(0, len(sents), batch_size):
+			batch_sents = sents[i:i+batch_size]
+			
+			if encode:
+				batch_sents = [self.config['source_encoder'].encode_sequence(sent)
+							   for sent in batch_sents]
+
+			x = self.config['source_encoder'].pad_sequences(
+					batch_sents, fake_hybrid=True)
+			
+			beams = self.search(
+					*(x + (max_target_len,)),
+					beam_size=beam_size,
+					prune=(nbest == 0))
+
+			nbest = min(nbest, beam_size)
+
+			for batch_sent_idx, (_, beam) in enumerate(beams):
+				lines = []
+				for best in list(beam)[:max(1, nbest)]:
+					encoded = Encoded(best.history + (best.last_sym,), None)
+					decoded = self.config['target_encoder'].decode_sentence(encoded)
+					hypothesis = detokenize(
+						decoded[::-1] if self.config['backwards'] else decoded,
+						self.config['target_tokenizer'])
+					if nbest > 0:
+						lines.append(' ||| '.join((str(i+batch_sent_idx), hypothesis, str(best.norm_score))))
+					else:
+						yield hypothesis
+				if lines:
+					yield '\n'.join(lines)

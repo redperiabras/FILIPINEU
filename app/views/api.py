@@ -328,39 +328,6 @@ def translate():
 
 	# Translator
 
-	MAX_TARGET_LEN = 1000
-	BEAM_SIZE = 8
-
-	def translate(sent, encode=False, nbest=0, backwards=False):
-		
-		if encode:
-			sent = [model.config['source_encoder'].encode_sequence(sent)]
-
-		x = model.config['source_encoder'].pad_sequences(
-				sent, fake_hybrid=True)
-		
-		beams = model.search(
-				*(x + (MAX_TARGET_LEN,)),
-				beam_size=BEAM_SIZE,
-				prune=(nbest == 0))
-
-		nbest = min(nbest, BEAM_SIZE)
-
-		for batch_sent_idx, (_, beam) in enumerate(beams):
-			lines = []
-			for best in list(beam)[:max(1, nbest)]:
-				encoded = Encoded(best.history + (best.last_sym,), None)
-				decoded = model.config['target_encoder'].decode_sentence(encoded)
-				hypothesis = detokenize(
-					decoded[::-1] if backwards else decoded,
-					model.config['target_tokenizer'])
-				if nbest > 0:
-					lines.append(' ||| '.join((str(i+batch_sent_idx), hypothesis, str(best.norm_score))))
-				else:
-					yield hypothesis
-			if lines:
-				yield '\n'.join(lines)
-
 	t0 = time()
 	
 	sent_tokenizer = tokenizer(model.config['source_tokenizer'],
@@ -368,8 +335,7 @@ def translate():
 
 	input_tokens = sent_tokenizer(input_text)
 
-	result = translate(
-                input_tokens, encode=True, nbest=0, backwards=model.config['backwards'])
+	result = model.translate(input_tokens, encode=True)
 	
 	elapsed_time = time() - t0
 

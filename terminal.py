@@ -16,6 +16,10 @@ from modules.model import NMT
 from modules.bleu import BLEU
 from modules.chrF import chrF
 from modules.search import beam_with_coverage
+from modules.batch import prepare_batch
+
+from nltk import word_tokenize
+from nltk.translate.bleu_score import sentence_bleu
 
 from prompter import prompt, yesno
 from collections import Counter
@@ -23,21 +27,16 @@ from arghandler import ArgumentHandler, subcmd
 from datetime import datetime
 from time import time
 from pprint import pprint
-from nltk import word_tokenize
 
-from app import logger as log
+from app import db, logger as log
 
 @subcmd('initdb', help="Initialize Database")
 def initdb(parser, context, args):
-	from app import db
-
 	db.create_all()
 	log.info('SQL database created.', 'green')
 
 @subcmd('dropdb', help='Drop Database')
 def dropdb(parser, context, args):
-	from app import db
-
 	if yesno('Are you sure you want to lose all your sql data?', default='yes'):	
 		db.drop_all()
 		log.info('SQL database has been deleted.', 'green')
@@ -245,34 +244,34 @@ def create_model(parser, context, args):
 
 	log.info('Configuring model')
 	config = {
-		'ts_train': 0, #total training time in seconds
-		'tn_epoch': 0, #total number of epochs
-		'source_encoder': args.source_encoder,
-		'target_encoder': args.target_encoder,
-		'source_lowercase': args.source_lowercase,
-		'source_tokenizer': args.source_tokenizer,
-		'target_lowercase': args.target_lowercase,
-		'target_tokenizer': args.target_tokenizer,
-		'source_embedding_dims': args.word_embedding_dims,
-		'source_char_embedding_dims': args.char_embedding_dims,
-		'target_embedding_dims': args.target_embedding_dims,
-		'char_embeddings_dropout': args.dropout,
-		'embeddings_dropout': args.dropout,
-		'recurrent_dropout': args.recurrent_dropout,
-		'dropout': args.dropout,
-		'encoder_state_dims': args.encoder_state_dims,
-		'decoder_state_dims': args.decoder_state_dims,
-		'attention_dims': args.attention_dims,
-		'layernorm': args.layer_normalization,
-		'alignment_loss': args.alignment_loss,
-		'alignment_decay': args.alignment_decay,
-		'backwards': args.backwards,
-		'decoder_gate': args.decoder_gate,
-		'alpha': args.alpha,
-		'beta': args.beta,
-		'gamma': args.gamma,
-		'decoder_gate': args.decoder_gate,
-		'len_smooth': args.len_smooth,
+		'ts_train': 0, 											# total training time in seconds
+		'tn_epoch': 0, 											# total number of epochs
+		'source_encoder': args.source_encoder,					#
+		'target_encoder': args.target_encoder,					#
+		'source_lowercase': args.source_lowercase,				# False
+		'source_tokenizer': args.source_tokenizer,				# word
+		'target_lowercase': args.target_lowercase,				# False
+		'target_tokenizer': args.target_tokenizer,				# char
+		'source_embedding_dims': args.word_embedding_dims,		# 256
+		'source_char_embedding_dims': args.char_embedding_dims,	# 64
+		'target_embedding_dims': args.target_embedding_dims,	# None
+		'char_embeddings_dropout': args.dropout,				# 0.0
+		'embeddings_dropout': args.dropout,						# 0.0
+		'recurrent_dropout': args.recurrent_dropout,			# 0.0
+		'dropout': args.dropout,								# 0.0
+		'encoder_state_dims': args.encoder_state_dims,			# 256
+		'decoder_state_dims': args.decoder_state_dims,			# 512
+		'attention_dims': args.attention_dims,					# 256
+		'layernorm': args.layer_normalization,					# False
+		'alignment_loss': args.alignment_loss,					# 0.0
+		'alignment_decay': args.alignment_decay,				# 0.9999
+		'backwards': args.backwards,							# False
+		'decoder_gate': args.decoder_gate,						# lstm
+		'alpha': args.alpha,									# 0.01
+		'beta': args.beta,										# 0.4
+		'gamma': args.gamma,									# 1.0
+		'decoder_gate': args.decoder_gate,						# lstm
+		'len_smooth': args.len_smooth,							# 5.0
 		'encoder_layernorm': 'ba2' if args.layer_normalization else False,
 		'decoder_layernorm': 'ba2' if args.layer_normalization else False
 	}
@@ -387,10 +386,12 @@ def train(parser, context, args):
 		'-eval.log', 'a', encoding='utf-8')
 
 	log.info('Initializing Source Text Tokenizer')
-	source_tokenizer = tokenizer(config['source_tokenizer'], lowercase=config['source_lowercase'])
+	source_tokenizer = tokenizer(config['source_tokenizer'],
+		lowercase=config['source_lowercase'])
 
 	log.info('Initializing Target Text Tokenizer')
-	target_tokenizer = tokenizer(config['target_tokenizer'], lowercase=config['target_lowercase'])
+	target_tokenizer = tokenizer(config['target_tokenizer'], 
+		lowercase=config['target_lowercase'])
 
 	log.info('Loading Source Language Testing data')
 	source_test_data = read(args.source_test_data,
@@ -417,13 +418,6 @@ def train(parser, context, args):
 	training_data = open(args.train_data, 'rb')
 	shuffled_training_data = ShuffledText(training_data, seed=args.random_seed)
 
-	def prepare_batch(batch_pairs):
-		src_batch, trg_batch, links_maps_batch = list(zip(*batch_pairs))
-		x = config['source_encoder'].pad_sequences(src_batch, fake_hybrid=True)
-		y = config['target_encoder'].pad_sequences(trg_batch)
-		y = y + (np.ones(y[0].shape + (x[0].shape[0],),dtype=theano.config.floatX),)
-		return x, y
-
 	def validate(test_pairs, start_time, optimizer, logf, sent_nr):
 		result = 0.
 		att_result = 0.
@@ -438,57 +432,25 @@ def train(parser, context, args):
 
 		print('%d\t%.3f\t%.3f\t%.3f\t%d\t%d' %
 			(
-				int(t0 - start_time),
-				result,
-				att_result,
-				time() - t0,
-				optimizer.n_updates,
-				sent_nr
+				int(t0 - start_time),		# Starting Time
+				result,						# Result
+				att_result,					# Attention Result
+				time() - t0,				# End Time
+				optimizer.n_updates,		# Number of Update
+				sent_nr						# Number of Sentence Processed
 				), file=logf, flush=True)
 
 		return result
 
-	def translate(sents, encode=False, nbest=0, backwards=False):
-		for i in range(0, len(sents), args.batch_size):
-			batch_sents = sents[i:i+args.batch_size]
-			
-			if encode:
-				batch_sents = [config['source_encoder'].encode_sequence(sent)
-							   for sent in batch_sents]
-
-			x = config['source_encoder'].pad_sequences(
-					batch_sents, fake_hybrid=True)
-			
-			beams = model.search(
-					*(x + (args.max_target_length,)),
-					beam_size=args.beam_size,
-					prune=(nbest == 0))
-			nbest = min(nbest, args.beam_size)
-			for batch_sent_idx, (_, beam) in enumerate(beams):
-				lines = []
-				for best in list(beam)[:max(1, nbest)]:
-					encoded = Encoded(best.history + (best.last_sym,), None)
-					decoded = config['target_encoder'].decode_sentence(encoded)
-					hypothesis = detokenize(
-						decoded[::-1] if backwards else decoded,
-						config['target_tokenizer'])
-					if nbest > 0:
-						lines.append(' ||| '.join((str(i+batch_sent_idx), hypothesis, str(best.norm_score))))
-					else:
-						yield hypothesis
-				if lines:
-					yield '\n'.join(lines)
-
 	chrf_max = 0.0
 	bleu_max = 0.0
-
-	start_time = time()
-	total_train_time = 0
 
 	log.info('Starting training')
 	log.info('Press Ctrl + C to stop training...')
 	try:
 		while epochs < args.train_for:
+
+			start_time = time()
 
 			train_samples = HalfSortedIterator(
 						iter(shuffled_training_data),
@@ -537,14 +499,17 @@ def train(parser, context, args):
 					model.lambda_a.get_value() * config['alignment_decay'],
 					dtype=theano.config.floatX))
 
-			epochs += 1
+				batch_nr += 1
+
+			config['tn_epoch'] += 1
+			config['ts_train'] += time() - start_time
 
 			#Validate Model
 			validate(test_pairs, start_time, optimizer, logf, sent_nr)
 
 			#Test Translate
 			t0 = time()
-			test_dec = list(translate(source_sample_data, encode=False))
+			test_dec = list(model.translate(source_sample_data, encode=False))
 			for source, target, test in zip(
 				source_sample_data, target_sample_data, test_dec):
 				log.info('Source:' )
@@ -591,9 +556,6 @@ def train(parser, context, args):
 					sent_nr
 				), file=evalf, flush=True)
 
-			config['tn_epoch'] += 1
-			config['ts_train'] += time() - start_time
-
 			if is_best:
 				log.info('Marking as best model...')
 				with open(args.load_model + ".best", 'wb') as f:
@@ -634,27 +596,20 @@ def train(parser, context, args):
 	if logf: logf.close()
 	if evalf: evalf.close()
 
-@subcmd('translate', help='Translator tool')
+@subcmd('evaluate', help='Evaluation tool')
 def translator(parser, context, args):
 
 	parser.add_argument('--load-model', type=str, metavar='FILE(s)',
 		help='Model file(s) to load from')
 
-	parser.add_argument('--translate', type=str, metavar='FILE',
+	parser.add_argument('--source-eval', type=str, metavar='FILE',
 		help='Sentence to translate')
 
-	parser.add_argument('--reference', type=str, metavar='FILE',
+	parser.add_argument('--target-eval', type=str, metavar='FILE',
 		help='Reference file')
 
-	parser.add_argument('--output', type=str, metavar='FILE',
-		help='Output Transalations')
-
-	parser.add_argument('--encode', action='store_false',
-		help="Encode sentence")
-
-	parser.add_argument('--nbest-list', type=int,
+	parser.add_argument('--nbest-list', type=int, metavar='N',
 		default=0,
-		metavar='N',
 		help='print n-best list in translation model')
 
 	parser.add_argument('--random-seed', type=int, default=123, metavar='N',
@@ -664,6 +619,8 @@ def translator(parser, context, args):
 		help='Beam size during translation')
 
 	args = parser.parse_args(args)
+
+	log.info('Model Evaluation')
 
 	random.seed(args.random_seed)
 
@@ -675,93 +632,69 @@ def translator(parser, context, args):
 		log.info('Loading %s weights' % os.path.basename(args.load_model))
 		model.load(f)
 
-		if args.learning_rate is not None:
-			optimizer.learning_rate = args.learning_rate
+	output = open(os.path.dirname(args.source_eval) + '/result.data.eval', 'w', encoding='utf-8')
 
-		if not args.reset_optimizer:
-			try:
-				optimizer.load(f)
-				log.info('Continuing traning from update %d' % optimizer.n_updates)
-			except EOFError:
-				pass
+	log.info('Translating...')
+	source_tokenizer = tokenizer(config['source_tokenizer'],
+		lowercase=config['source_lowercase'])
+	source_eval = read(args.source_eval,
+		source_tokenizer,
+		config['backwards'])
 
-	def translate(sents, encode=False, nbest=0, backwards=False):
-		for i in range(0, len(sents), config['batch_size']):
-			batch_sents = sents[i:i+config['batch_size']]
-			if encode:
-				batch_sents = [config['src_encoder'].encode_sequence(sent)
-							   for sent in batch_sents]
-			x = config['src_encoder'].pad_sequences(
-					batch_sents, fake_hybrid=True)
-			beams = model.search(
-					*(x + (args.max_target_length,)),
-					beam_size=config['beam_size'],
-					alpha=config['alpha'],
-					beta=config['beta'],
-					gamma=config['gamma'],
-					len_smooth=config['len_smooth'],
-					others=models[1:],
-					prune=(nbest == 0))
-			nbest = min(nbest, config['beam_size'])
-			for batch_sent_idx, (_, beam) in enumerate(beams):
-				lines = []
-				for best in list(beam)[:max(1, nbest)]:
-					encoded = Encoded(best.history + (best.last_sym,), None)
-					decoded = config['trg_encoder'].decode_sentence(encoded)
-					hypothesis = detokenize(
-						decoded[::-1] if backwards else decoded,
-						config['target_tokenizer'])
-					if nbest > 0:
-						lines.append(' ||| '.join((str(i+batch_sent_idx), hypothesis, str(best.norm_score))))
-					else:
-						yield hypothesis
-				if lines:
-					yield '\n'.join(lines)
+	if args.target_eval: 
+		hypotheses = []
 
-	log.info('Transalating...')
-	outf = sys.stdout if args.output is None else open(args.output, 'w', encoding='utf-8')
-	sents = read_sents(args.translate,tokenize_src,config['backwards'] == 'yes')
+	nbest = args.nbest_list if args.nbest_list else 0
 
-	if args.reference: hypotheses = []
-	if args.nbest_list: nbest = args.nbest_list
-	else: nbest = 0
-	for i,sent in enumerate(translate(sents, encode=True, nbest=nbest, backwards=(config['backwards'] == 'yes'))):
-		print('.', file=sys.stderr, flush=True, end='')
-		print(sent, file=outf, flush=True)
-		if args.reference:
+	for i, sent in enumerate(model.translate(source_eval, encode=True)):
+		print(sent, file=output, flush=True)
+		if args.target_eval:
 			if nbest:
 				hypotheses.append(sent.split('\n')[0].split(' ||| ')[1])
 			else:
 				hypotheses.append(sent)
-	log.info(' done!')
 
-	if args.output:
-		outf.close()
+	output.close()
 
-	# compute BLEU if reference file is given
-	if args.reference:
-		# Now the translation is flipped, so the reference should not be
-		# flipped
-		trg = read_sents(args.reference,
-				tokenize_trg, False)
-		#config['backwards'] == 'yes')
+	log.info('Evaluating Sentences')
+	evaluation_file = open(os.path.dirname(args.source_eval) + '/result.data.eval.scores',
+		'w', encoding='utf-8')
 
-		if config['target_tokenizer'] == 'char':
-			system = [detokenize(word_tokenize(s),'space')
-						for s in hypotheses]
-			reference = [detokenize(word_tokenize(detokenize(s,'char')), 'space')
-							for s in trg]
-			print('BLEU = %f (%f, %f, %f, %f, BP = %f)' % BLEU(
-				system,[reference]))
-			print('chrF = %f (precision = %f, recall = %f)' % chrF(
-				reference,system))
-		else:
-			reference = [detokenize(s,config['target_tokenizer'])
-							for s in trg ]
-			print('BLEU = %f (%f, %f, %f, %f, BP = %f)' % BLEU(
-				hypotheses,[reference]))
-			print('chrF = %f (precision = %f, recall = %f)' % chrF(
-				reference,hypotheses))
+	target_tokenizer = tokenizer(config['target_tokenizer'], 
+		lowercase=config['target_lowercase'])
+	target_eval = read(args.target_eval,
+				target_tokenizer, False)
+
+	for target, result in zip(target_eval, hypotheses):
+		target = word_tokenize(detokenize(target, config['target_tokenizer']))
+		score = sentence_bleu(target, result)
+		print(score, file=evaluation_file, flush=True)
+
+	evaluation_file.close()
+
+	# # compute BLEU if reference file is given
+	# if args.target_eval:
+	# 	# Now the translation is flipped, so the reference should not be
+	# 	# flipped
+	# 	target_eval = read_sents(args.target_eval,
+	# 			target_tokenizer, False)
+
+	# 	if config['target_tokenizer'] == 'char':
+	# 		system = [detokenize(word_tokenize(s),'space')
+	# 					for s in hypotheses]
+	# 		reference = [detokenize(word_tokenize(detokenize(s,'char')), 'space')
+	# 						for s in target]
+	# 		print('BLEU = %f (%f, %f, %f, %f, BP = %f)' % BLEU(
+	# 			system,[reference]))
+	# 		print('chrF = %f (precision = %f, recall = %f)' % chrF(
+	# 			reference,system))
+	# 	else:
+	# 		reference = [detokenize(s,config['target_tokenizer'])
+	# 						for s in target ]
+	# 		print('BLEU = %f (%f, %f, %f, %f, BP = %f)' % BLEU(
+	# 			hypotheses,[reference]))
+	# 		print('chrF = %f (precision = %f, recall = %f)' % chrF(
+	# 			reference,hypotheses))
 
 if __name__ == '__main__':
 	with open('logo.txt', 'r') as f:

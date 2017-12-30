@@ -13,9 +13,9 @@ CREATE ENCODER
 	>> python terminal.py create-encoder --files "data/PHTPC - Ilao et. al./Orig.en.txt" --tokenizer char --save-to "models/fl-en/target.vocab"
 
 CREATE MODEL
-	>> python terminal.py create-model --source-encoder models/en-fl/source.vocab --target-encoder models/en-fl/target.vocab --save-model models/en-fl/en-fl.nlm
+	>> python terminal.py create-model --source-encoder models/en_fl/source.vocab --target-encoder models/en_fl/target.vocab --save-model models/en_fl/en-fl.nlm
 
-	>> python terminal.py create-model --source-encoder models/fl-en/source.vocab --target-encoder models/fl-en/target.vocab --save-model models/fl-en/fl-en.nlm
+	>> python terminal.py create-model --source-encoder models/fl_en/source.vocab --target-encoder models/fl_en/target.vocab --save-model models/fl_en/fl-en.nlm
 
 TRAIN MODEL
 	>> python terminal.py train --load-model models/en_fl/en-fl.nlm --train-data "models/en_fl/data/train/source ||| target.data.train" --source-test-data "models/en_fl/source.data.test" --target-test-data "models/en_fl/target.data.test" --train-for 1

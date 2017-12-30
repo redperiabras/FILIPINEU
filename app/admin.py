@@ -23,7 +23,8 @@ class ModelView(ModelView):
 		return True
 
 class UserModelView(ModelView):
-	form_columns = ['first_name', 'last_name', 'email', 'phone', 'key', 'confirmation']
+	column_display_pk = True
+	form_columns = ['first_name', 'last_name', 'key', 'confirmation']
 	column_searchable_list = ('first_name', 'last_name', 'email')
 	column_filters = ('first_name', 'last_name', 'email')
 

@@ -672,6 +672,8 @@ def translator(parser, context, args):
 
 	evaluation_file.close()
 
+	log.info('Process finished')
+
 	# # compute BLEU if reference file is given
 	# if args.target_eval:
 	# 	# Now the translation is flipped, so the reference should not be

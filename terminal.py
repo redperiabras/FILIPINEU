@@ -670,11 +670,6 @@ def translator(parser, context, args):
 		target = word_tokenize(detokenize(target, config['target_tokenizer']))
 		result = word_tokenize(result)
 		score = sentence_bleu([target], result)
-
-		print(target)
-		print(result)
-		print(score)
-
 		print(score, file=evaluation_file, flush=True)
 
 	evaluation_file.close()

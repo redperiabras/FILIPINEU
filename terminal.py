@@ -500,6 +500,7 @@ def train(parser, context, args):
 
 				batch_nr += 1
 
+			epochs += 1
 			config['tn_epoch'] += 1
 			config['ts_train'] += time() - start_time
 
@@ -631,7 +632,8 @@ def translator(parser, context, args):
 		log.info('Loading %s weights' % os.path.basename(args.load_model))
 		model.load(f)
 
-	output = open(os.path.dirname(args.source_eval) + '/result.data.eval', 'w', encoding='utf-8')
+	output = open(os.path.dirname(args.source_eval) + '/result.data.eval',
+		'w', encoding='utf-8')
 
 	log.info('Translating...')
 	source_tokenizer = tokenizer(config['source_tokenizer'],
@@ -656,7 +658,7 @@ def translator(parser, context, args):
 	output.close()
 
 	log.info('Evaluating Sentences')
-	evaluation_file = open(os.path.dirname(args.source_eval) + '/result.data.eval.scores',
+	evaluation_file = open(os.path.dirname(args.source_eval) + '/scores.data.eval',
 		'w', encoding='utf-8')
 
 	target_tokenizer = tokenizer(config['target_tokenizer'], 
@@ -666,7 +668,13 @@ def translator(parser, context, args):
 
 	for target, result in zip(target_eval, hypotheses):
 		target = word_tokenize(detokenize(target, config['target_tokenizer']))
-		score = sentence_bleu(target, result)
+		result = word_tokenize(result)
+		score = sentence_bleu([target], result)
+
+		print(target)
+		print(result)
+		print(score)
+
 		print(score, file=evaluation_file, flush=True)
 
 	evaluation_file.close()

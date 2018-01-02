@@ -22,9 +22,9 @@ CREATE MODEL
 	>> python terminal.py create-model --source-encoder models/fl_en/source.vocab --target-encoder models/fl_en/target.vocab --save-model models/fl_en/fl-en.nlm
 
 TRAIN MODEL
-	>> python terminal.py train --load-model models/en_fl/en-fl.nlm --train-data "models/en_fl/data/train/source ||| target.data.train" --source-test-data "models/en_fl/source.data.test" --target-test-data "models/en_fl/target.data.test" --train-for 1
-
-	>> python terminal.py train --load-model models/fl_en/fl-en.nlm --train-data "models/fl_en/source ||| target.data.train" --source-test-data "models/fl_en/source.data.test" --target-test-data "models/fl_en/target.data.test" --train-for 1
+	>> python terminal.py train --load-model models/en_fl/en-fl.nlm --train-data "models/en_fl/data/source ||| target.data.train" --source-test-data "models/en_fl/source.data.test" --target-test-data "models/en_fl/target.data.test" --train-for 1
+fl_en
+	>> python terminal.py train --load-model models/fl_en/fl-en.nlm --train-data "models/fl_en/data/source ||| target.data.train" --source-test-data "models/fl_en/source.data.test" --target-test-data "models/fl_en/target.data.test" --train-for 1
 
 EVALUATE MODEL
 

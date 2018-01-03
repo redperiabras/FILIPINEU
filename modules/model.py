@@ -339,3 +339,4 @@ class NMT(Model):
 						yield hypothesis
 				if lines:
 					yield '\n'.join(lines)
+

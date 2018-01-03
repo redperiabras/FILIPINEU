@@ -8,17 +8,12 @@ import numpy as np
 import theano
 from theano import tensor as T
 
-from bnas.optimize import iterate_batches
 from modules.sentence import tokenizer, read, detokenize
-from modules.text import TextEncoder, Encoded
-from modules.largetext import ShuffledText, HalfSortedIterator
+from modules.text import Encoded
 from modules.model import NMT
 from modules.bleu import BLEU
 from modules.chrF import chrF
 from modules.search import beam_with_coverage
-
-from nltk import word_tokenize
-from nltk.translate.bleu_score import sentence_bleu
 
 from prompter import prompt, yesno
 from collections import Counter
@@ -27,21 +22,30 @@ from datetime import datetime
 from time import time
 from pprint import pprint
 
-from app import db, logger as log
+from nltk import word_tokenize
+
+from app import logger as log
 
 @subcmd('initdb', help="Initialize Database")
 def initdb(parser, context, args):
+
+	from app import db
+
 	db.create_all()
 	log.info('SQL database created.', 'green')
 
 @subcmd('dropdb', help='Drop Database')
 def dropdb(parser, context, args):
+
+	from app import db
+
 	if yesno('Are you sure you want to lose all your sql data?', default='yes'):	
 		db.drop_all()
 		log.info('SQL database has been deleted.', 'green')
 
 @subcmd('runserver', help="Run the Server")
 def runserver(parser, context, args):
+
 	from app import app
 
 	app.run(
@@ -52,7 +56,8 @@ def runserver(parser, context, args):
 @subcmd('create-encoder', help="Encoder tool")
 def create_encoder(parser, context, args):
 
-	parser.add_argument('--files', required=True, metavar='FILE', type=str, nargs='+',
+	parser.add_argument('--files', required=True, metavar='FILE', type=str,
+		nargs='+',
 		help='File to process')
 
 	parser.add_argument('--vocabulary-size', type=int, default=50000,
@@ -62,9 +67,11 @@ def create_encoder(parser, context, args):
 		help='Maximum number of characters in the vocabulary')
 
 	parser.add_argument('--char-count', type=int, default=1,
-		help='Minimum count of characters in the vocabulary (all characters are included by default)')
+		help='Minimum count of characters in the vocabulary (all characters are\
+			included by default)')
 
-	parser.add_argument('--tokenizer', type=str, default='word', choices=('space', 'char', 'word'),
+	parser.add_argument('--tokenizer', type=str, default='word',
+		choices=('space', 'char', 'word'),
 		help='Tokenizer flag (space, char, word)')
 
 	parser.add_argument('--lowercase', action='store_true',
@@ -77,6 +84,8 @@ def create_encoder(parser, context, args):
 		help='Output file name')
 
 	args = parser.parse_args(args)
+
+	from modules.text import TextEncoder
 
 	if args.tokenizer == 'char':
 		tokenize = lambda s: list(s.strip())
@@ -352,9 +361,8 @@ def train(parser, context, args):
 
 	args = parser.parse_args(args)
 
-	epochs = 0
-	batch_nr = 0
-	sent_nr = 0
+	from bnas.optimize import iterate_batches
+	from modules.largetext import ShuffledText, HalfSortedIterator
 
 	random.seed(args.random_seed)
 
@@ -394,13 +402,11 @@ def train(parser, context, args):
 
 	log.info('Loading Source Language Testing data')
 	source_test_data = read(args.source_test_data,
-		source_tokenizer,
-		config['backwards'])
+		source_tokenizer, config['backwards'])
 	
 	log.info('Loading Target Language Testing data')
 	target_test_data = read(args.target_test_data,
-		target_tokenizer,
-		config['backwards'])
+		target_tokenizer, config['backwards'])
 
 	target_test_unencoded = target_test_data
 	source_test_data = [config['source_encoder'].encode_sequence(sent)
@@ -441,8 +447,8 @@ def train(parser, context, args):
 
 		return result
 
-	chrf_max = 0.0
-	bleu_max = 0.0
+	epochs, batch_nr, sent_nr = 0, 0, 0
+	chrf_max, bleu_max = 0.0, 0.0
 
 	log.info('Starting training')
 	log.info('Press Ctrl + C to stop training...')
@@ -526,18 +532,14 @@ def train(parser, context, args):
 			log.info('Translation finished %.2f s' % (time() - t0))
 
 			if config['target_tokenizer'] == 'char':
-				system = [
-					detokenize(word_tokenize(s), 'space')
-						for s in test_dec]
-				reference = [
-					detokenize(word_tokenize(
-						detokenize(s, 'char')), 'space')
+				system = [ detokenize(word_tokenize(s), 'space')
+							for s in test_dec ]
+				reference = [ detokenize(word_tokenize( detokenize(s, 'char')), 'space')
 							for s in target_sample_data]
 			else:
 				system = test_dec
-				reference = [
-					detokenize(s, config['target_tokenizer'])
-						for s in target_sample_data]
+				reference = [ detokenize(s, config['target_tokenizer'])
+								for s in target_sample_data ]
 
 			bleu_result = BLEU(system, [reference])
 			chrf_result = chrF(reference, system)
@@ -603,9 +605,11 @@ def translator(parser, context, args):
 		help='Model file(s) to load from')
 
 	parser.add_argument('--source-eval', type=str, metavar='FILE',
+		required=True,
 		help='Sentence to translate')
 
 	parser.add_argument('--target-eval', type=str, metavar='FILE',
+		required=True,
 		help='Reference file')
 
 	parser.add_argument('--nbest-list', type=int, metavar='N',
@@ -618,12 +622,25 @@ def translator(parser, context, args):
 	parser.add_argument('--beam-size', type=int, default=8, metavar='N',
 		help='Beam size during translation')
 
+	parser.add_argument('--weights', type=list(float),
+		default=(0.25, 0.25, 0.25, 0.25),
+		help='Weights for unigrams, bigrams, trigrams, and so on')
+
 	args = parser.parse_args(args)
 
-	log.info('Model Evaluation')
+	from nltk import word_tokenize
+	from nltk.translate.bleu_score import (modified_precision, closest_ref_length,
+		brevity_penalty, SmoothingFunction, sentence_bleu)
 
-	random.seed(args.random_seed)
+	from fractions import Fraction
 
+	nbest = args.nbest_list if args.nbest_list else 0
+	hypotheses = []
+	p_numerators = Counter()	# Key = ngram order, and value = no. of ngram matches.
+	p_denominators = Counter()	# Key = ngram order, and value = no. of ngram in ref.
+	hyp_lengths, ref_lengths = 0, 0
+
+	log.info('Initializing Model')
 	with open(args.load_model, 'rb') as f:
 		log.info('Loading %s configuration' % os.path.basename(args.load_model))
 		config = pickle.load(f)
@@ -631,74 +648,66 @@ def translator(parser, context, args):
 
 		log.info('Loading %s weights' % os.path.basename(args.load_model))
 		model.load(f)
+		f.close()
 
-	output = open(os.path.dirname(args.source_eval) + '/result.data.eval',
-		'w', encoding='utf-8')
-
-	log.info('Translating...')
+	log.info('Loading Source Evaluation data')
 	source_tokenizer = tokenizer(config['source_tokenizer'],
 		lowercase=config['source_lowercase'])
-	source_eval = read(args.source_eval,
-		source_tokenizer,
-		config['backwards'])
+	source_eval = read(args.source_eval, source_tokenizer, config['backwards'])
 
-	if args.target_eval: 
-		hypotheses = []
+	log.info('Loading Target Evaluation data')
+	target_tokenizer = tokenizer('word', 
+		lowercase=config['target_lowercase'])
+	references = read(args.target_eval, target_tokenizer, False)
 
-	nbest = args.nbest_list if args.nbest_list else 0
+	log.info('Translating...')
 	
-	for i, sent in enumerate(model.translate(source_eval, encode=True)):
-		print(sent, file=output, flush=True)
-		if args.target_eval:
-			if nbest:
-				hypotheses.append(sent.split('\n')[0].split(' ||| ')[1])
-			else:
-				hypotheses.append(sent)
-
-	output.close()
-
-	log.info('Evaluating Sentences')
-	evaluation_file = open(os.path.dirname(args.source_eval) + '/scores.data.eval',
+	output_file = open(os.path.dirname(args.source_eval) + '/result.data.eval',
 		'w', encoding='utf-8')
 
-	target_tokenizer = tokenizer(config['target_tokenizer'], 
-		lowercase=config['target_lowercase'])
-	target_eval = read(args.target_eval,
-				target_tokenizer, False)
+	for i, sent in enumerate(model.translate(source_eval, encode=True, nbest=nbest)):
+	    print(sent, file=output_file, flush=True)
+	    hypotheses.append(word_tokenize(sent))
+	    
+	output_file.close()
 
-	for target, result in zip(target_eval, hypotheses):
-		target = word_tokenize(detokenize(target, config['target_tokenizer']))
-		result = word_tokenize(result)
-		score = sentence_bleu([target], result)
-		print(score, file=evaluation_file, flush=True)
-
+	log.info('Generating Data for Evaluation')
+	evaluation_file = open(os.path.dirname(args.source_eval) + '/scores.data.eval.csv',
+		'w', encoding='utf-8')
+	
+	for reference, hypothesis in zip(references, hypotheses):
+	    
+	    hyp_len = len(hypothesis)
+	    ref_len = closest_ref_length(references, hyp_len)
+	    
+	    hyp_lengths += hyp_len
+	    ref_lengths += ref_len
+	    
+	    set_data = '%d,%d' % (ref_len, hyp_len)
+	    
+	    for i, _ in enumerate(weights, start=1):
+	        p_i = modified_precision(reference, hypothesis, i)
+	        p_numerators[i] += p_i.numerator
+	        p_denominators[i] += p_i.denominator
+	        set_data += ',%d,%d' % (p_i.numerator, p_i.denominator)
+	        
+	    set_data += ',%f' % sentence_bleu(reference, hypothesis)
+	        
 	evaluation_file.close()
 
+	# bp = brevity_penalty(ref_lengths, hyp_lengths)
+
+	# p_n = [Fraction(p_numerators[i]. p_denominators[i], _normalize=False)
+	# 		for i, _ in enumarate(weight, start=1)]
+
+	# smoothing_function = SmoothingFunction().method0
+
+	# p_n = smoothing_function(p_n, references=references, hypothesis=hypothesis,
+	#                              hyp_len=hyp_len, emulate_multibleu=False)
+
+	# s = (w * math.log(p_i) for i, (w, p_i) in enumerate(zip(weights, p_n)))
+
 	log.info('Process finished')
-
-	# # compute BLEU if reference file is given
-	# if args.target_eval:
-	# 	# Now the translation is flipped, so the reference should not be
-	# 	# flipped
-	# 	target_eval = read_sents(args.target_eval,
-	# 			target_tokenizer, False)
-
-	# 	if config['target_tokenizer'] == 'char':
-	# 		system = [detokenize(word_tokenize(s),'space')
-	# 					for s in hypotheses]
-	# 		reference = [detokenize(word_tokenize(detokenize(s,'char')), 'space')
-	# 						for s in target]
-	# 		print('BLEU = %f (%f, %f, %f, %f, BP = %f)' % BLEU(
-	# 			system,[reference]))
-	# 		print('chrF = %f (precision = %f, recall = %f)' % chrF(
-	# 			reference,system))
-	# 	else:
-	# 		reference = [detokenize(s,config['target_tokenizer'])
-	# 						for s in target ]
-	# 		print('BLEU = %f (%f, %f, %f, %f, BP = %f)' % BLEU(
-	# 			hypotheses,[reference]))
-	# 		print('chrF = %f (precision = %f, recall = %f)' % chrF(
-	# 			reference,hypotheses))
 
 if __name__ == '__main__':
 	with open('logo.txt', 'r') as f:

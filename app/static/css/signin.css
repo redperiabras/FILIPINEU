@@ -1,0 +1,22 @@
+.login-section {
+	background-color: #eaeaea;
+	padding-top: 20px;
+	height: 450px;
+}
+
+form-group {
+	margin-bottom: 0px;		
+}
+
+.panel {
+	width: 50%;
+	height: 300px;
+}
+
+/*Media Queries*/
+
+@media only screen and (max-width: 767px) {
+	.panel {
+		width: 100%;
+	}
+}

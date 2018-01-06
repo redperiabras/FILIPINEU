@@ -47,18 +47,18 @@
 	/****Mobile Landscape 480 Container 100% ****/
 	body{ font-size:12px;}
 	h2{ font-size:26px;}
-	h3{ font-size:14px;}
-	h6{ font-size:16px; margin-bottom:40px;}
-	p{ line-height:18px;}
+	h3{ font-size:14px; padding: 10px;}
+	h6{ font-size:16px; margin-bottom:40px; }
+	p{ line-height:18px; padding: 10px;}
 	.service-list{ font-size:12px; margin-bottom:20px;}
 	.we-create li{ font-size:13px; padding:0 0 0 8px}
 	.header h1{ font-size:28px;}
 	.header{ padding:60px 0;}
 	.main-section{ padding:60px 0 70px;}
-	.main-nav{ display:none; position:absolute; left:0; width:100%; top:74px; margin:0 auto; flote : none; background:#fff;}
+	.main-nav{ height: 100vh; display:none; position:absolute; left:0; width:100%; padding-top: 20px; top:74px; margin:0 auto; flote : none; background:#fff;}
 	.main-nav li{ display:block;}
 	.main-nav li.small-logo{ display:none;}
-	.main-nav li a{ display:block; padding:7px 32px; border-bottom:none; color:#428bca; border: none;}
+	.main-nav li a{ display:block; padding:10px 32px; border-bottom:none; color:#428bca; border: none;}
 	/*.main-nav li a:hover{color:#7cc576}*/
 	.team-leader-box{ max-width:307px; width:auto; float:none; margin:0 auto;	}
 	.team-leader-box:nth-of-type(3n){ margin:0 auto}
@@ -88,6 +88,7 @@
 	.isotope{ width:400px; margin:0px auto;}
 	.Portfolio-box{}
 	.portfolioContainer{ width:350px; margin:0px auto !important; } */
+	.div-section-col3 {padding: 10px;}
 
 
 }
@@ -95,9 +96,10 @@
 @media only screen and (max-width: 479px) {
 	/****Mobile Portrait 320 ****/
 	.contact-info-box{ margin-left:0px;}
-	.header{ padding:40px;}
 	.social-link{ margin-left:0px;}
 	.form{ margin:0}
+	.cover {font-size: 300%;}
+	.cover p {font-size: 30px;}
 	.c-logo-part ul li{ display:block;}
 	.Portfolio-box{  max-width:300px !important; width:96.4% !important; margin:0 !important}
 	.Portfolio-box img { max-width:100%;}

@@ -182,7 +182,6 @@ def translate():
 	    in: formData
 	    type: string
 	    enum: ['fl', 'en']
-	    default: 'en'
 	    required: false
 
 	  - name: key
@@ -333,7 +332,7 @@ def translate():
 	sent_tokenizer = tokenizer(model.config['source_tokenizer'],
 		lowercase=model.config['source_lowercase'])
 
-	input_tokens = sent_tokenizer(input_text)
+	input_tokens = [sent_tokenizer(input_text)]
 
 	result = model.translate(input_tokens, encode=True)
 	

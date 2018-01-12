@@ -622,10 +622,6 @@ def translator(parser, context, args):
 	parser.add_argument('--beam-size', type=int, default=8, metavar='N',
 		help='Beam size during translation')
 
-	parser.add_argument('--weights', type=list(float),
-		default=(0.25, 0.25, 0.25, 0.25),
-		help='Weights for unigrams, bigrams, trigrams, and so on')
-
 	args = parser.parse_args(args)
 
 	from nltk import word_tokenize
@@ -633,6 +629,8 @@ def translator(parser, context, args):
 		brevity_penalty, SmoothingFunction, sentence_bleu)
 
 	from fractions import Fraction
+
+	weights = (0.25, 0.25, 0.25, 0.25)
 
 	nbest = args.nbest_list if args.nbest_list else 0
 	hypotheses = []
@@ -650,7 +648,7 @@ def translator(parser, context, args):
 		model.load(f)
 		f.close()
 
-	log.info('Loading Source Evaluation data')
+	log.info('Loading Source Evaluation data')	
 	source_tokenizer = tokenizer(config['source_tokenizer'],
 		lowercase=config['source_lowercase'])
 	source_eval = read(args.source_eval, source_tokenizer, config['backwards'])
@@ -668,7 +666,7 @@ def translator(parser, context, args):
 	for i, sent in enumerate(model.translate(source_eval, encode=True, nbest=nbest)):
 	    print(sent, file=output_file, flush=True)
 	    hypotheses.append(word_tokenize(sent))
-	    
+
 	output_file.close()
 
 	log.info('Generating Data for Evaluation')

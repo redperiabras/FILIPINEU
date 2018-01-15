@@ -19,6 +19,7 @@
 	<link href="{{ url_for('static', filename='lib/font-awesome/css/font-awesome.css' ) }}" rel="stylesheet" type="text/css">
 	<link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ url_for('static', filename='css/animate.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet" type="text/css">
 
 	<script type="text/javascript" src="{{ url_for('static', filename='lib/jquery/jquery.1.8.3.min.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename='lib/bootstrap/js/bootstrap.js') }}"></script>
@@ -60,94 +61,69 @@
 				<a class="link animated fadeInUp delay-1s servicelink" href="#service"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
 			</div>
 	</header>
-
 	
+	<div class="clear"></div>
 
 	<section class="main-section" id="service">
 		<div class="container">
-			<h2>Machine Translation using <span style="color: #0082B8; text-transform: uppercase;">Neural Networks</span></h2>
-			<h6>Neural Machine Translation (NMT) brings state of the art results</h6>
 			<div class="row">
-				<div class="col-md-6 wow fadeInLeft delay-05s">
-					<div class="div-section">
-						<div class="div-section-col">
-							<h3 style="color: ">Deep Learning Techniques</h3>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+				<div class="col-md-6">
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					  	<div class="dropdown pull-left">
+  							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+  							  Filipino
+  							  <span class="caret"></span>
+  							</button>
+  							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+  							  <li><a href="#">Filipino</a></li>
+  							  <li><a href="#">English</a></li>
+  							</ul>
 						</div>
+						<button class="btn btn-default pull-right" id="button-clear" id="button-clear">
+							<i class="fa fa-repeat" aria-hidden="true"></i>
+						</button>
+					  </div>
+					  <div class="panel-body">
+					    <textarea placeholder="Enter text here" id="input-area"></textarea>
+					  </div>
 					</div>
-					<div class="div-section">
-						<div class="div-section-col2">	
-							<h3 style="color: ">Fluency &amp; Higher Generic Quality</h3>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-						</div>
-					</div>
-				</div>	
-				<figure class="col-md-6  text-right wow fadeInUp delay-02s">
-					<img src="{{ url_for('static', filename='img/macbook1.png') }}" alt="">
-				</figure>
+				</div>
 
+				<div class="col-md-6">
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					  	<div class="dropdown">
+  							<button class="btn btn-default" type="button" id="target-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+  							  English
+  							  <span class="caret"></span>
+  							</button>
+  							<ul class="dropdown-menu" aria-labelledby="target-menu">
+  							  <li>Filipino</li>
+  							  <li>English</li>
+  							</ul>
+						</div>
+					  </div>
+					  <div class="panel-body">
+					    <textarea placeholder="Output" id="output-area" readonly diabled></textarea>
+					  </div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="row">
+				<div class="col-md-2 col-md-offset-5 text-center">
+					<button class="btn btn-primary" id="button-translate">Translate</button>
+				</div>
 			</div>
 		</div>
-	</section>
-	<section class="main-section" id="service">
-		<div class="container">
-			<h2>Previous approaches before <span style="color:#0082B8;"><br>Neural Machine Translation</span></h2>
-			<div class="row">
-				<div class="col-lg-6 col-sm-6 wow fadeInDown delay-05s">
-					<div class="div-section">
-						<div class="div-section-col3">
-							<h2><span style="color:#0082B8;">Rule Based</span> Approach</h2>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-							<a href="#" class="learn-link">Learn more</a>
-						</div>
-					</div>
-				</div>	
-				<div class="col-lg-6 col-sm-6 wow fadeInDown delay-05s">
-					<div class="div-section">
-						<div class="div-section-col3">
-							<h2><span style="color:#0082B8;">Statistical</span> Approach</h2>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-							<a href="#" class="learn-link">Learn more</a>
-						</div>
-					</div>
-				</div>	
-
-			</div>
-		</div>
-	</section>
-
-	<section class="main-section" id="how-it-works">
-		<div class="container">
-			<h2>how it works</h2>
-			<h6>Neural Machine Translation (NMT) brings state of the art results</h6>
-			<div class="row">
-				<figure class="col-lg-8 col-sm-8  text-right wow fadeInUp delay-02s">
-					<img src="{{ url_for('static', filename='img/translate.png') }}" alt="">
-				</figure>
-				<div class="col-lg-4 col-sm-4 wow fadeInLeft delay-05s">
-					<div class="div-section">
-						<div class="div-section-col2">
-							<h3>FILIPINEU</h3>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-						</div>
-					</div>
-				</div>	
-			</div>
-		</div>
-	</section>
-
-	
-
-	<section class="ready-section">
-		<h1 class="wow fadeInDown delay-02s">Ready to use Filipineu?</h1>
-		<a href="#" class="btn-translate wow fadeInDown delay-02s">Translate Now</a>
 	</section>
 	
 	<footer class="footer">
 		<div class="container">	
 			<div class="row">
 				<img src="{{ url_for('static', filename='img/icon-white.png') }}">
-				<span class="copyright">&copy; All Rights Reserved 2017</span>
+				<span class="copyright">&copy; All Rights Reserved 2018</span>
 			</div>	
 		</div>
 	</footer>
@@ -162,7 +138,6 @@
 				return false
 
 			});
-
 		});
 	</script>
 
@@ -173,7 +148,6 @@
 		});
 		wow.init();
 	</script>
-
 
 	<script type="text/javascript">
 		$(window).load(function() {
@@ -215,6 +189,56 @@
 	    $('body,html').animate({
 	        scrollTop : 0                       // Scroll to top of body
 	    }, 500);
+		});
+	</script>
+
+	<script type="text/javascript">
+		var api_key = "0d600f2643ae8ffcdcf66965679c863aedc31c74661be4f2";
+		var request;
+
+		$("#button-clear").click(function(){
+			$('#input-area').val('');
+			$('#output-area').val('');
+		});
+
+		$("#button-translate").click(function(){
+			
+			var url =  "/api/translate?key=" + api_key;
+
+			// Abort any pending request
+		    if(request){
+		        request.abort();
+		    }
+
+		    request = $.ajax({
+		        url: url,
+		        type: "post",
+		        data: {
+		        	text: $("#input-area").val()
+		        }
+		    });
+
+		    // Callback handler that will be called on success
+		    request.done(function (response, textStatus, jqXHR){
+		        // Log a message to the console
+		        $('#output-area').val(response.data.output.text);
+		    });
+
+		    // Callback handler that will be called on failure
+		    request.fail(function (jqXHR, textStatus, errorThrown){
+		        // Log the error to the console
+		        console.error(
+		            "The following error occurred: "+
+		            textStatus, errorThrown
+		        );
+		    });
+
+		    // Callback handler that will be called regardless
+		    // if the request failed or succeeded
+		    request.always(function () {
+		        // Reenable the inputs
+		        $("input-area").prop("disabled", false);
+		    });
 		});
 	</script>
 

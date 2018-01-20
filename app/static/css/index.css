@@ -9,6 +9,9 @@ textarea:focus {
     overflow: hidden;
     outline:none;
 }
+textarea:disabled {
+    background-color: #fff;
+}
 
 .panel {
     margin-bottom: 20px;
@@ -85,4 +88,13 @@ textarea:focus {
 
 .dropdown-menu li {
     padding: 5px 10px;
+}
+
+/* Style buttons */
+.buttonload {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px /* Set a font size */
 }

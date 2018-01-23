@@ -690,6 +690,8 @@ def translator(parser, context, args):
 	        set_data += ',%d,%d' % (p_i.numerator, p_i.denominator)
 	        
 	    set_data += ',%f' % sentence_bleu(reference, hypothesis)
+
+	    print(set_data, file=evaluation_file, flush=True)
 	        
 	evaluation_file.close()
 

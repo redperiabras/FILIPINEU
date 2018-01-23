@@ -23,7 +23,7 @@
 			<div id="particles-js"></div>
 			<div class="cover logo animated fadeInDown delay-07s">
 				FILIPINEU<br>
-				<p>A Bidirectional Filipino-English<br><b>Neural Machine Translation</b></p><br>
+				<p>Bidirectional Filipino-English<br/><b>Neural Machine Translation</b></p><br/>
 				<a class="link animated fadeInUp delay-1s servicelink" href="#service"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
 			</div>
 	</header>
@@ -36,7 +36,7 @@
 				<div class="col-md-6">
 					<div class="panel panel-default">
 					  <div class="panel-heading">
-					  	<select id="input-lang" class="selectpicker pull-left">
+					  	<select id="input-lang" name="input-lang" class="selectpicker pull-left">
 					  		<option value="en">
 					  			English
 					  		</option>
@@ -58,7 +58,7 @@
 				<div class="col-md-6">
 					<div class="panel panel-default">
 					  <div class="panel-heading">
-					  	<select id="output-lang" class="selectpicker pull-left">
+					  	<select id="output-lang" name="output-lang" class="selectpicker pull-left">
 					  		<option value="fl">
 					  			Filipino
 					  		</option>
@@ -105,10 +105,10 @@
 			var index = $('#input-lang').prop('selectedIndex');
 
 			if(index == 0){
-				$('#ouput-lang').val('fl').change();
+				$("#ouput-lang option[value='fl']").attr('selected', 'selected');
 			}
 			else{
-				$('#ouput-lang').val('en').change();
+				$("#ouput-lang option[value='en']").attr('selected', 'selected');
 			}
 		});
 

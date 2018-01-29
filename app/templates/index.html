@@ -32,7 +32,7 @@
 
 	<section class="main-section" id="service">
 		<div class="container">
-			<div class="row">
+			<div class="row-fluid">
 				<div class="col-md-6">
 					<div class="panel panel-default">
 					  <div class="panel-heading">
@@ -58,14 +58,7 @@
 				<div class="col-md-6">
 					<div class="panel panel-default">
 					  <div class="panel-heading">
-					  	<select id="output-lang" name="output-lang" class="selectpicker pull-left">
-					  		<option value="fl">
-					  			Filipino
-					  		</option>
-					  		<option value="en">
-					  			English
-					  		</option>
-					  	</select>
+					  	<input id="output-lang" name="output-lang" class="selectpicker pull-left" type="text" value="Filipino" readonly>
 					  </div>
 					  <div class="panel-body">
 					    <textarea placeholder="Output" id="output-area" readonly diabled></textarea>
@@ -105,12 +98,24 @@
 			var index = $('#input-lang').prop('selectedIndex');
 
 			if(index == 0){
-				$("#ouput-lang option[value='fl']").attr('selected', 'selected');
+				console.log('Filipino');
+				$("#output-lang").attr('value', 'Filipino');
 			}
 			else{
-				$("#ouput-lang option[value='en']").attr('selected', 'selected');
+				console.log('English');
+				$("#output-lang").attr('value', 'English');
 			}
 		});
+
+
+
+		$("#input-area").keypress(function (e) {
+	        var code = (e.keyCode ? e.keyCode : e.which);
+	        if (code == 13) {
+	            $("#button-translate").trigger('click');
+	            return true;
+	        }
+	    });
 
 		$("#button-clear").on('click', function(){
 			$('#input-area').val('');

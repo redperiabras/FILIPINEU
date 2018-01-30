@@ -40,6 +40,8 @@ jupyter==1.0.0
 jupyter-client==5.2.2
 jupyter-console==5.2.0
 jupyter-core==4.4.0
+jupyterlab==0.31.2
+jupyterlab-launcher==0.10.3
 langdetect==1.0.7
 MarkupSafe==1.0
 mistune==0.8.3

@@ -684,28 +684,28 @@ def translator(parser, context, args):
 	    set_data = '%d,%d' % (ref_len, hyp_len)
 	    
 	    for i, _ in enumerate(weights, start=1):
-	        p_i = modified_precision(reference, hypothesis, i)
+	        p_i = modified_precision([reference], hypothesis, i)
 	        p_numerators[i] += p_i.numerator
 	        p_denominators[i] += p_i.denominator
 	        set_data += ',%d,%d' % (p_i.numerator, p_i.denominator)
 	        
-	    set_data += ',%f' % sentence_bleu(reference, hypothesis)
+	    set_data += ',%f' % sentence_bleu([reference], hypothesis)
 
 	    print(set_data, file=evaluation_file, flush=True)
 	        
 	evaluation_file.close()
 
-	# bp = brevity_penalty(ref_lengths, hyp_lengths)
+	bp = brevity_penalty(ref_lengths, hyp_lengths)
 
-	# p_n = [Fraction(p_numerators[i]. p_denominators[i], _normalize=False)
-	# 		for i, _ in enumarate(weight, start=1)]
+	p_n = [Fraction(p_numerators[i]. p_denominators[i], _normalize=False)
+			for i, _ in enumerate(weights, start=1)]
 
-	# smoothing_function = SmoothingFunction().method0
+	smoothing_function = SmoothingFunction().method0
 
-	# p_n = smoothing_function(p_n, references=references, hypothesis=hypothesis,
-	#                              hyp_len=hyp_len, emulate_multibleu=False)
+	p_n = smoothing_function(p_n, references=references, hypothesis=hypothesis,
+	                             hyp_len=hyp_len, emulate_multibleu=False)
 
-	# s = (w * math.log(p_i) for i, (w, p_i) in enumerate(zip(weights, p_n)))
+	s = (w * math.log(p_i) for i, (w, p_i) in enumerate(zip(weights, p_n)))
 
 	log.info('Process finished')
 

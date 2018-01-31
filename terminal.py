@@ -598,7 +598,7 @@ def train(parser, context, args):
 	if logf: logf.close()
 	if evalf: evalf.close()
 
-@subcmd('evaluate', help='Evaluation tool')
+@subcmd('translate', help='Translator tool')
 def translator(parser, context, args):
 
 	parser.add_argument('--load-model', type=str, metavar='FILE(s)',
@@ -624,19 +624,16 @@ def translator(parser, context, args):
 
 	args = parser.parse_args(args)
 
+	import math
+
 	from nltk import word_tokenize
 	from nltk.translate.bleu_score import (modified_precision, closest_ref_length,
 		brevity_penalty, SmoothingFunction, sentence_bleu, corpus_bleu)
 
 	from fractions import Fraction
 
-	weights = (0.25, 0.25, 0.25, 0.25)
-
-	nbest = args.nbest_list if args.nbest_list else 0
+	nbest = 0
 	hypotheses = []
-	p_numerators = Counter()	# Key = ngram order, and value = no. of ngram matches.
-	p_denominators = Counter()	# Key = ngram order, and value = no. of ngram in ref.
-	hyp_lengths, ref_lengths = 0, 0
 
 	log.info('Initializing Model')
 	with open(args.load_model, 'rb') as f:
@@ -668,48 +665,6 @@ def translator(parser, context, args):
 	    hypotheses.append(word_tokenize(sent))
 
 	output_file.close()
-
-	print("Expected: " + corpus_bleu)
-
-	log.info('Generating Data for Evaluation')
-	evaluation_file = open(os.path.dirname(args.source_eval) + '/scores.data.eval.csv',
-		'w', encoding='utf-8')
-	
-	for reference, hypothesis in zip(references, hypotheses):
-	    
-	    hyp_len = len(hypothesis)
-	    ref_len = closest_ref_length(reference, hyp_len)
-	    
-	    hyp_lengths += hyp_len
-	    ref_lengths += ref_len
-	    
-	    set_data = '%d,%d' % (ref_len, hyp_len)
-	    
-	    for i, _ in enumerate(weights, start=1):
-	        p_i = modified_precision([reference], hypothesis, i)
-	        p_numerators[i] += p_i.numerator
-	        p_denominators[i] += p_i.denominator
-	        set_data += ',%d,%d' % (p_i.numerator, p_i.denominator)
-	        
-	    set_data += ',%f' % sentence_bleu([reference], hypothesis)
-
-	    print(set_data, file=evaluation_file, flush=True)
-	        
-	evaluation_file.close()
-
-	bp = brevity_penalty(ref_lengths, hyp_lengths)
-
-	p_n = [Fraction(p_numerators[i], p_denominators[i], _normalize=False)
-			for i, _ in enumerate(weights, start=1)]
-
-	smoothing_function = SmoothingFunction().method0
-
-	p_n = smoothing_function(p_n, references=references, hypothesis=hypothesis,
-	                             hyp_len=hyp_len, emulate_multibleu=False)
-
-	s = (w * math.log(p_i) for i, (w, p_i) in enumerate(zip(weights, p_n)))
-
-	print("Result: " + math.exp(math.fsum(s)))
 
 	log.info('Process finished')
 

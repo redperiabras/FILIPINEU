@@ -28,11 +28,6 @@ TRAIN MODEL
 
 EVALUATE MODEL
 
-	>> python terminal.py evaluate --load-model models/en_fl/en-fl.nlm --source-eval models/en_fl/source.data.eval --target-eval models/en_fl/target.data.eval
+	>> python terminal.py translate --load-model models/en_fl/en-fl.nlm --source-eval models/en_fl/source.data.eval --target-eval models/en_fl/target.data.eval
 
-	>> python terminal.py evaluate --load-model models/fl_en/fl-en.nlm --source-eval models/fl_en/source.data.eval --target-eval models/fl_en/target.data.eval 
-
-
-
-
-asdf
+	>> python terminal.py translate --load-model models/fl_en/fl-en.nlm --source-eval models/fl_en/source.data.eval --target-eval models/fl_en/target.data.eval 

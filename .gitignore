@@ -118,5 +118,5 @@ system.log
 *.nlm
 *.nlm.best
 
-app/app.db
+*.db
 models/fl_en

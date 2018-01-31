@@ -626,7 +626,7 @@ def translator(parser, context, args):
 
 	from nltk import word_tokenize
 	from nltk.translate.bleu_score import (modified_precision, closest_ref_length,
-		brevity_penalty, SmoothingFunction, sentence_bleu)
+		brevity_penalty, SmoothingFunction, sentence_bleu, corpus_bleu)
 
 	from fractions import Fraction
 
@@ -669,6 +669,8 @@ def translator(parser, context, args):
 
 	output_file.close()
 
+	print("Expected: " + corpus_bleu)
+
 	log.info('Generating Data for Evaluation')
 	evaluation_file = open(os.path.dirname(args.source_eval) + '/scores.data.eval.csv',
 		'w', encoding='utf-8')
@@ -676,7 +678,7 @@ def translator(parser, context, args):
 	for reference, hypothesis in zip(references, hypotheses):
 	    
 	    hyp_len = len(hypothesis)
-	    ref_len = closest_ref_length(references, hyp_len)
+	    ref_len = closest_ref_length(reference, hyp_len)
 	    
 	    hyp_lengths += hyp_len
 	    ref_lengths += ref_len
@@ -697,7 +699,7 @@ def translator(parser, context, args):
 
 	bp = brevity_penalty(ref_lengths, hyp_lengths)
 
-	p_n = [Fraction(p_numerators[i]. p_denominators[i], _normalize=False)
+	p_n = [Fraction(p_numerators[i], p_denominators[i], _normalize=False)
 			for i, _ in enumerate(weights, start=1)]
 
 	smoothing_function = SmoothingFunction().method0
@@ -706,6 +708,8 @@ def translator(parser, context, args):
 	                             hyp_len=hyp_len, emulate_multibleu=False)
 
 	s = (w * math.log(p_i) for i, (w, p_i) in enumerate(zip(weights, p_n)))
+
+	print("Result: " + math.exp(math.fsum(s)))
 
 	log.info('Process finished')
 

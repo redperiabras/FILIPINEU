@@ -22,7 +22,7 @@ class NMT(Model):
 
 		self.add(Embeddings(
 			'source_char_embeddings',
-			1 if config['source_encoder'].sub_encoder is None \
+			if config['source_encoder'].sub_encoder is None \
 					else len(config['source_encoder'].sub_encoder),
 			config['source_char_embedding_dims'],
 			dropout=config['char_embeddings_dropout']))

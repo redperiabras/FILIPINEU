@@ -43,7 +43,9 @@ for nlm in model_list:
     print('Translating...')
     hypotheses = []
     for i, sent in enumerate(model.translate(source, encode=True, nbest=0)):
-        hypotheses.append(word_tokenize(sent))
+        sent = word_tokenize(sent)
+        print(sent)
+        hypotheses.append(sent)
         
     print('Starting Evaluation')
     bleu = corpus_bleu(reference, hypotheses)
@@ -51,4 +53,3 @@ for nlm in model_list:
     print('{} has BLEU score of {}'.format(nlm, bleu))
     
 print('Best Model identified is' + model_list[bleu_results.index(max(bleu_results))])
-

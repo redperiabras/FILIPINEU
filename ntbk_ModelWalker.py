@@ -15,6 +15,7 @@ from modules.sentence import tokenizer, read, detokenize
 
 
 MODEL_FILES = 'models/en_fl'
+#pabago nalang ng 'models/en_fl' to 'models/fl_en' pagkatapos tapos parun ulit. salamat :)
 
 SAVEPOINTS = MODEL_FILES + '/model_savepoints'
 SRC_EVAL = MODEL_FILES + '/source.data.eval'

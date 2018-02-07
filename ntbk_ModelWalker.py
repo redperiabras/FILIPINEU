@@ -43,9 +43,8 @@ for nlm in model_list:
     print('Translating...')
     hypotheses = []
     for i, sent in enumerate(model.translate(source, encode=True, nbest=0)):
-        sent = word_tokenize(sent)
-        print(sent)
-        hypotheses.append(sent)
+        hypotheses.append(word_tokenize(sent))
+        print(i)
         
     print('Starting Evaluation')
     bleu = corpus_bleu(reference, hypotheses)

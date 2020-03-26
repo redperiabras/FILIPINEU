@@ -2,7 +2,7 @@ argcomplete==1.9.2
 arghandler==1.2.0
 Babel==2.5.1
 bcrypt==3.1.4
-bleach==2.1.2
+bleach==3.1.2
 blinker==1.4
 certifi==2017.11.5
 cffi==1.11.2
